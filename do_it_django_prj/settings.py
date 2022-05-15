@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'userInfo',
 ]
 
 MIDDLEWARE = [
@@ -89,7 +90,10 @@ DATABASES = {
         'USER': 'root',
         'PASSWORD': 'Fleur0320!@#',
         'HOST': 'localhost',
-        'PORT': '3306'
+        'PORT': '3306',
+        'OPTIONS': {
+            'charset': 'utf8mb4'
+        }
     }
 }
 

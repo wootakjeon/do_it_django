@@ -1,0 +1,28 @@
+/* 전체 스타일 적용 부분 */
+
+body {
+    margin: 0;
+    font-family: 'Source Sans Pro';
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #263343;
+    padding: 8px 12px;
+}
+
+.b-example-divider{
+    margin: 5px;
+    padding: 2px;
+}
+
+.logo{
+    padding: 8px 12px;
+}
