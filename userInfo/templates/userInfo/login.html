@@ -17,14 +17,14 @@
         <!-- header -->
         {% include "userInfo/header.html" %}
 
-            <form action="doLogin" method="POST" class="loginForm" onsubmit="DoLoginForm__submit(this);">
-
+            <form action="" method="post" class="loginForm">
+                {% csrf_token %}
                 <h2>토닥토닥</h2>
                 <div class="idForm">
-                <input name="loginId" type="text" class="id" placeholder="아이디">
+                <input name="email" type="text" class="id" placeholder="아이디">
                 </div>
                 <div class="passForm">
-                <input name="loginPw" type="password" class="pw" placeholder="비밀번호">
+                <input name="password" type="password" class="pw" placeholder="비밀번호">
                 </div>
                 <input type="submit" class="login-btn" value="LOGIN"/>
                 <ul class="loginMenu">

@@ -20,30 +20,30 @@
 		<!-- header -->
 		{% include "userInfo/header.html" %}
 
-			<form action="index" method="get" class="joinForm" onsubmit="return validate()">
-
+			<form action="" method="post" class="joinForm" onsubmit="return validate()">
+				{% csrf_token %}
 				<h2>회원가입</h2>
 				<div class="textForm">
-					<input type="text" id="email" class="email" placeholder="이메일">
+					<input type="text" id="email" name="email" class="email" placeholder="이메일">
 					<div id="emailError" class="error"></div>
 				</div>
 				<div class="textForm">
-				  <input type="password" id="password" class="pw" placeholder="비밀번호">
+				  <input type="password" id="password" name="password" class="pw" placeholder="비밀번호">
 				  <div id="passwordError" class="error"></div>
 				</div>
 				 <div class="textForm">
-				  <input type="password" id="passwordCheck" class="pw" placeholder="비밀번호 확인">
+				  <input type="password" id="passwordCheck" name="passwordCheck" class="pw" placeholder="비밀번호 확인">
 				  <div id="passwordCheckError" class="error"></div>
 				</div>
 				<div class="textForm">
-				  <input type="text" id="name" class="name" placeholder="이름">
+				  <input type="text" id="name" name="name" class="name" placeholder="이름">
 				  <div id="nameError" class="error"></div>
 				</div>
 				<div class="textForm">
-				  <input type="text" id="nickname" class="nickname" placeholder="닉네임">
+				  <input type="text" id="nickname" name="nickname" class="nickname" placeholder="닉네임">
 				  <div id="nicknameError" class="error"></div>
 				</div>
-				<div class="textForm">
+				<div class="textForm" name="gender">
 					<input name="gender" type="text" value ="Mentor" class="dropdown-item" id="female" name="gender">
 					<input name="gender" type="text" value ="Parents" class="dropdown-item" id="male" name="gender">
 				</div>
