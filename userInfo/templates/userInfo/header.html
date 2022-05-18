@@ -17,7 +17,7 @@
         <div class="d-flex flex-wrap justify-content-between">
 
 
-          <a class ="logo mt-2" href="/userInfo/">Logo</a>
+          <a class ="logo mt-2" href="{% url 'index' %}">Logo</a>
 
           <ul class="nav me-auto px-lg-3 m-2">
             <div class="dropdown">
@@ -46,10 +46,10 @@
                   </div>
                   <div class="col">
                       {% if request.session.user %}
-                        <a href="/userInfo/logout/"><button class="btn btn-outline-primary me-2 px-md-3 mt-2">로그아웃</button></a>
+                        <a href="{% url 'logout' %}"><button class="btn btn-outline-primary me-2 px-md-3 mt-2">로그아웃</button></a>
                       {% else %}
-                        <a href="/userInfo/login/"><button class="btn btn-outline-primary me-2 px-md-3 mt-2">로그인</button></a>
-                        <a href="/userInfo/join/"><button type="button" class="btn btn-primary px-md-3 mt-2">회원가입</button></a>
+                        <a href="{% url 'login' %}"><button class="btn btn-outline-primary me-2 px-md-3 mt-2">로그인</button></a>
+                        <a href="{% url 'join' %}"><button type="button" class="btn btn-primary px-md-3 mt-2">회원가입</button></a>
                       {% endif %}
                 </div>
               </div>

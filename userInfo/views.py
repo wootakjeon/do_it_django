@@ -12,8 +12,6 @@ from .models import UserInfo
 
 def index(request):
     return render(request, 'userInfo/index.html')
-    # template = loader.get_template('index.html')
-    # return HttpResponse(template.render())
 
 
 def login(request):
@@ -45,7 +43,7 @@ def join(request):
                 nickname=request.POST['nickname'],
                 role=request.POST['gender']
             ).save()
-            return redirect('/userInfo/login.html')
+            return redirect('login')
         return render(request, 'userInfo/join.html')
     else:
         form = UserCreationForm
