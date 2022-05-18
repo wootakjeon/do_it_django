@@ -5,19 +5,19 @@ from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
 
 from do_it_django_prj.settings import SECRET_KEY
-from .models import UserInfo
+from .models import User
 
 
 # Create your views here.
 
 def index(request):
-    return render(request, 'userInfo/index.html')
+    return render(request, 'user/index.html')
 
 
 def login(request):
     if request.method == 'POST':
-        if UserInfo.objects.filter(email=request.POST['email']).exists():
-            user = UserInfo.objects.get(email=request.POST['email'])
+        if User.objects.filter(email=request.POST['email']).exists():
+            user = User.objects.get(email=request.POST['email'])
             user_password = user.password.encode('utf=8')
 
             if bcrypt.checkpw(request.POST['password'].encode('utf=8'), user_password):
@@ -25,9 +25,9 @@ def login(request):
                 request.session['user']=user.email
                 return redirect("index")
 
-            return render(request, "userInfo/login.html")
+            return render(request, "user/login.html")
     else:
-        return render(request, "userInfo/login.html")
+        return render(request, "user/login.html")
 
 
 
@@ -36,7 +36,7 @@ def join(request):
         if request.POST['password'] == request.POST['passwordCheck']:
             password_not_hashed = request.POST['password']
             hashed_password = bcrypt.hashpw(password_not_hashed.encode('utf=8'), bcrypt.gensalt())
-            UserInfo(
+            User(
                 email=request.POST['email'],
                 password=hashed_password.decode('utf=8'),
                 name=request.POST['name'],
@@ -44,10 +44,10 @@ def join(request):
                 role=request.POST['gender']
             ).save()
             return redirect('login')
-        return render(request, 'userInfo/join.html')
+        return render(request, 'user/join.html')
     else:
         form = UserCreationForm
-        return render(request, 'userInfo/join.html', {'form': form})
+        return render(request, 'user/join.html', {'form': form})
 
 
 def logout(request):

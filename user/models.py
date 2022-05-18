@@ -3,7 +3,7 @@ from django.contrib.auth.models import UserManager
 
 
 # Create your models here.
-class UserInfo(models.Model):
+class User(models.Model):
     email = models.CharField(max_length=30, primary_key=True)
     password = models.CharField(max_length=100)
     name = models.CharField(max_length=20)
