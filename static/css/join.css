@@ -179,7 +179,7 @@ body {
 }
 
 .round input[type="checkbox"]:checked + label {
-  background: linear-gradient(125deg,#81ecec,#6c5ce7,);
+  background: linear-gradient(125deg,#81ecec,#6c5ce7,#81ecec);
 }
 
 .round input[type="checkbox"]:checked + label:after {
