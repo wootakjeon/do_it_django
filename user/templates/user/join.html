@@ -44,8 +44,16 @@
 				  <div id="nicknameError" class="error"></div>
 				</div>
 				<div class="textForm">
-					<input name="gender" type="radio" value ="Mentor" class="dropdown-item">
-					<input name="gender" type="radio" value ="Parents" class="dropdown-item">
+					<ul style="list-style: none;">
+						<li class="round">
+							<input type="checkbox" class="mb-4" name="gender" id="checkbox1" value="Mentor"/>
+							<label for="checkbox1"></label>Mentor
+						</li>
+						<li class="round">
+							<input type="checkbox" class="mb-2" name="gender" id="checkbox2" value="Parents"/>
+							<label for="checkbox2"></label>Parents
+						</li>
+					</ul>
 				</div>
 
 				<input type="submit" class="join-btn" value="JOIN"/>
