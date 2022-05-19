@@ -98,16 +98,8 @@ body {
   background: none;
 }
 
-.gender {
-  width: 100%;
-  border:none;
-  outline:none;
-  color: #636e72;
-  font-size:16px;
-  height:25px;
-  background: none;
-}
-.cellphoneNo {
+#radio1
+#radio2 {
   width: 100%;
   border:none;
   outline:none;
@@ -144,6 +136,8 @@ body {
   font-size: 3px;
 }
 
+/* 라디오버튼 디자인 */
+
 .round {
   position: relative;
 }
@@ -174,14 +168,17 @@ body {
   width: 12px;
 }
 
-.round input[type="checkbox"] {
+
+/* Mentor, Parents 라디오버튼 선택 했을때 스타일 적용 부분 */
+
+.round input[type="radio"] {
   visibility: hidden;
 }
 
-.round input[type="checkbox"]:checked + label {
+.round input[type="radio"]:checked + label {
   background: linear-gradient(125deg,#81ecec,#6c5ce7,#81ecec);
 }
 
-.round input[type="checkbox"]:checked + label:after {
+.round input[type="radio"]:checked + label:after {
   opacity: 1;
 }
