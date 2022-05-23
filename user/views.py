@@ -53,3 +53,6 @@ def join(request):
 def logout(request):
     auth.logout(request)
     return redirect('login')
+
+def board(request):
+    return render(request, 'user/board.html')
