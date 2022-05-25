@@ -108,6 +108,7 @@ body {
   height:25px;
   background: none;
 }
+
 #radio1
 #radio2 {
   width: 100%;
@@ -137,7 +138,7 @@ body {
   display:inline;
 }
 
-.btn:hover {
+.join-btn:hover {
   background-position: right;
 }
 
@@ -192,3 +193,4 @@ body {
 .round input[type="radio"]:checked + label:after {
   opacity: 1;
 }
+

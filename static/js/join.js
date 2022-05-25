@@ -1,22 +1,23 @@
 function validate() {
         //event.preventDefault();
-        var objID = document.getElementById("name");
         var objPwd1 = document.getElementById("password");
         var objPwd2 = document.getElementById("passwordCheck");
         var objEmail = document.getElementById("email");
         var objName = document.getElementById("name");
         var objNickname = document.getElementById("nickname");
-        var objCellphoneNo = document.getElementById("cellphoneNo");
+        var objCellphone = document.getElementById("cellphoneNo");
 
         //패스워드 값 데이터 정규화 공식
         var regul1 = /^[a-zA-Z0-9]{4,12}$/;
         //이메일 정규화 공식
-        var regul2 = /^([a-z\d\.-]+)@([a-z\d-]+)\.([a-z]{2,8})(\.[a-z]{2,8})?$/
+        var regul2 = /^([a-z\d\.-]+)@([a-z\d-]+)\.([a-z]{2,8})(\.[a-z]{2,8})?$/;
         //var regul2 = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/;
         //이름 정규화 공식
         var regul3 = /^[가-힣]{2,4}$/;
         //닉네임 정규화 공식
         var regul4 = /^[가-힝a-zA-Z]{2,}$/;
+        //전화번호 정규화 공식
+        var regul5 = /(\d{3})(\d{4})(\d{4})/;
 
 
         //이메일 입력 안했을 경우
@@ -75,6 +76,15 @@ function validate() {
         //닉네임에 특수 문자가 들어간 경우
         if (!check(regul4,objNickname)) {
             document.getElementById("nicknameError").innerHTML="잘못된 형식의 닉네임입니다.";
+            return false;
+        }
+        if ((objCellphone.value)=="") {
+            document.getElementById("cellphoneNoError").innerHTML="전화번호를 입력해주세요.";
+            objNickname.focus();
+            return false;
+        } else { document.getElementById("cellphoneNoError").innerHTML="";}
+        if (!check(regul5,objCellphone)) {
+            document.getElementById("cellphoneNoError").innerHTML="잘못된 형식의 전화번호입니다.";
             return false;
         }
     }
