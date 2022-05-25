@@ -4,7 +4,7 @@ from user.models import User
 
 # Create your views here.
 def mypageIndex(request):
-    return render(request, 'mypage/index.html')
+    return render(request, 'mypage/mypage.html')
 
 
 def mypageAdmin(request):
