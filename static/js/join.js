@@ -6,7 +6,7 @@ function validate() {
         var objEmail = document.getElementById("email");
         var objName = document.getElementById("name");
         var objNickname = document.getElementById("nickname");
-
+        var objCellphoneNo = document.getElementById("cellphoneNo");
 
         //패스워드 값 데이터 정규화 공식
         var regul1 = /^[a-zA-Z0-9]{4,12}$/;

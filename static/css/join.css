@@ -37,7 +37,6 @@ body {
 
 }
 
-
 .id {
   width: 100%;
   border:none;
@@ -67,6 +66,8 @@ body {
   height:25px;
   background: none;
 }
+
+
 .name {
   width: 100%;
   border:none;
@@ -98,6 +99,15 @@ body {
   background: none;
 }
 
+.cellphoneNo {
+  width: 100%;
+  border:none;
+  outline:none;
+  color: #636e72;
+  font-size:16px;
+  height:25px;
+  background: none;
+}
 #radio1
 #radio2 {
   width: 100%;
