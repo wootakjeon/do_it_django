@@ -46,6 +46,7 @@
                   </div>
                   <div class="col">
                       {% if request.session.user %}
+                        <a href="{% url 'mypage' %}"><button class="btn btn-outline-primary me-2 px-md-3 mt-2">마이페이지</button></a>
                         <a href="{% url 'logout' %}"><button class="btn btn-outline-primary me-2 px-md-3 mt-2">로그아웃</button></a>
                       {% else %}
                         <a href="{% url 'login' %}"><button class="btn btn-outline-primary me-2 px-md-3 mt-2">로그인</button></a>
