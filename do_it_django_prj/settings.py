@@ -89,7 +89,9 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'django_insta',
         'USER': 'root',
-        'PASSWORD': 'Fleur0320!@#',
+        # 'PASSWORD': 'Fleur0320!@#',
+        'PASSWORD': '1234',
+        
         'HOST': 'localhost',
         'PORT': '3306',
         'OPTIONS': {
@@ -147,3 +149,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # SESSION 유지 시간
 SESSION_COOKIE_AGE = 10800
 SESSION_EXPIRE_AT_BROWSER_CLOSE =True
+
+X_FRAME_OPTIONS = 'ALLOW'
