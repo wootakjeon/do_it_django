@@ -3,7 +3,7 @@ import jwt
 from django.contrib import auth
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
-
+from django.shortcuts import get_object_or_404
 import user
 from do_it_django_prj.settings import SECRET_KEY
 from .models import User
@@ -71,7 +71,7 @@ def board(request):
 
 def board_write(request):
     login_session = request.session.get('login_session', '')
-    context = {'login_session': 'login_session'}
+    context = {'login_session': login_session}
 
     if request.method == 'GET':
         write_form = BoardWriteForm()
@@ -98,3 +98,20 @@ def board_write(request):
                 for value in write_form.errors.values():
                     context['error'] = value
             return render(request, 'user/board_write.html', context)
+
+
+def board_detail(request, boardid):
+
+    board = get_object_or_404(Post, pk=boardid)
+    session = request.session['user']
+
+    context = {
+        'board': board,
+        'session': session
+               }
+    return render(request, 'user/board_detail.html', context)
+
+
+    context['board'] = board
+
+    return render(request, 'user/board_detail.html', context)
