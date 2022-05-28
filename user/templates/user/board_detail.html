@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>토닥토닥</title>
+    <link href="{% static 'image/favicon-96x96.png' %}" sizes="96x96" rel="shortcut icon" type="image/png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+
+</head>
+<body>
+        <!-- header -->
+        {% include "user/header.html" %}
+
+        <div id="main">
+            <div class="mt-5">
+                제목 : {{ board.title }}
+            </div>
+        <div style="border:1px black solid; margin:20px 0px;"></div>
+
+        <nav class="bg-light border-bottom">
+            <div class="justify-content-between">
+                <div class="row">
+                    <div class="col mt-4">
+        {% if saw %}
+            <a href="/board/board_detail/{{ board.id }}/modify/"><button class="style-btn">수정</button></a>
+            <a href="/board/board_detail/{{ board.id }}/delete/"><button class="style-btn">삭제</button></a>
+        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <div class="col-5 mt-5">
+            작성자 : {{ board.author.nickname }} || 작성일 : {{ board.created_bd|date:'Y년 m월 d일 H시 i분'  }}    || 조회수 : {{ board.show_ct }}
+        </div>
+            <div style="border:1px black solid; margin:20px 0px;" class="mt-5"></div>
+            <div class="mt-5">
+                {{ board.text|safe }}
+            </div>
+            <div style="border:1px black solid; margin:20px 0px;"></div>
+            {% for comment in board.comment_set.all %}
+                <div>
+            <p><nickname style="color: #0a53be; font-weight: bold;">{{ comment.author.nickname }}</nickname>   {{ comment.comment_text }}</p>
+                    <p><day style="color:green;">{{ comment.created_bd }}</day></p>
+                    {% if comment.author.email == session %}
+                    <a href="{% url 'update_comment' board.id comment.id  %}"><input type="button" class="style-btn" value="수정"></a>
+                    <a href="{% url 'delete_comment' board.id comment.id  %}"><input type="button" class="style-btn" value="삭제"></a>
+                    {% endif %}
+                </div>
+            {% endfor %}
+
+
+            <form method="POST" action="{% url 'new_comment' board.id %}" class="mt-5">
+            {% csrf_token %}
+            {{ comment_form }}
+            <input type="submit" class="style-btn btn" value="댓글 입력">
+            </form>
+        </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+  
+</html>
