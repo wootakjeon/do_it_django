@@ -9,5 +9,7 @@ urlpatterns = [
     path('logout/', views.logout, name='logout'),
     path('board/', views.board, name='board'),
     path('board/board_write/', views.board_write, name='board_write'),
-    path('board/board_detail/<int:boardid>/', views.board_detail, name='board_detail')
+    path('board/board_detail/<int:boardid>/', views.board_detail, name='board_detail'),
+    path('board/board_detail/<int:boardid>/delete/', views.board_delete, name='board_delete'),
+    path('board/board_detail/<int:boardid>/modify/', views.board_modify, name='board_modify')
 ]

@@ -101,17 +101,53 @@ def board_write(request):
 
 
 def board_detail(request, boardid):
-
     board = get_object_or_404(Post, pk=boardid)
     session = request.session['user']
+    board.show_ct += 1
+    board.save()
 
-    context = {
-        'board': board,
-        'session': session
-               }
-    return render(request, 'user/board_detail.html', context)
-
-
-    context['board'] = board
+    context = {'board': board, 'session': session}
 
     return render(request, 'user/board_detail.html', context)
+
+
+def board_delete(request, boardid):
+    board_number = get_object_or_404(Post, id=boardid)
+    if board_number.author.email == request.session['user']:
+        board_number.delete()
+        return redirect('/board')
+    else:
+        print("아이디 틀림")
+        return redirect(f'/board/board_detail/{boardid}/')
+
+
+def board_modify(request, boardid):
+
+    board_number = get_object_or_404(Post, id=boardid)
+    session = request.session['user']
+
+    context = {'board': board_number, 'session': session}
+
+    if board_number.author.email != request.session['user']:
+        return redirect(f'/board/board_detail/{boardid}/')
+
+    if request.method == 'GET':
+        write_form = BoardWriteForm(instance=board_number)
+        context['forms'] = write_form
+        return render(request, 'user/board_modify.html', context)
+
+    elif request.method == 'POST':
+        write_form = BoardWriteForm(request.POST)
+
+        if write_form.is_valid():
+
+            board_number.title = write_form.title
+            board_number.text = write_form.text
+            board_number.save()
+            return redirect('/board')
+        else:
+            context['forms'] = write_form
+            if write_form.errors:
+                for value in write_form.errors.values():
+                    context['error'] = value
+            return render(request, 'user/board_modify.html', context)

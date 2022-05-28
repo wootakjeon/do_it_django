@@ -18,22 +18,20 @@
     <div id="main">
       
         <hr><br>
-
-    <div>게시판 상세보기!</div>
-    <div style="border:1px black solid; margin:20px 0px;"></div>
-
-
-        <a href="/board/board_detail/{{ board.id }}/modify/"><button>수정</button></a>
-        <a href="/board/board_detail/{{ board.id }}/delete/"><button>삭제</button></a>
-
+     <div>게시판 수정하기!</div>
     <div class="col-12">
-        작성자 : {{ board.author.nickname }} || 작성일 : {{ board.created_bd }} || 조회수 : {{ board.show_ct }}
-    </div>
-        <div>
-            제목 : {{ board.title }}
-        </div>
-        <div>
-            내용 : {{ board.text|safe }}
+    <form method="POST" action="">
+      {% csrf_token %}
+        {% for form in forms %}
+      <div class="form-group">
+        <label for="{{ form.id_for_label }}">{{ form.label }}</label>
+          {{ form }}
+      </div>
+      {% if field.errors %}
+      <span style="color: red;">{{ field.errors }}</span>
+      {% endif %}
+      {% endfor %}
+      <button type="submit" class="btn btn-primary">글 수정</button>
         </div>
     </div>
 </body>
