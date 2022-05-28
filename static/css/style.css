@@ -22,3 +22,33 @@ a {
     margin: 5px;
     padding: 2px;
 }
+
+.style-btn {
+    position:relative;
+    left:5%;
+    transform: translateX(-50%);
+    margin-bottom: 30px;
+    width:10%;
+    height:40px;
+    background: linear-gradient(125deg,#81ecec,#6c5ce7,#81ecec);
+    background-position: left;
+    background-size: 200%;
+    color:white;
+    font-weight: bold;
+    border:none;
+    cursor:pointer;
+    transition: 0.4s;
+    display:inline;
+  }
+
+.style-btn:hover {
+    background-position: right;
+    }
+
+  #id_comment_text{
+    height:40px;
+  }
+
+  #id_title {
+    width: 720px;
+  }

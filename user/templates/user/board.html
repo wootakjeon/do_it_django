@@ -34,66 +34,53 @@
                 </tr>
             </thead>
             <tbody>
-                <tr class="text-center">
-                    <td>5</td>
-                    <td>글 제목</td>
-                    <td>작성자</td>
-                    <td>2022.05.25</td>
-                    <td>35</td>
-                    <td>90</td>
-                </tr>
-                <tr class="text-center">
-                    <td>4</td>
-                    <td>글 제목</td>
-                    <td>작성자</td>
-                    <td>2022.05.24</td>
-                    <td>27</td>
-                    <td>75</td>
-                </tr>
-                <tr class="text-center">
-                    <td>3</td>
-                    <td>글 제목</td>
-                    <td>작성자</td>
-                    <td>2022.05.24</td>
-                    <td>2</td>
-                    <td>80</td>
-                </tr>
-                <tr class="text-center">
-                    <td>2</td>
-                    <td>글 제목</td>
-                    <td>작성자</td>
-                    <td>2022.05.22</td>
-                    <td>1015</td>
-                    <td>100</td>
-                </tr>
-                <tr class="text-center">
+                {% for board in board_list %}
+                <tr style="text-align:center; cursor:pointer;">
+
+                    <th scope="row">{{ board.id }}</th>
+                    <td><a href="{%  url 'board_detail' boardid=board.id %}">{{ board.title }}</a></td>
+                    <td>{{ board.author.nickname }}</td>
+                    <td>{{ board.created_bd|date:'Y-m-d' }}</td>
+                    <td>{{ board.show_ct }}</td>
                     <td>1</td>
-                    <td>글 제목</td>
-                    <td>운영자</td>
-                    <td>2022.05.18</td>
-                    <td>7000</td>
-                    <td>150</td>
-                </tr>
+            </tr>
             </tbody>
+            {% endfor %}
         </table>
 
         <br><br><br><br>
         <button type="button" class="btn btn-primary float-left">전체글</button>
         <button type="button" class="btn btn-info float-left">개념글</button>
-        <button type="button" class="btn btn-info float-right">글쓰기</button>
+        <a href="{% url 'board_write' %}"><button type="button" class="btn btn-info float-right">글쓰기</button></a>
 
         <br><br>
-        <nav aria-label="Page navigation example">
+        <div style="text-align:center">
+
+            <nav id="paging" aria-label="Page navigation example">
             <ul class="pagination justify-content-center">
-              <li class="page-item"><a class="page-link" href="{% url 'board' %}">Previous</a></li>
-              <li class="page-item"><a class="page-link" href="{% url 'board' %}">1</a></li>
-              <li class="page-item"><a class="page-link" href="{% url 'board' %}">2</a></li>
-              <li class="page-item"><a class="page-link" href="{% url 'board' %}">3</a></li>
-              <li class="page-item"><a class="page-link" href="{% url 'board' %}">4</a></li>
-              <li class="page-item"><a class="page-link" href="{% url 'board' %}">5</a></li>
-              <li class="page-item"><a class="page-link" href="#">Next</a></li>
-            </ul>
-        </nav>
+             {% if board_list.has_previous %}
+                <li class="page-item"><a class="page-link" href="?page=1">맨 앞으로</a></li>
+                 <li class="page-item"><a class="page-link"href="?page={{ board_list.previous_page_number }}">Previous</a></li>
+                {% endif %}
+                    {% for page in board_list.paginator.page_range %}
+                        {% if page == board_list.number %}
+                        <span class="page-item active">
+                            <a class="page-link" href="?page={{ page }}">{{ page}}</a>
+                        </span>
+                        {% else %}
+                        <span class="page-item">
+                            <a class="page-link" href="?page={{ page }}">{{ page}}</a>
+                        </span>
+                        {% endif %}
+                    {% endfor %}
+    
+              {% if board_list.has_next %}
+                  <li class="page-item"><a class="page-link" href="?page={{ board_list.next_page_number }}">다음</a></li>
+                  <li class="page-item"><a class="page-link"  href="?page={{ board_list.paginator.num_pages }}">맨 뒤로</a></li>
+              {% endif %}
+              </ul>
+            </nav>
+        </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
