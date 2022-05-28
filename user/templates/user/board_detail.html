@@ -23,9 +23,10 @@
     <div style="border:1px black solid; margin:20px 0px;"></div>
 
 
+    {% if saw %}
         <a href="/board/board_detail/{{ board.id }}/modify/"><button>수정</button></a>
         <a href="/board/board_detail/{{ board.id }}/delete/"><button>삭제</button></a>
-
+    {% endif %}
     <div class="col-12">
         작성자 : {{ board.author.nickname }} || 작성일 : {{ board.created_bd }} || 조회수 : {{ board.show_ct }}
     </div>
@@ -35,6 +36,24 @@
         <div>
             내용 : {{ board.text|safe }}
         </div>
+    <br>
+        {% for comment in board.comment_set.all %}
+            <div>
+        <p><nickname style="color: #0a53be; font-weight: bold;">{{ comment.author.nickname }}</nickname>   {{ comment.comment_text }}</p>
+                <p><day style="color:green;">{{ comment.created_bd }}</day></p>
+                  {% if comment.author.email == session %}
+                <a href="{% url 'update_comment' board.id comment.id  %}"><input type="button" value="수정"></a>
+                <a href="{% url 'delete_comment' board.id comment.id  %}"><input type="button" value="삭제"></a>
+                {% endif %}
+            </div>
+        {% endfor %}
+
+
+        <form method="POST" action="{% url 'new_comment' board.id %}">
+        {% csrf_token %}
+        {{ comment_form }}
+        <input type="submit" value="댓글 입력">
+        </form>
     </div>
 </body>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>

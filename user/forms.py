@@ -1,7 +1,7 @@
 from django import forms
 from django_summernote.fields import SummernoteTextField
 from django_summernote.widgets import SummernoteWidget
-
+from .models import Comment
 from .models import Post
 from django_summernote.admin import SummernoteModelAdmin
 
@@ -47,3 +47,9 @@ class BoardWriteForm(forms.ModelForm):
         else:
             self.title = title
             self.text = text
+
+
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        fields = ['comment_text']

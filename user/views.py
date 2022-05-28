@@ -1,6 +1,7 @@
 import bcrypt
 import jwt
 from django.contrib import auth
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
 from django.shortcuts import get_object_or_404
@@ -8,7 +9,9 @@ import user
 from do_it_django_prj.settings import SECRET_KEY
 from .models import User
 from .models import Post
+from .models import Comment
 from .forms import BoardWriteForm
+from .forms import CommentForm
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.core.paginator import Paginator
@@ -105,9 +108,14 @@ def board_detail(request, boardid):
     session = request.session['user']
     board.show_ct += 1
     board.save()
+    comment_form = CommentForm()
 
-    context = {'board': board, 'session': session}
+    if board.author.email == request.session['user']:
+        saw = True
+    else:
+        saw = False
 
+    context = {'board': board, 'session': session, 'comment_form': comment_form, 'saw': saw}
     return render(request, 'user/board_detail.html', context)
 
 
@@ -122,7 +130,6 @@ def board_delete(request, boardid):
 
 
 def board_modify(request, boardid):
-
     board_number = get_object_or_404(Post, id=boardid)
     session = request.session['user']
 
@@ -151,3 +158,42 @@ def board_modify(request, boardid):
                 for value in write_form.errors.values():
                     context['error'] = value
             return render(request, 'user/board_modify.html', context)
+
+
+def new_comment(request, boardid):
+    filled_form = CommentForm(request.POST)
+    if filled_form.is_valid():
+        finished_form = filled_form.save(commit=False)
+        # board_id = Post.objects.get(id=boardid)
+        finished_form.post_id = boardid
+        finished_form.author_id = request.session['user']
+        finished_form.save()
+
+    else:
+        print("댓글작성안됨")
+        print(boardid)
+    return redirect(f'/board/board_detail/{boardid}/')
+
+
+def update_comment(request, boardid, commentid):
+    comment_number = get_object_or_404(Comment, id=commentid)
+    get_form = CommentForm(instance=comment_number)
+    if request.method == "POST":
+        update_form = CommentForm(request.POST, instance=comment_number)
+        if update_form.is_valid():
+            update_form.save()
+            return redirect(f'/board/board_detail/{boardid}/')
+    if comment_number.author.email == request.session['user']:
+        return render(request, 'user/update_comment.html', {'get_form': get_form})
+    else:
+        return redirect(f'/board/board_detail/{boardid}/')
+
+
+def delete_comment(request, boardid, commentid):
+    comment_number = get_object_or_404(Comment, id=commentid)
+    if comment_number.author.email == request.session['user']:
+        comment_number.delete()
+        return redirect(f'/board/board_detail/{boardid}/')
+    else:
+        print("아이디 틀림")
+        return redirect(f'/board/board_detail/{boardid}/')
