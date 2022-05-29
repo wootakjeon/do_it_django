@@ -42,6 +42,8 @@ def login(request):
     else:
         return render(request, "user/login.html")
 
+def pw(request):
+    return render(request, 'user/pw.html')
 
 def join(request):
     if request.method == 'POST':

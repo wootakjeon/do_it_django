@@ -5,6 +5,7 @@ urlpatterns = [
     path('summernote/', include('django_summernote.urls')),
     path('', views.index, name='index'),
     path('login/', views.login, name='login'),
+    path('reset_pw/', views.pw, name='reset_pw'),
     path('join/', views.join, name='join'),
     path('logout/', views.logout, name='logout'),
     path('board/', views.board, name='board'),
