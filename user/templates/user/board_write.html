@@ -23,8 +23,8 @@
       {% csrf_token %}
         {% for form in forms %}
       <div class="form-group">
-        <label for="{{ form.id_for_label }}">{{ form.label }}</label>
-          {{ form }}
+        <label for="{{ form.id_for_label }}">{{ form }}</label>
+
       </div>
       {% if field.errors %}
       <span style="color: red;">{{ field.errors }}</span>

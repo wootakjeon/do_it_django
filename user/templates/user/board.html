@@ -40,7 +40,7 @@
           <th scope="row">{{ board.id }}</th>
           <td><a href="{%  url 'board_detail' boardid=board.id %}">{{ board.title }}</a></td>
           <td>{{ board.author.nickname }}</td>
-          <td>{{ board.created_bd }}</td>
+          <td>{{ board.created_bd|date:'Y-m-d' }}</td>
           <td>{{ board.show_ct }}</td>
             <td>1</td>
  
