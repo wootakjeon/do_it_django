@@ -9,5 +9,6 @@ urlpatterns = [
     path('consulting/', views.consulting, name='consulting'),
     path('passwordUpdate/', views.passwordUpdate, name='passwordUpdate'),
     path('userinfoUpdate/', views.userinfoUpdate, name='userinfoUpdate'),
+    path('userinfoUpdate/update/', views.userinfoUpdateUpdate, name='userinfoUpdateUpdate'),
     path('mypageadmin/', views.mypageAdmin, name='mypageAdmin')
 ]

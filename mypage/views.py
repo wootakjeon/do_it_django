@@ -37,4 +37,20 @@ def passwordUpdate(request):
 
 
 def userinfoUpdate(request):
-    return render(request, 'mypage/userinfo.html')
+    userinfo_object = User.objects.get(email=request.session['user'])
+    return render(request, 'mypage/userinfo.html', {'userinfo':userinfo_object})
+
+
+def userinfoUpdateUpdate(request):
+    if request.method == 'POST':
+        if User.objects.filter(email=request.session['user']):
+            user = User.objects.get(email=request.session['user'])
+            user.name = request.POST['name']
+            user.nickname = request.POST['nickname']
+            user.tel = request.POST['phonenumber1']+'-'+request.POST['phonenumber2']+'-'+request.POST['phonenumber3']
+            user.save()
+            return redirect('userinfoUpdate')
+        return render(request, 'mypage/userinfo.html')
+    else:
+        return render(request, 'mypage/userinfoUpdate.html')
+
