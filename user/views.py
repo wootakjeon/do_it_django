@@ -15,8 +15,13 @@ from .forms import CommentForm
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.core.paginator import Paginator
+from django import template
+
+register = template.Library()
+
 
 # Create your views here.
+
 
 def index(request):
     return render(request, 'user/index.html')
@@ -29,14 +34,13 @@ def login(request):
             user_password = user.password.encode('utf=8')
 
             if bcrypt.checkpw(request.POST['password'].encode('utf=8'), user_password):
-                token =jwt.encode({"id":user.email}, SECRET_KEY, algorithm="HS256")
-                request.session['user']=user.email
+                token = jwt.encode({"id": user.email}, SECRET_KEY, algorithm="HS256")
+                request.session['user'] = user.email
                 return redirect("index")
 
             return render(request, "user/login.html")
     else:
         return render(request, "user/login.html")
-
 
 
 def join(request):
@@ -62,12 +66,15 @@ def logout(request):
     auth.logout(request)
     return redirect('login')
 
+
 def board(request):
-    boards = Post.objects.all().select_related('author').order_by('id')
+    boards = Post.objects.all().select_related('author').order_by('-id')
+    boards_count = len(boards)
     page = request.GET.get('page', 1)
     paginator = Paginator(boards, 5)
     board_list = paginator.get_page(page)
-    return render(request, 'user/board.html', {'boards': boards, 'board_list': board_list})
+    return render(request, 'user/board.html',
+                  {'boards': boards, 'board_list': board_list, 'boards_count': boards_count, 'page': page})
 
 
 def board_write(request):

@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'user',
     'mypage',
-    'django_summernote'
+    'django_summernote',
+    'mathfilters',
 ]
 
 MIDDLEWARE = [
