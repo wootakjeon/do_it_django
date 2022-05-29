@@ -33,49 +33,38 @@
     <body class="sb-nav-fixed">
 
         <div class="container-fluid px-4">
-            <ol class="breadcrumb mb-4">
-                <li class="breadcrumb-item active">마이페이지 > 개인정보 수정</li>
-            </ol>
-
-            <div class="card profile">
-                <div class="card-header">
-                    <!-- <i class="fas fa-table me-1"></i> -->
-                    프로필 수정
-                    <!-- <button>정보 수정</button> -->
+            <form action="{% url 'userinfoUpdateUpdate'%}" method="post">
+                <div class="card user">
+                    <div class="card-header">
+                        <!-- <i class="fas fa-table me-1"></i> -->
+                        개인정보 수정
+                        <button><a href="{% url 'userinfoUpdateUpdate'%}"> 정보 수정</a></button>
+                    </div>
                 </div>
+    
+    
+                <table class="update">
+                    <tr>
+                      <th scope="row" class="row">EMAIL</th>
+                      <td>{{userinfo.email}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row" class="row">이름</th>
+                        <td>{{userinfo.name}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row" class="row">닉네임</th>
+                        <td>{{userinfo.nickname}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row" class="row">전화번호</th>
+                        <td>
+                            {{userinfo.tel}}
+                        </td>
+                    </tr>
+                  </table>
             </div>
-
-
-            <div class="card user">
-                <div class="card-header">
-                    <!-- <i class="fas fa-table me-1"></i> -->
-                    개인정보 수정
-                    <button><a href="{% url 'userinfoUpdateUpdate'%}"> 정보 수정</a></button>
-                </div>
-            </div>
-
-
-            <table class="update">
-                <tr>
-                  <th scope="row" class="row">EMAIL</th>
-                  <td>{{userinfo.email}}</td>
-                </tr>
-                <tr>
-                    <th scope="row" class="row">이름</th>
-                    <td>{{userinfo.name}}</td>
-                </tr>
-                <tr>
-                    <th scope="row" class="row">닉네임</th>
-                    <td>{{userinfo.nickname}}</td>
-                </tr>
-                <tr>
-                    <th scope="row" class="row">전화번호</th>
-                    <td>
-                        {{userinfo.tel}}
-                    </td>
-                </tr>
-              </table>
-        </div>
+            </form>
 
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>

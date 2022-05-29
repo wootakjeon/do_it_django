@@ -6,6 +6,12 @@ from user.models import User
 def mypageIndex(request):
     return render(request, 'mypage/mypage.html')
 
+def lecture(request,):
+    return render(request , "mypage/lecture.html")
+
+def lectureDelete(request,):
+    return render(request , "mypage/lectureDelete.html")
+
 
 def mypageAdmin(request):
     return render(request, 'mypage/myadminmain.html')
