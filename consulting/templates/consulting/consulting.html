@@ -48,48 +48,15 @@
                                 </tr>
                             </tfoot>
                             <tbody>
+                                {% for consult in consulting %}
                                 <tr>
-                                    <td class = "index" style="word-break:break-all ;">
-                                        <input type="text" class = "title" ></input>
-                                    </td>
-
-                                    <td class = "index" style="word-break:break-all ;">
-                                        <input type="text" class = "date" ></input>
-                                    </td>
-
-                                    <td class = "index" style="word-break:break-all ;">
-                                        <input type="text" class = "mento" ></input>
-                                    </td>
-
-                                    <td class = "index" style="word-break:break-all ;">
-                                        <input type="text" class = "content" ></input>
-                                    </td>
-
-                                    <td class = "index" style="word-break:break-all ;">
-                                        <input type="text" class = "etc" ></input>
-                                    </td>
+                                    <td>{{consult.title}}</td>
+                                    <td>{{consult.reg_date}}</td>
+                                    <td>{{consult.mentor_id}}</td>
+                                    <td>{{consult.mention}}</td>
+                                    <td>{{consult.etc}}</td>
                                 </tr>
-                                <tr>
-                                    <td>발달장애</td>
-                                    <td>2022-03-23</td>
-                                    <td>ㅇㅇㅇ</td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td>발달장애</td>
-                                    <td>2022-03-23</td>
-                                    <td>ㅇㅇㅇ</td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td>발달장애</td>
-                                    <td>2022-03-23</td>
-                                    <td>ㅇㅇㅇ</td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
+                            {% endfor %}
                             </tbody>
                         </table>
                     </form>

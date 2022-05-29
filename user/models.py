@@ -8,7 +8,7 @@ class User(models.Model):
     password = models.CharField(max_length=100)
     name = models.CharField(max_length=20)
     nickname = models.CharField(max_length=20)
-    tel = models.CharField(max_length=20)
+    tel = models.CharField(max_length=20, null=False)
     role = models.CharField(max_length=15)
     created_at = models.DateTimeField(auto_now=True)
 

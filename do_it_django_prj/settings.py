@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'mypage',
     'django_summernote',
     'mathfilters',
+    'consulting'
 ]
 
 MIDDLEWARE = [

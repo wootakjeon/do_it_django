@@ -11,10 +11,6 @@ def mypageAdmin(request):
     return render(request, 'mypage/myadminmain.html')
 
 
-def consulting(request):
-    return render(request, 'mypage/consulting.html')
-
-
 def passwordUpdate(request):
     session_user = request.session['user']
     print("session_user", session_user)

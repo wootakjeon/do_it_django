@@ -53,6 +53,7 @@ def join(request):
                 password=hashed_password.decode('utf=8'),
                 name=request.POST['name'],
                 nickname=request.POST['nickname'],
+                tel = request.POST['tel'],
                 role=request.POST['gender']
             ).save()
             return redirect('login')
