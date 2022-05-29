@@ -37,13 +37,12 @@ def login(request):
                 token = jwt.encode({"id": user.email}, SECRET_KEY, algorithm="HS256")
                 request.session['user'] = user.email
                 return redirect("index")
-
             return render(request, "user/login.html")
     else:
         return render(request, "user/login.html")
 
-def pw(request):
-    return render(request, 'user/pw.html')
+def reset_pw(request):
+    return render(request, 'user/reset_pw.html')
 
 def join(request):
     if request.method == 'POST':
