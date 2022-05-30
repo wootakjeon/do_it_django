@@ -113,6 +113,7 @@ def board_write(request):
 def board_detail(request, boardid):
     board = get_object_or_404(Post, pk=boardid)
     session = request.session['user']
+    login_user = User.objects.get(email=session)
     board.show_ct += 1
     board.save()
     comment_form = CommentForm()
@@ -122,7 +123,7 @@ def board_detail(request, boardid):
     else:
         saw = False
 
-    context = {'board': board, 'session': session, 'comment_form': comment_form, 'saw': saw}
+    context = {'board': board, 'session': session, 'comment_form': comment_form, 'saw': saw, 'login_user': login_user}
     return render(request, 'user/board_detail.html', context)
 
 
