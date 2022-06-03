@@ -10,13 +10,7 @@ a {
     color: black;
 }
 
-.navbar{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #263343;
-    padding: 8px 12px;
-}
+
 
 .b-example-divider{
     margin: 5px;
@@ -53,3 +47,50 @@ a {
   #id_title {
     width: 720px;
   }
+
+  .card-img-top {
+    height : 15rem;
+    object-fit: cover;
+  }
+/* -------------------------------------------------- */
+
+.instructor_list_hero{
+    background-color: #40a9ff;
+    display: block;
+}
+
+.hero-content{
+  padding: 32px;
+  position: relative;
+  margin: auto;
+  max-width: 1200px;
+  flex-grow: 1;
+  width: auto;
+}
+
+.hero-content__image-cover{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-image: url(https://cdn.inflearn.com/public/mentors/mentors_banner_w.png);
+  background-position: right 30%;
+  background-repeat: no-repeat;
+}
+
+.heading_list{
+  font-size: 26px;
+  font-weight: 800;
+  line-height: 1.46;
+  color: #1b1c1d;
+}
+
+.heading_desc{
+  margin-top: 0.75rem;
+  letter-spacing: -.3px;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.5;
+  color: #1b1c1d;
+}

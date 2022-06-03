@@ -11,5 +11,6 @@ urlpatterns = [
     path('userinfoUpdate/update/', views.userinfoUpdateUpdate, name='userinfoUpdateUpdate'),
     path('lecture/', views.lecture, name='lecture'),
     path('lectureDelete/', views.lectureDelete, name='lectureDelete'),
-    path('mypageadmin/', views.mypageAdmin, name='mypageAdmin')
+    path('mypageadmin/', views.mypageAdmin, name='mypageAdmin'),
+    
 ]
