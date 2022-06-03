@@ -145,7 +145,6 @@ h1{
   padding-left:20px;
   background:url("http://gfmarket.phinf.naver.net/sally_special/original_11.png?type=p50_5") no-repeat;
   background-position:center;
-  background-width:10px;
   margin-left:10px;
   font-size:12px;
   font-weight:bold;
@@ -214,5 +213,4 @@ ul{
   padding:20px;
   text-align:center;
   border: 1px solid #444444;
-  float:right;
 }

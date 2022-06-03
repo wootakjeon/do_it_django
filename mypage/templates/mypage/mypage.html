@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -9,12 +10,13 @@
         <title>마이페이지 메인화면</title>
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
-        {% load static %}
+        
         <link rel="stylesheet" href="{% static 'css/mypage-style.css' %}">
         <script src="{% static 'js/mypage-script.js' %}"></script>
     </head>
-    {% include "user/header.html" %}
+    
     <body class="sb-nav-fixed">
+        {% include "user/header.html" %}
         <div id="layoutSidenav">
             <div id="layoutSidenav_nav">
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
