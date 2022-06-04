@@ -61,6 +61,11 @@ def userinfoUpdateUpdate(request):
         return render(request, 'mypage/userinfoUpdate.html')
 
 
+def reservationChat(request):
+    mentoUser = User.objects.filter(role='Mentor')
+    return render(request, 'mypage/reservationChat.html', {'mentoUser': mentoUser})
+
+
 def chat_index(request):
     return render(request, 'mypage/chat/chat_index.html', {})
 
