@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% load static %}
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>채팅</title>
+        <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
+        <link href="{% static 'css/userinfo.css'%}" rel="stylesheet" />
+        <style>
+            #ListMentorTable th{
+                 position: sticky;
+                 top: 0px;
+                background-color:yellow!important;
+            }
+        </style>
+        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+       <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+                      <script>
+
+                    $(document).ready(function() {
+
+                        {#$("#ListMentorTable>tbody>tr").on("click", function () {#}
+                        {#    alert($(this).attr("id"));#}
+                        {#                        }); #}
+                        {#                    });#}
+                        {##}
+                    });
+        </script>
+    </head>
+    <body class="sb-nav-fixed">
+    <div style="height:900px;">
+        <div class="" style="width:200px; height:200px; overflow-y:scroll;">
+            <table id="ListMentorTable" style="margin:0px;">
+                <thead style="text-align: center;">
+                    <th style="width:100px;">멘토명</th>
+                    <th style="width:100px;">닉네임</th>
+                </thead>
+                <tbody style="text-align: center;">
+                 {% for mentor in mentoUser %}
+                <tr id="{{ mentor.email }}" mentorID="{{ mentor.email }}" style="cursor:pointer;">
+                           <td>{{ mentor.name }}</td>
+                           <td>{{ mentor.nickname }}</td>
+                </tr>
+                  {% endfor %}
+                </tbody>
+            </table>
+
+
+        </div>
+</div>
+
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+{#        <script src="assets/demo/chart-area-demo.js"></script>#}
+{#        <script src="assets/demo/chart-bar-demo.js"></script>#}
+        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
+        <script src="{% static 'js/datatables-simple-demo.js' %}"></script>
+
+
+    </body>
+</html>
