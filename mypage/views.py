@@ -2,15 +2,18 @@ import bcrypt
 from django.shortcuts import render, redirect
 from user.models import User
 
+
 # Create your views here.
 def mypageIndex(request):
     return render(request, 'mypage/mypage.html')
 
-def lecture(request,):
-    return render(request , "mypage/lecture.html")
 
-def lectureDelete(request,):
-    return render(request , "mypage/lectureDelete.html")
+def lecture(request, ):
+    return render(request, "mypage/lecture.html")
+
+
+def lectureDelete(request, ):
+    return render(request, "mypage/lectureDelete.html")
 
 
 def mypageAdmin(request):
@@ -29,7 +32,7 @@ def passwordUpdate(request):
             if bcrypt.checkpw(request.POST['nowpwd'].encode('utf=8'), user_password):
                 update_password = request.POST['updatepwd']
                 hashed_password = bcrypt.hashpw(update_password.encode('utf=8'), bcrypt.gensalt())
-                user.password=hashed_password.decode('utf=8')
+                user.password = hashed_password.decode('utf=8')
                 user.save()
                 return redirect('mypage')
 
@@ -40,7 +43,7 @@ def passwordUpdate(request):
 
 def userinfoUpdate(request):
     userinfo_object = User.objects.get(email=request.session['user'])
-    return render(request, 'mypage/userinfo.html', {'userinfo':userinfo_object})
+    return render(request, 'mypage/userinfo.html', {'userinfo': userinfo_object})
 
 
 def userinfoUpdateUpdate(request):
@@ -49,10 +52,18 @@ def userinfoUpdateUpdate(request):
             user = User.objects.get(email=request.session['user'])
             user.name = request.POST['name']
             user.nickname = request.POST['nickname']
-            user.tel = request.POST['phonenumber1']+'-'+request.POST['phonenumber2']+'-'+request.POST['phonenumber3']
+            user.tel = request.POST['phonenumber1'] + '-' + request.POST['phonenumber2'] + '-' + request.POST[
+                'phonenumber3']
             user.save()
             return redirect('userinfoUpdate')
         return render(request, 'mypage/userinfo.html')
     else:
         return render(request, 'mypage/userinfoUpdate.html')
 
+
+def chat_index(request):
+    return render(request, 'mypage/chat/chat_index.html', {})
+
+
+def room(request, room_name):
+    return render(request, 'mypage/chat/room.html', {'room_name': room_name})
