@@ -13,5 +13,5 @@ urlpatterns = [
     path('mypageadmin/', views.mypageAdmin, name='mypageAdmin'),
     path('chat/chat_index/', views.chat_index, name='chat_index'),
     path('chat/<str:room_name>/', views.room, name='room'),
-    
+    path('reservationChat/', views.reservationChat, name='reservationChat'),
 ]
