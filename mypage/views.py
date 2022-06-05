@@ -7,9 +7,7 @@ from django.http import HttpRequest, HttpResponse
 from django.shortcuts import redirect, render
 
 from .room_join import RoomJoin
-from .chat_room_service import get_an_chat_room_list, get_chat_room_user, confirm_user_chat_room_join, \
-    creat_an_chat_room, creat_an_room_join
-from .message_service import get_an_message_list
+
 
 from collections import Counter
 from .room import Room
@@ -155,5 +153,5 @@ def api_create_room(request: HttpRequest, user_id: str) -> HttpResponse:
     room = creat_an_chat_room()
     room_id = room.id
     creat_an_room_join(user1, user2, room)
-
     return redirect(("/chat/" + str(room_id)))
+    # return redirect(("/chat/" + str(room_id)))

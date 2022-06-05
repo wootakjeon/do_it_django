@@ -42,7 +42,7 @@
                 </thead>
                 <tbody style="text-align: center;">
                  {% for mentor in mentoUser %}
-                     <a href="{% url 'api_create_room' {{ mentor.email }} %}">
+                     <a href="{% url 'api_create_room' mentor.email %}">
                 <tr id="{{ mentor.email }}" mentorID="{{ mentor.email }}" style="cursor:pointer;">
                            <td>{{ mentor.name }}</td>
                            <td>{{ mentor.nickname }}</td>
