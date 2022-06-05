@@ -16,6 +16,7 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.core.paginator import Paginator
 from django import template
+import MySQLdb
 
 register = template.Library()
 
@@ -26,8 +27,10 @@ register = template.Library()
 def index(request):
     return render(request, 'user/index.html')
 
+
 def mentor(request):
     return render(request, 'user/mentor.html')
+
 
 def login(request):
     if request.method == 'POST':
@@ -43,8 +46,10 @@ def login(request):
     else:
         return render(request, "user/login.html")
 
+
 def reset_pw(request):
     return render(request, 'user/reset_pw.html')
+
 
 def join(request):
     if request.method == 'POST':
@@ -56,7 +61,7 @@ def join(request):
                 password=hashed_password.decode('utf=8'),
                 name=request.POST['name'],
                 nickname=request.POST['nickname'],
-                tel = request.POST['tel'],
+                tel=request.POST['tel'],
                 role=request.POST['gender']
             ).save()
             return redirect('login')
@@ -133,6 +138,10 @@ def board_delete(request, boardid):
     board_number = get_object_or_404(Post, id=boardid)
     if board_number.author.email == request.session['user']:
         board_number.delete()
+        conn = MySQLdb.connect(host='localhost', user='root', passwd='Fleur0320!@#', db='django_insta')
+        cur = conn.cursor()
+        cur.nextset()
+        cur.execute('call renumber()', {})
         return redirect('/board')
     else:
         print("아이디 틀림")
