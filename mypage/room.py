@@ -1,4 +1,4 @@
-from .models import BaseModel
+from .base_model import BaseModel
 from django.db import models
 
 
