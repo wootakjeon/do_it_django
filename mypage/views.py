@@ -1,17 +1,18 @@
 import bcrypt
 from django.shortcuts import render, redirect
 from user.models import User
-
+from django.shortcuts import get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import redirect, render
 
+from .models import Chat_Propose
 from .room_join import RoomJoin
-
 
 from collections import Counter
 from .room import Room
 from .room_join import RoomJoin
+import MySQLdb
 
 
 # Create your views here.
@@ -74,7 +75,21 @@ def userinfoUpdateUpdate(request):
 
 def reservationChat(request):
     mentoUser = User.objects.filter(role='Mentor')
-    return render(request, 'mypage/reservationChat.html', {'mentoUser': mentoUser})
+    session_user = request.session['user']
+    login_user = User.objects.get(email=session_user)
+    if login_user.role == 'Parents':
+        isParents = True
+        bothPropose = Chat_Propose.objects.filter(my_email=session_user, Mentor_number=1)
+    else:
+        isParents = False
+        bothPropose = Chat_Propose.objects.filter(email_id=session_user, Mentor_number=1)
+
+    myPropose = Chat_Propose.objects.filter(my_email=session_user, Mentor_number=0)
+    receivePropose = Chat_Propose.objects.filter(email_id=session_user, Mentor_number=0, Parents_number=1)
+
+    return render(request, 'mypage/reservationChat.html',
+                  {'mentoUser': mentoUser, 'isParents': isParents, 'myPropose': myPropose,
+                   'receivePropose': receivePropose, 'bothPropose': bothPropose})
 
 
 def chat_index(request):
@@ -133,12 +148,12 @@ def room_view(request: HttpRequest, room_name: str) -> HttpResponse:
         return redirect(("/chat"))
 
 
-def api_create_room(request: HttpRequest, user_id: str) -> HttpResponse:
-    user1 = User.objects.get(email=user_id)
+def api_create_room(request: HttpRequest, email: str) -> HttpResponse:
+    user1 = User.objects.get(email=email)
     session = request.session['user']
     user2 = User.objects.get(email=session)
 
-    find_room_qs = RoomJoin.objects.filter(user_id__in=[user1.email, user2.email])
+    find_room_qs = RoomJoin.objects.filter(email__in=[user1.email, user2.email])
     # 이러면 1번 유저가 참여한 모든 방, 2번 유저가 모두 참여한 방 가져옴
 
     find_room_list = []
@@ -153,5 +168,93 @@ def api_create_room(request: HttpRequest, user_id: str) -> HttpResponse:
     room = creat_an_chat_room()
     room_id = room.id
     creat_an_room_join(user1, user2, room)
-    return redirect(("/chat/" + str(room_id)))
+    return redirect(("/mypage/chat/" + str(room_id)))
     # return redirect(("/chat/" + str(room_id)))
+
+
+def chat_propose(request, email):
+    print('입장')
+    session_email = request.session['user']
+    mentoUser = User.objects.filter(role='Mentor')
+    session_user = request.session['user']
+    login_user = User.objects.get(email=session_user)
+    if login_user.role == 'Parents':
+        isParents = True
+        bothPropose = Chat_Propose.objects.filter(my_email=session_user, Mentor_number=1)
+    else:
+        isParents = False
+        bothPropose = Chat_Propose.objects.filter(email_id=session_user, Mentor_number=1)
+
+    myPropose = Chat_Propose.objects.filter(my_email=session_user, Mentor_number=0)
+    receivePropose = Chat_Propose.objects.filter(email_id=session_user, Mentor_number=0, Parents_number=1)
+    # conn = MySQLdb.connect(host='localhost', user='root', passwd='Fleur0320!@#', db='django_insta')
+    # cur = conn.cursor()
+    # cur.nextset()
+    # cur.execute('call propose_chat(%s, %s)', {session_email, email})
+    if Chat_Propose.objects.filter(my_email=session_email, email=email).exists():
+        return render(request, 'mypage/reservationChat.html',
+                      {'mentoUser': mentoUser, 'isParents': isParents, 'myPropose': myPropose,
+                       'receivePropose': receivePropose, 'bothPropose': bothPropose})
+    else:
+        login_user = User.objects.get(email=session_email)
+        Chat_Propose(
+            email_id=email,
+            name=login_user.name,
+            nickname=login_user.nickname,
+            my_email=session_email,
+            Parents_number=1,
+            Mentor_number=0
+        ).save()
+
+        return render(request, 'mypage/reservationChat.html',
+                      {'mentoUser': mentoUser, 'isParents': isParents, 'myPropose': myPropose,
+                       'receivePropose': receivePropose, 'bothPropose': bothPropose})
+        # return redirect('mypage')
+        # return redirect('reservationChat')
+
+
+def chat_cancel(request, id):
+    print('취소')
+    chat_id = get_object_or_404(Chat_Propose, id=id)
+    chat_id.delete()
+    mentoUser = User.objects.filter(role='Mentor')
+    session_user = request.session['user']
+    login_user = User.objects.get(email=session_user)
+    if login_user.role == 'Parents':
+        isParents = True
+        bothPropose = Chat_Propose.objects.filter(my_email=session_user, Mentor_number=1)
+    else:
+        isParents = False
+        bothPropose = Chat_Propose.objects.filter(email_id=session_user, Mentor_number=1)
+
+    myPropose = Chat_Propose.objects.filter(my_email=session_user, Mentor_number=0)
+    receivePropose = Chat_Propose.objects.filter(email_id=session_user, Mentor_number=0, Parents_number=1)
+
+    return render(request, 'mypage/reservationChat.html',
+                  {'mentoUser': mentoUser, 'isParents': isParents, 'myPropose': myPropose,
+                   'receivePropose': receivePropose, 'bothPropose': bothPropose})
+
+    # return render(request, 'mypage/mypage.html')
+    # return redirect('mypage')
+
+
+def chat_accept(request, id):
+    print('수락')
+    chat_id = get_object_or_404(Chat_Propose, id=id)
+    chat_id.Mentor_number = 1
+    chat_id.save()
+    mentoUser = User.objects.filter(role='Mentor')
+    session_user = request.session['user']
+    login_user = User.objects.get(email=session_user)
+    if login_user.role == 'Parents':
+        isParents = True
+        bothPropose = Chat_Propose.objects.filter(my_email=session_user, Mentor_number=1)
+    else:
+        isParents = False
+        bothPropose = Chat_Propose.objects.filter(email_id=session_user, Mentor_number=1)
+
+    myPropose = Chat_Propose.objects.filter(my_email=session_user, Mentor_number=0)
+    receivePropose = Chat_Propose.objects.filter(email_id=session_user, Mentor_number=0, Parents_number=1)
+    return render(request, 'mypage/reservationChat.html',
+                  {'mentoUser': mentoUser, 'isParents': isParents, 'myPropose': myPropose,
+                   'receivePropose': receivePropose, 'bothPropose': bothPropose})
