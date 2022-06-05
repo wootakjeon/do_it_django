@@ -1,3 +1,4 @@
+{% load static %}
 <!-- chat/templates/chat/room.html -->
 <!DOCTYPE html>
 <html>
@@ -12,18 +13,19 @@
 </body>
 <script>
     var roomName = "";
-
+    console.log('채팅방 입장');
     var chatSocket = new WebSocket(
         'ws://' + window.location.host +
         '/ws/mypage/chat/' + '{{ room_name }}' + '/');
-
+    console.log('여기까지 1');
     chatSocket.onmessage = function(e) {
         var data = JSON.parse(e.data);
-        var message = data['message'];
+        var message =  data['message'];
         document.querySelector('#chat-log').value += (message + '\n');
     };
 
     chatSocket.onclose = function(e) {
+        console.log('강제종료');
         console.error('Chat socket closed unexpectedly');
     };
 
@@ -38,7 +40,8 @@
         var messageInputDom = document.querySelector('#chat-message-input');
         var message = messageInputDom.value;
         chatSocket.send(JSON.stringify({
-            'message': message
+            'message': message,
+            'userinfo_object': {{ userinfo_object.name }}
         }));
 
         messageInputDom.value = '';

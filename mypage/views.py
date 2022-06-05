@@ -71,4 +71,5 @@ def chat_index(request):
 
 
 def room(request, room_name):
-    return render(request, 'mypage/chat/room.html', {'room_name': room_name})
+    userinfo_object = User.objects.get(email=request.session['user'])
+    return render(request, 'mypage/chat/room.html', {'room_name': room_name, 'userinfo_object': userinfo_object})
