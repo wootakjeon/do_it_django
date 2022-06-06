@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -9,31 +10,33 @@
         <title>마이페이지 메인화면</title>
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
-        {% load static %}
-    <link rel="stylesheet" href="{% static 'css/mypage-style.css' %}">
-    <script src="{% static 'js/mypage-script.js' %}"></script>
+        
+        <link rel="stylesheet" href="{% static 'css/mypage-style.css' %}">
+        <script src="{% static 'js/mypage-script.js' %}"></script>
     </head>
+    
     <body class="sb-nav-fixed">
-    {% include "user/header.html" %}
+        {% include "user/header.html" %}
         <div id="layoutSidenav">
             <div id="layoutSidenav_nav">
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
-                    <a class="navbar-brand ps-3" href="{% url 'mypage' %}">Mypage</a>
+                    <a class="navbar-brand ps-3" href="{% url 'mypage'%}">Mypage</a>
                     <div class="sb-sidenav-menu">
                         <div class="nav">
                             <div class="sb-sidenav-menu-heading">개인정보</div>
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
-                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                <div class="sb-nav-link-icon"><i class="fa-solid fa-user"></i></div>
                                 개인정보
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="{% url 'userinfoUpdate' %}">개인정보 수정</a>
-                                    <a class="nav-link" href="{% url 'passwordUpdate' %}">비밀번호 수정</a>
+                                    <div  class="nav-link"  onclick="userinfo()" > 개인정보 수정</div>
+                                    <div  class="nav-link" onclick="passwordupdate()">비밀번호 수정</div>
 
                                 </nav>
                             </div>
+
                             <div class="sb-sidenav-menu-heading">강의</div>
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseVideo" aria-expanded="false" aria-controls="collapseVideo">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
@@ -42,9 +45,8 @@
                             </a>
                             <div class="collapse" id="collapseVideo" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <!-- <a class="nav-link" onclick="userInfo()">개인정보 수정</a> -->
-                                    <a class="nav-link" onclick="passWord()">강의 수강</a>
-                                    <a class="nav-link" onclick="passWord()">강의 목록</a>
+                                    <a class="nav-link" onclick="lectureInfo()">강의 수강 및 메모 </a>
+                                    <a class="nav-link" onclick="lectureDelete()">강의 목록 삭제</a>
                                 </nav>
                             </div>
 
@@ -56,8 +58,8 @@
                             </a>
                             <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-                                    <a class="nav-link" href="{% url 'consulting' %}">상담 내역</a>
-                                    <a class="nav-link" href="layout-sidenav-light.html">상담 예약 채팅</a>
+                                    <div class="nav-link" onclick="consultingList()" >상담 내역</div>
+                                    <div class="nav-link"  onclick="reservationChatting()">상담 예약 채팅</div>
                                 </nav>
                             </div>
                         </div>
@@ -66,12 +68,34 @@
             </div>
             <div id="layoutSidenav_content" >
                 <main>
-                   <iframe src="{% url 'mypageAdmin'%}" id = "main" ></iframe>
+                    <iframe  id = "main" src="{% url 'mypageAdmin' %}"></iframe>
                 </main>
             </div>
         </div>
+        <script>
+            function userinfo(){
+                document.getElementById("main").setAttribute("src","{% url 'userinfoUpdate'%}")
+            }
+
+            function passwordupdate(){
+                document.getElementById("main").setAttribute("src","{% url 'passwordUpdate'%}")
+            }
+
+
+
+            function lectureInfo() {
+            document.getElementById("main").setAttribute("src","{% url 'lecture' %}")
+            }
+
+            function lectureDelete() {
+            document.getElementById("main").setAttribute("src","{% url 'lectureDelete' %}")
+            }
+
+            function reservationChatting() {
+                  document.getElementById("main").setAttribute("src","{% url 'reservationChat' %}")
+            }
+            
+        </script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
-        <script src="js/datatables-simple-demo.js"></script>
     </body>
 </html>

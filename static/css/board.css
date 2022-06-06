@@ -1,0 +1,216 @@
+HTML CSSResult Skip Results Iframe
+
+h1{
+  padding-top:10px;
+}
+
+.clear{
+  clear:both;
+}
+
+#content{
+  background:#eeeeee;
+}
+
+.view{
+  border:1px solid #666666;
+  background:#ffffff;
+  padding:4%;
+  height:500px;
+}
+
+.view .title{
+  font-size:14px;
+  font-weight: bold;
+}
+
+.view .bbsCategory a{
+  font-size:11px;
+  color:#666666;
+}
+
+.view .bbsCategory a:hover{
+ text-decoration:none;
+  color:#ff4400;
+}
+
+.view .divider{
+  color:#666666;
+}
+
+.view .titleRightBox{
+  font-size:11px;
+  color:#666666;
+  float:right;
+}
+
+.titleContainer{
+  padding-bottom:10px;
+  border-bottom:1px dashed #999999;
+}
+
+.view .articleContainer p{
+  font-size:12px;
+  color:#333333;
+  line-height:20px;
+}
+
+.view .articleContainer a{
+ font-size:12px;
+  color:#333333;
+}
+
+.view .articleContainer a:hover{
+  text-decoration:none;
+    color:#333333;
+}
+
+.view .articleContainer img{
+  max-width:100%;
+  width:80%;
+  margin-top:10px;
+  margin-bottom:10px;
+  border: 1px solid #444444;
+}
+
+.view .profileContainer img{
+  width:100%;
+}
+
+.view .profileContainer .blogLink{
+  vertical-align:top;
+  text-align:right;
+  padding-right:10px;
+}
+
+.view .profileContainer{
+  float:right;
+  margin-top:50px;
+  width:40%;
+
+}
+.view .profileContainer table{
+  border-spacing:0;
+  width:100%;
+}
+
+.view .profileContainer .utilBtn a{
+  font-size:12px;
+}
+
+.view .profileContainer .moreLinkTd{width:100%}
+
+.view .profileContainer .utilBtn td{
+  border-bottom:1px solid #aaaaaa;
+  text-align: right;
+  font-size:12px;
+  padding-bottom:10px;
+}
+
+.view .profileContainer .blogBox td{
+  padding-top:15px;
+}
+
+
+.view .profileContainer .imageBox{
+  width:100%;
+}
+
+.view .commentContainer{
+  width:92%;
+  min-height:100px;
+  background:#dddddd;
+  margin-top:50px;
+  padding:4%;
+}
+.view .commentContainer table{width:100%}
+
+.commentContainer .cmt_author{
+  font-size:12px;
+  font-weight:bold;
+  margin-right:10px;
+}
+
+.commentContainer .cmt_date{
+  font-size:12px;
+  color:#555555;
+  
+}
+
+.commentContainer .cmt_icon img{
+  width:30px;
+}
+
+.commentContainer .cmt_reply{
+  padding-left:20px;
+  background:url("http://gfmarket.phinf.naver.net/sally_special/original_11.png?type=p50_5") no-repeat;
+  background-position:center;
+  margin-left:10px;
+  font-size:12px;
+  font-weight:bold;
+}
+
+.view .commentContainer .cmt_util {
+  text-align:right;
+}
+
+.commentContainer .cmt_icon {
+  width:20px;
+}
+
+.commentContainer p{
+  font-size:12px;
+  color:#666666;
+}
+
+li{
+  list-style:none;
+  padding:0px;
+  margin:0px;
+}
+ul{
+  padding:0px;
+  margin:0px;
+}
+
+.view .commentContainer ul li{
+  border-bottom: 1px solid #666666;
+  padding:10px 0px;
+}
+
+#footer{
+  margin-bottom:100px;
+}
+
+.view .commentContainer .cmt_re_table table{
+  width:96%;
+  float:right;
+}
+
+.view .commentContainer .cmt_re_table .cmt_icon{
+  width:60px;
+}
+
+.view .commentContainer .cmtWriteContainer{
+  margin-top:10px;
+}
+
+.view .commentContainer .cmtWriteContainer textarea{
+  width:75%;
+  height:50px;
+  font-size:12px;
+  padding:12px;
+  vertical-align:middle;
+  text-align:center;
+}
+
+.view .commentContainer .cmtWriteButton{
+  width:10%;
+  height:16px;
+  display: inline-block;
+  background:#eeeeee;
+  vertical-align:center;
+  padding:20px;
+  text-align:center;
+  border: 1px solid #444444;
+}

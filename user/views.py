@@ -15,6 +15,10 @@ from .forms import CommentForm
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.core.paginator import Paginator
+from django import template
+import MySQLdb
+
+register = template.Library()
 
 
 # Create your views here.
@@ -22,6 +26,10 @@ from django.core.paginator import Paginator
 
 def index(request):
     return render(request, 'user/index.html')
+
+
+def mentor(request):
+    return render(request, 'user/mentor.html')
 
 
 def login(request):
@@ -34,10 +42,13 @@ def login(request):
                 token = jwt.encode({"id": user.email}, SECRET_KEY, algorithm="HS256")
                 request.session['user'] = user.email
                 return redirect("index")
-
             return render(request, "user/login.html")
     else:
         return render(request, "user/login.html")
+
+
+def reset_pw(request):
+    return render(request, 'user/reset_pw.html')
 
 
 def join(request):
@@ -50,6 +61,7 @@ def join(request):
                 password=hashed_password.decode('utf=8'),
                 name=request.POST['name'],
                 nickname=request.POST['nickname'],
+                tel=request.POST['tel'],
                 role=request.POST['gender']
             ).save()
             return redirect('login')
@@ -65,11 +77,13 @@ def logout(request):
 
 
 def board(request):
-    boards = Post.objects.all().select_related('author').order_by('id')
+    boards = Post.objects.all().select_related('author').order_by('-id')
+    boards_count = len(boards)
     page = request.GET.get('page', 1)
     paginator = Paginator(boards, 5)
     board_list = paginator.get_page(page)
-    return render(request, 'user/board.html', {'boards': boards, 'board_list': board_list})
+    return render(request, 'user/board.html',
+                  {'boards': boards, 'board_list': board_list, 'boards_count': boards_count, 'page': page})
 
 
 def board_write(request):
@@ -106,6 +120,7 @@ def board_write(request):
 def board_detail(request, boardid):
     board = get_object_or_404(Post, pk=boardid)
     session = request.session['user']
+    login_user = User.objects.get(email=session)
     board.show_ct += 1
     board.save()
     comment_form = CommentForm()
@@ -115,7 +130,7 @@ def board_detail(request, boardid):
     else:
         saw = False
 
-    context = {'board': board, 'session': session, 'comment_form': comment_form, 'saw': saw}
+    context = {'board': board, 'session': session, 'comment_form': comment_form, 'saw': saw, 'login_user': login_user}
     return render(request, 'user/board_detail.html', context)
 
 
@@ -123,6 +138,10 @@ def board_delete(request, boardid):
     board_number = get_object_or_404(Post, id=boardid)
     if board_number.author.email == request.session['user']:
         board_number.delete()
+        conn = MySQLdb.connect(host='localhost', user='root', passwd='Fleur0320!@#', db='django_insta')
+        cur = conn.cursor()
+        cur.nextset()
+        cur.execute('call renumber()', {})
         return redirect('/board')
     else:
         print("아이디 틀림")

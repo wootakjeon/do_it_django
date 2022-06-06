@@ -2,18 +2,17 @@ from django.db import models
 from django.contrib.auth.models import UserManager
 from django.utils import timezone
 
-
 # Create your models here.
 class User(models.Model):
     email = models.CharField(max_length=30, primary_key=True)
     password = models.CharField(max_length=100)
     name = models.CharField(max_length=20)
     nickname = models.CharField(max_length=20)
+    tel = models.CharField(max_length=20, null=False, default='')
     role = models.CharField(max_length=15)
     created_at = models.DateTimeField(auto_now=True)
 
     objects = UserManager()
-
 
 class Post(models.Model):
     author = models.ForeignKey('user.User', on_delete=models.CASCADE)

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% load static %}
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>개인정보 목록</title>
+        <link href="{% static 'css/userinfo.css'%}" rel="stylesheet" />
+
+        <script>
+            function  pnumber1 (){
+                const phonenumber1 = document.getElementById('number1').value
+                if (phonenumber1.length === 3){
+                    document.getElementById("number2").focus()
+                }
+
+            }
+
+            function pnumber2() {
+                const phonenumber2 = document.getElementById('number2').value
+                if (phonenumber2.length === 4){
+                    document.getElementById("number3").focus()
+                }
+
+            }
+        </script>
+    </head>
+    <body class="sb-nav-fixed">
+
+        <div class="container-fluid px-4">
+            <ol class="breadcrumb mb-4">
+                <li class="breadcrumb-item active">마이페이지 > 개인정보 수정</li>
+            </ol>
+
+            <form action="" method="POST">
+                {% csrf_token %}
+                <div class="card user">
+                <div class="card-header">
+                    <!-- <i class="fas fa-table me-1"></i> -->
+                    개인정보 수정
+                    <button>정보 수정</button>
+                </div>
+            </div>
+
+
+            <table class="update">
+                <tr>
+                    <th scope="row" class="row">이름</th>
+                    <td><input type="text" id="name" name="name" /></td>
+                </tr>
+                <tr>
+                  <th scope="row" class="row">닉네임</th>
+                  <td><input type="text" id="nickname" name="nickname" /></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="row">전화번호</th>
+                    <td>
+                        <input type="text" id="number1" name="phonenumber1" size="3" onkeyup="pnumber1()" />-
+                        <input type="text" id="number2" name="phonenumber2" size="4"onkeyup="pnumber2()" />-
+                        <input type="text" id="number3" name="phonenumber3" size="4"/>
+                    </td>
+                </tr>
+
+              </table>
+            </form>
+
+
+        </div>
+    </body>
+</html>

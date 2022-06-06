@@ -8,10 +8,11 @@ from django_summernote.admin import SummernoteModelAdmin
 
 class BoardWriteForm(forms.ModelForm):
     title = forms.CharField(
-        label='글 제목',
+        label='게시글 제목:',
+        
         widget=forms.TextInput(
             attrs={
-                'placeholder': '제목'
+                'placeholder': '제목을 입력해 주세요.'
             }),
         required=True,
     )

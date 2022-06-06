@@ -1,0 +1,79 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>토닥토닥</title>
+        <link href="{% static 'image/favicon-96x96.png' %}" sizes="96x96" rel="shortcut icon" type="image/png">
+        <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
+        <link  rel="stylesheet"  href="{% static 'css/consulting.css' %}" />
+        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+    </head>
+    <body >
+        <div class="container-fluid px-4">
+            <!-- <ol class="breadcrumb mb-4">
+                <li class="breadcrumb-item active">마이페이지 > 상담내역</li>
+            </ol> -->
+
+            <div class="card bottom">
+                <div class="card-header">
+                    <i class="fas fa-table me-1"></i>
+                    상담내역 <input type="submit" class="save" value="저장">
+                </div>
+                <div class="card-body">
+
+                    <form action="consulting_user.html" method="get" id = "aa">
+
+                        <table id="datatablesSimple">
+                            <thead>
+                                <tr>
+                                    <th>상담제목</th>
+                                    <th>상담일시</th>
+                                    <th>멘토</th>
+                                    <th>상담내용</th>
+                                    <th>비고</th>
+                                </tr>
+                            </thead>
+                            <tfoot>
+                                <tr>
+                                    <th>상담제목</th>
+                                    <th>상담일시</th>
+                                    <th>멘토</th>
+                                    <th>상담내용</th>
+                                    <th>비고</th>
+                                </tr>
+                            </tfoot>
+                            <tbody>
+                                {% for consult in consulting %}
+                                <tr>
+                                    <td>{{consult.title}}</td>
+                                    <td>{{consult.reg_date}}</td>
+                                    <td>{{consult.mentor_id}}</td>
+                                    <td>{{consult.mention}}</td>
+                                    <td>{{consult.etc}}</td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="js/scripts.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
+        <script src="{% static 'js/datatables-simple-demo.js' %}"></script>
+    </body>
+</html>

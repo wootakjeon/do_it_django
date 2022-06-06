@@ -1,12 +1,9 @@
-var a = document.getElementById("aa");
+window.addEventListener('DOMContentLoaded', event => {
+    // Simple-DataTables
+    // https://github.com/fiduswriter/Simple-DataTables/wiki
 
-
-var text = "";
-for (i= 0; i < a.length;  i++) {
-    text += a.elements[i].value + "<br>";
-}
-document.getElementsByClassName("index");
-
-
-
-// https://peamexx.tistory.com/36 --- 이 코드 참조
+    const datatablesSimple = document.getElementById('datatablesSimple');
+    if (datatablesSimple) {
+        new simpleDatatables.DataTable(datatablesSimple);
+    }
+});

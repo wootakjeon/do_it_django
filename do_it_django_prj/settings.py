@@ -31,17 +31,26 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'channels',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'debug_toolbar',
     'user',
     'mypage',
-    'django_summernote'
+    'django_summernote',
+    'mathfilters',
+    'consulting',
 ]
-
+ASGI_APPLICATION = 'do_it_django_prj.routing.application'
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+    },
+}
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -50,8 +59,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware'
 ]
-
 ROOT_URLCONF = 'do_it_django_prj.urls'
 
 TEMPLATES = [
@@ -90,7 +99,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'django_insta',
         'USER': 'root',
-        'PASSWORD': 'Fleur0320!@#',
+        'PASSWORD': 'Fleur0320!@#',        
         'HOST': 'localhost',
         'PORT': '3306',
         'OPTIONS': {
@@ -135,11 +144,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = 'static/'
-MEDIA_URL = '/media/'
-os.path.join(BASE_DIR, 'media/')
+
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
-
 ]
 
 # Default primary key field type
@@ -150,3 +157,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # SESSION 유지 시간
 SESSION_COOKIE_AGE = 10800
 SESSION_EXPIRE_AT_BROWSER_CLOSE =True
+
+X_FRAME_OPTIONS = 'ALLOW'
