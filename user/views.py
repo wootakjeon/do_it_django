@@ -26,9 +26,6 @@ register = template.Library()
 def index(request):
     return render(request, 'user/index.html')
 
-def mentor(request):
-    return render(request, 'user/mentor.html')
-
 def login(request):
     if request.method == 'POST':
         if User.objects.filter(email=request.POST['email']).exists():

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form action=" " method="post" enctype="multipart/form-data">
+        {%csrf_token%}
+        멘토 이름 <br>
+        <input type="text" name="mentor"><br>
+        멘토 이미지 <br>
+        <input type="file" name="mentor_img"><br>
+        멘토 제목 <br>
+        <input type="text" name="mento_title"> <br>
+        멘토 내용 <br>
+        <input type="text" name="mento_content"><br>
+        멘토 분야 <br>
+        <select name="mento_field">
+            <option>언어 재활</option>
+            <option>작업 재활</option>
+            <option>놀이 재활</option>
+            <option>물리 재활</option>
+            <option>인지 재활</option>
+        </select> <br>
+        <input type="submit" value="Submit">
+    </form>
+
+</body>
+</html>

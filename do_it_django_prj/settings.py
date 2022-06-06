@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'mypage',
     'django_summernote',
     'mathfilters',
-    'consulting'
+    'consulting',
+    'mentor',
 ]
 
 MIDDLEWARE = [
@@ -152,3 +153,6 @@ SESSION_COOKIE_AGE = 10800
 SESSION_EXPIRE_AT_BROWSER_CLOSE =True
 
 X_FRAME_OPTIONS = 'ALLOW'
+
+MEDIA_URL='/media/'
+MEDIA_ROOT=os.path.join(BASE_DIR,'media')
