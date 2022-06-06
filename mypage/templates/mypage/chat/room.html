@@ -11,8 +11,17 @@
     <input id="chat-message-input" type="text" size="100"/><br/>
     <input id="chat-message-submit" type="button" value="Send"/>
 </body>
+<!--room_name 을 핸들링 하는 json script-->
+{{ room_name|json_script:"room-name" }}
+{{ user.username|json_script:"user_email" }}
+{{ user.id|json_script:"user_id" }}
 <script>
-    var roomName = "";
+    <!--roomName 변수에 room_name 할당-->
+// JSON.parse() 메소드 : json 문자열의 구문을 분석하고 결과로 javascript 값이나 객체 생성
+    const roomName = JSON.parse(document.getElementById('room-name').textContent);
+    const user_email = JSON.parse(document.getElementById('user_email').textContent);
+    const user_id = JSON.parse(document.getElementById('user_id').textContent);
+    {#var roomName = "";#}
     console.log('채팅방 입장');
     var chatSocket = new WebSocket(
         'ws://' + window.location.host +
@@ -23,6 +32,15 @@
         var message =  data['message'];
         document.querySelector('#chat-log').value += (message + '\n');
     };
+
+        // chatSocket에 onopen 메소드 지정
+    chatSocket.onopen = function (e) {
+        fetchMessages();
+    }
+
+    function fetchMessages() {
+        chatSocket.send(JSON.stringify({'command': 'fetch_messages'}))
+    }
 
     chatSocket.onclose = function(e) {
         console.log('강제종료');

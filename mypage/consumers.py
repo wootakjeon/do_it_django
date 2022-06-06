@@ -70,8 +70,6 @@ class ChatConsumer(WebsocketConsumer):
         # websocket 연결을 수락 / connect() 메서드 내에서 accept()를 호출하지 않으면 연결이 거부되고 닫힌다.
         self.accept()
 
-        self.accept()
-
     # websocket 연결 해제
     def disconnect(self, close_code):
         # Leave room group / 그룹에서 탈퇴

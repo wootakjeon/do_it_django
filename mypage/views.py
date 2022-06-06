@@ -12,7 +12,9 @@ from .room_join import RoomJoin
 from collections import Counter
 from .room import Room
 from .room_join import RoomJoin
-
+from .chat_room_service import get_an_chat_room_list, get_chat_room_user, confirm_user_chat_room_join, \
+    creat_an_chat_room, creat_an_room_join
+from .message_service import get_an_message_list
 import MySQLdb
 
 
@@ -146,7 +148,7 @@ def room_view(request: HttpRequest, room_name: str) -> HttpResponse:
         return render(request, "mypage/chat/room.html", {"room_name": room_name, "message": message})
 
     except:
-        return redirect(("/chat"))
+        return redirect(("/"))
 
 
 def api_create_room(request: HttpRequest, email: str) -> HttpResponse:
@@ -169,7 +171,7 @@ def api_create_room(request: HttpRequest, email: str) -> HttpResponse:
     room = creat_an_chat_room()
     room_id = room.id
     creat_an_room_join(user1, user2, room)
-    return redirect(("/mypage/chat/" + str(room_id)))
+    return redirect(("/chat/" + str(room_id)))
     # return redirect(("/chat/" + str(room_id)))
 
 
