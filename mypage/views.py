@@ -138,20 +138,26 @@ def chat_view(request: HttpRequest) -> HttpResponse:
 
 
 # room 함수를 호출하면 room.html 을 렌더해주는 함수 / dict 형태로 room_name value 를 전송
-def room_view(request: HttpRequest, room_name: str) -> HttpResponse:
+def room_view(request: HttpRequest, room_name: str, with_name: str) -> HttpResponse:
     room_id = str(room_name)
+    session_user = request.session['user']
+    login_user = User.objects.get(email=session_user)
+    print(room_id)
     try:
-        confirm_user_chat_room_join(request.user.id, room_id)
+
+        # confirm_user_chat_room_join(request.user.id, room_id)
+        confirm_user_chat_room_join(with_name, room_id)
 
         message = get_an_message_list(room_id)
 
-        return render(request, "mypage/chat/room.html", {"room_name": room_name, "message": message})
+        return render(request, "mypage/chat/room.html", {"room_name": room_name, "message": message, "login_user": login_user})
 
     except:
         return redirect(("/"))
 
 
 def api_create_room(request: HttpRequest, email: str) -> HttpResponse:
+    print('여기 입장')
     user1 = User.objects.get(email=email)
     session = request.session['user']
     user2 = User.objects.get(email=session)
@@ -166,12 +172,16 @@ def api_create_room(request: HttpRequest, email: str) -> HttpResponse:
     result = Counter(find_room_list)
     for key, value in result.items():
         if value >= 2:
-            return redirect(("/chat/" + str(key.id)))
+            print('이미 있다')
+            print(str(key.id))
+            print(user1.email)
+            return redirect("../chat/" + str(key.id) + "/" + str(user1.email))
 
     room = creat_an_chat_room()
     room_id = room.id
     creat_an_room_join(user1, user2, room)
-    return redirect(("/chat/" + str(room_id)))
+    print('여기도 입장')
+    return redirect(("../chat/" + str(room_id) + "/" + str(user1.email)))
     # return redirect(("/chat/" + str(room_id)))
 
 

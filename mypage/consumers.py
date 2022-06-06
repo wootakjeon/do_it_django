@@ -10,44 +10,46 @@ from .message import Message
 from user.models import User
 
 
-class ChatConsumer(WebsocketConsumer):
+def message_to_json(message):
+    return {
+        'author': message.email.name,
+        'content': message.message,
+        'timestamp': str(message.created_at)
+    }
 
+
+def messages_to_json(messages):
+    result = []
+    for message in messages:
+        result.append(message_to_json(message))
+    return result
+
+
+class ChatConsumer(WebsocketConsumer):
     def fetch_messages(self, data):
         room_id = int(self.room_name)
-        messages = Message.last_30_messages(self, room_id=room_id)
+        messages = Message.last_30_messages(self, room_id)
         content = {
             'command': 'messages',
-            'messages': self.messages_to_json(messages)
+            'messages': messages_to_json(messages)
         }
         self.send_message(content)
 
     def new_message(self, data):
-        user_email = data['email']
+        user_email = data['user']
         room_id = int(self.room_name)
         user_contact = User.objects.filter(email=user_email)[0]
         room_contact = Room.objects.filter(id=room_id)[0]
         message_creat = Message.objects.create(
-            user_email=user_contact,
+            email=user_contact,
             room_id=room_contact,
             message=data['message']
         )
         content = {
             'command': 'new_message',
-            'message': self.message_to_json(message_creat)
+            'message': message_to_json(message_creat)
         }
         return self.send_chat_message(content)
-
-    def messages_to_json(self, messages):
-        result = []
-        for message in messages:
-            result.append(self.message_to_json(message))
-
-    def message_to_json(self, message):
-        return {
-            'author': message.email.name,
-            'content': message.message,
-            'timestamp': str(message.created_at)
-        }
 
     commands = {
         'fetch_messages': fetch_messages,
@@ -91,7 +93,6 @@ class ChatConsumer(WebsocketConsumer):
                 "message": message
             }
         )
-
 
     def send_message(self, message):
         self.send(text_data=json.dumps(message))
