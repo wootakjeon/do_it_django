@@ -16,7 +16,7 @@
 {{ login_user.email|json_script:"user_email" }}
 {{ login_user.email|json_script:"user_id" }}
 <script>
-    <!--roomName 변수에 room_name 할당-->
+    // <!--roomName 변수에 room_name 할당-->
 // JSON.parse() 메소드 : json 문자열의 구문을 분석하고 결과로 javascript 값이나 객체 생성
     const roomName = JSON.parse(document.getElementById('room-name').textContent);
     const user_email = JSON.parse(document.getElementById('user_email').textContent);
@@ -68,7 +68,7 @@
             'message': message,
             'user': user_email,
             'user_id': user_id,
-            'command': 'new_message'
+            'command': 'new_message',
             {#'userinfo_object': {{ userinfo_object.name }}#}
         }));
 
