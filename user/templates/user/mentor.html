@@ -14,6 +14,9 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="{% static 'css/mentor_main.css' %}">
     <link rel="stylesheet" href="{% static 'css/mentor.css' %}">
+    <script language="javascript">
+      function showPopup() { window.open("{% url 'mentor_content' %}", "a", "width=436, height=600, left=550, top=50"); }
+    </script>
 
 </head>
   
@@ -131,8 +134,8 @@
       </div>
       <div class="card-bottom">
         <div class="buttons">
-          <a href="/users/117609" class="button">프로필</a>
-          <button class="button e-mentoring" data-id=676>내용 보기</button>
+          <a href="" class="button">프로필</a>
+         <button class="button e-mentoring" data-id=676 onclick="showPopup();">내용 보기</button></a>
         </div>
       </div>
         <!---->
@@ -153,7 +156,7 @@
       <div class="card-bottom">
         <div class="buttons">
           <a href="/users/491366" class="button">프로필</a>
-          <button class="button e-mentoring" data-id=465>내용 보기</button>
+          <button class="button e-mentoring" data-id=465 onclick="showPopup();">내용 보기</button>
         </div>
       </div>
 
@@ -173,7 +176,7 @@
       <div class="card-bottom">
         <div class="buttons">
           <a href="/users/139101" class="button">프로필</a>
-          <button class="button e-mentoring" data-id=91>내용 보기</button>
+          <button class="button e-mentoring" data-id=91 onclick="showPopup();">내용 보기</button>
         </div>
       </div>
 
@@ -193,7 +196,7 @@
       <div class="card-bottom">
         <div class="buttons">
           <a href="/users/164" class="button">프로필</a>
-          <button class="button e-mentoring" data-id=479>내용 보기</button>
+          <button class="button e-mentoring" data-id=479 onclick="showPopup();">내용 보기</button>
         </div>
       </div>
 
@@ -213,7 +216,7 @@
       <div class="card-bottom">
         <div class="buttons">
           <a href="/users/60049" class="button">프로필</a>
-          <button class="button e-mentoring" data-id=55>내용 보기</button>
+          <button class="button e-mentoring" data-id=55 onclick="showPopup();">내용 보기</button>
         </div>
       </div>
 
@@ -233,7 +236,7 @@
       <div class="card-bottom">
         <div class="buttons">
           <a href="/users/13248" class="button">프로필</a>
-          <button class="button e-mentoring" data-id=276>내용 보기</button>
+          <button class="button e-mentoring" data-id=276 onclick="showPopup();">내용 보기</button>
         </div>
       </div>
 
@@ -253,7 +256,7 @@
       <div class="card-bottom">
         <div class="buttons">
           <a href="/users/42533" class="button">프로필</a>
-          <button class="button e-mentoring" data-id=614>내용 보기</button>
+          <button class="button e-mentoring" data-id=614 onclick="showPopup();">내용 보기</button>
         </div>
       </div>
 
@@ -273,7 +276,7 @@
       <div class="card-bottom">
         <div class="buttons">
           <a href="/users/348853" class="button">프로필</a>
-          <button class="button e-mentoring" data-id=182>내용 보기</button>
+          <button class="button e-mentoring" data-id=182 onclick="showPopup();">내용 보기</button>
         </div>
       </div>
 
@@ -293,7 +296,7 @@
       <div class="card-bottom">
         <div class="buttons">
           <a href="/users/5525" class="button">프로필</a>
-          <button class="button e-mentoring" data-id=414>내용 보기</button>
+          <button class="button e-mentoring" data-id=414 onclick="showPopup();">내용 보기</button>
         </div>
       </div>
 
@@ -313,7 +316,7 @@
       <div class="card-bottom">
         <div class="buttons">
           <a href="/users/399202" class="button">프로필</a>
-          <button class="button e-mentoring" data-id=240>내용 보기</button>
+          <button class="button e-mentoring" data-id=240 onclick="showPopup();">내용 보기</button>
         </div>
       </div>
 
@@ -333,7 +336,7 @@
       <div class="card-bottom">
         <div class="buttons">
           <a href="/users/402833" class="button">프로필</a>
-          <button class="button e-mentoring" data-id=180>내용 보기</button>
+          <button class="button e-mentoring" data-id=180 onclick="showPopup();">내용 보기</button>
         </div>
       </div>
 
@@ -353,7 +356,7 @@
       <div class="card-bottom">
         <div class="buttons">
           <a href="/users/8902" class="button">프로필</a>
-          <button class="button e-mentoring" data-id=531>내용 보기</button>
+          <button class="button e-mentoring" data-id=531 onclick="showPopup();">내용 보기</button>
         </div>
       </div>
     </div>
@@ -371,13 +374,18 @@
               </div>
             </div>
           </div>
-        </div>
-      </main>
-    </main>
-    
-    
-</body>
 
+
+          </div></div></div>
+
+        </div>
+      
+    </main>
+ 
+
+   
+</body>
+<script src="https://cdn.inflearn.com/assets/js/jquery-1.12.4.min.js"></script>
   <!-- Javascript -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </html>
