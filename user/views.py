@@ -29,6 +29,9 @@ def index(request):
 def mentor(request):
     return render(request, 'user/mentor.html')
 
+def mentor_content(request):
+    return render(request, 'user/mentor_Content.html')
+
 def login(request):
     if request.method == 'POST':
         if User.objects.filter(email=request.POST['email']).exists():
