@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django_summernote',
     'mathfilters',
     'consulting',
+    'mentor',
 ]
 ASGI_APPLICATION = 'do_it_django_prj.routing.application'
 CHANNEL_LAYERS = {
@@ -159,3 +160,6 @@ SESSION_COOKIE_AGE = 10800
 SESSION_EXPIRE_AT_BROWSER_CLOSE =True
 
 X_FRAME_OPTIONS = 'ALLOW'
+
+MEDIA_URL='/media/'
+MEDIA_ROOT=os.path.join(BASE_DIR, 'media')

@@ -28,12 +28,6 @@ def index(request):
     return render(request, 'user/index.html')
 
 
-def mentor(request):
-    return render(request, 'user/mentor.html')
-
-def mentor_content(request):
-    return render(request, 'user/mentor_content.html')
-
 def login(request):
     if request.method == 'POST':
         if User.objects.filter(email=request.POST['email']).exists():
