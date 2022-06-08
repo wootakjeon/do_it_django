@@ -15,12 +15,12 @@
     </head>
     <body >
         <div class="container-fluid px-4">
-            <form action="{% url 'lectureDelete'%}" method="get">
+            <form action="{% url 'lectureDelete'%}" method="post" name="f">
 
                 <div class="card bottom">
                     <div class="card-header">
                         <i class="fa-solid fa-film"></i>
-                        강의 내역 삭제 <input type="submit" id="delete" value="삭제">
+                        강의 내역 삭제 <input type="submit" id="delete" value="삭제" onclick="lectureDel()">
                     </div>
                     <div class="card-body">
                         <table id="datatablesSimple" style="table-layout : fixed;">
@@ -43,7 +43,7 @@
                             <tbody>
                                 <tr>
                                     <td class = "index" style="word-break:break-all ;  word-wrap:break-word;">
-                                        <input type ="checkbox"> 1</input>
+                                        <input type ="checkbox" name = "check"> 1</input>
                                     </td>
                                     <td id = "index" class = "index" style="word-break:break-all ;  word-wrap:break-word;"></td>
                                     <td id = "title" class = "index" style="word-break:break-all ;  word-wrap:break-word;"> </td>
@@ -52,7 +52,7 @@
                                 </tr>
                                 <tr>
                                     <td class = "index" style="word-break:break-all ;  word-wrap:break-word;">
-                                        <input type ="checkbox"> 2</input>
+                                        <input type ="checkbox" name = "check"> 2</input>
                                     </td>
                                     <td>발달장애</td>
                                     <td>2019-08-13</td>
@@ -61,7 +61,7 @@
                                 </tr>
                                 <tr>
                                     <td class = "index" style="word-break:break-all ;  word-wrap:break-word;">
-                                        <input type ="checkbox"> 3</input>
+                                        <input type ="checkbox" name = "check"> 3</input>
                                     </td>
                                     <td>발달장애</td>
                                     <td>2020-11-29</td>
@@ -70,7 +70,7 @@
                                 </tr>
                                 <tr>
                                     <td class = "index" style="word-break:break-all ;  word-wrap:break-word;">
-                                        <input type ="checkbox"> 4</input>
+                                        <input type ="checkbox" name = "check"> 4</input>
                                     </td>
                                     <td>발달장애</td>
                                     <td>2021-01-03</td>
@@ -85,8 +85,30 @@
         </div>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
         <script src="{% static 'js/datatables-simple-demo.js' %}"></script>
+        <script>
+            function lectureDel(){
+                var form = document.f;
+                var boo = false;
+
+                if (document.getElementsByName("check").length > 0) {
+                for (var i=0;i<document.getElementsByName("check").length;i++) {
+                if (document.getElementsByName("check")[i].checked == true) {
+                    boo = true;
+                    break;
+                }
+                }
+                }
+                if (boo) {
+                    // form.action = "{% url 'lectureDelete'%}";
+                    form.submit();
+                    } else {
+                    alert("개별 삭제하실 항목을 적어도 하나는 체크해 주십시오.");
+                    }
+            }
+
+        </script>
+   
     </body>
 </html>

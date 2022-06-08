@@ -59,7 +59,7 @@
                             <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
                                     <div class="nav-link" onclick="consultingList()" >상담 내역</div>
-                                    <div class="nav-link" >상담 예약 채팅</div>
+                                    <div class="nav-link"  onclick="reservationChatting()">상담 예약 채팅</div>
                                 </nav>
                             </div>
                         </div>
@@ -89,6 +89,10 @@
 
             function lectureDelete() {
             document.getElementById("main").setAttribute("src","{% url 'lectureDelete' %}")
+            }
+
+            function reservationChatting() {
+                  document.getElementById("main").setAttribute("src","{% url 'reservationChat' %}")
             }
             
         </script>
