@@ -4,10 +4,11 @@ from mentor.models import Mentor
 
 
 def mentor(request):
-    mentorList = Mentor.objects.all().order_by('mentor_id')
+    mentorList = Mentor.objects.all().order_by('id')
     page = request.GET.get('page', '1')
     paginator = Paginator(mentorList, 16)
     page_obj = paginator.get_page(page)
+
     context = {'mentorList': page_obj}
     return render(request, 'mentor/mentor.html', context)
 

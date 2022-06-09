@@ -205,9 +205,10 @@ def chat_propose(request, email):
     # cur.nextset()
     # cur.execute('call propose_chat(%s, %s)', {session_email, email})
     if Chat_Propose.objects.filter(my_email=session_email, email=email).exists():
-        return render(request, 'mypage/reservationChat.html',
-                      {'mentoUser': mentoUser, 'isParents': isParents, 'myPropose': myPropose,
-                       'receivePropose': receivePropose, 'bothPropose': bothPropose})
+        return redirect('../../../mentor/')
+        # return render(request, 'mypage/reservationChat.html',
+        #               {'mentoUser': mentoUser, 'isParents': isParents, 'myPropose': myPropose,
+        #                'receivePropose': receivePropose, 'bothPropose': bothPropose})
     else:
         login_user = User.objects.get(email=session_email)
         Chat_Propose(
@@ -218,12 +219,13 @@ def chat_propose(request, email):
             Parents_number=1,
             Mentor_number=0
         ).save()
-
-        return render(request, 'mypage/reservationChat.html',
-                      {'mentoUser': mentoUser, 'isParents': isParents, 'myPropose': myPropose,
-                       'receivePropose': receivePropose, 'bothPropose': bothPropose})
-        # return redirect('mypage')
+        return redirect('../../../mentor/')
+        # return render(request, 'mypage/reservationChat.html',
+        #               {'mentoUser': mentoUser, 'isParents': isParents, 'myPropose': myPropose,
+        #                'receivePropose': receivePropose, 'bothPropose': bothPropose})
+        # # return redirect('mypage')
         # return redirect('reservationChat')
+
 
 
 def chat_cancel(request, id):
