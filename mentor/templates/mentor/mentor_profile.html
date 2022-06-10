@@ -1,0 +1,130 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.88.1">
+    <title>토닥토닥</title>
+    <link href="{% static 'image/favicon-96x96.png' %}" sizes="96x96" rel="shortcut icon" type="image/png">
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/mentor_main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/mentor.css' %}">
+    <link rel="stylesheet" href="{% static 'css/mentor_profile.css' %}">
+</head>
+<!-- header -->
+{% include "user/header.html" %}
+<body>
+
+<main id="main">
+  <section class="instructor__page  mentoring">
+    <div class="user-navigation-wrapper">
+      
+  <nav class="user-navigation">
+    <section class="user-navigation__user-profile">
+      <div class="user-profile__user-info">
+        <div class="user-info__left">
+          <h1 class="profile__name">incu</h1>
+          
+  <section class="instructor-info">
+    
+  <dl class="instructor-counts">
+    <div class="instructor-counts__item instructor-counts__students">
+      <dt><svg width="16" height="16" class="ac-icon--user-friends" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill="#abb0b5" d="M2.333 5.333c0-2.025 1.642-3.666 3.667-3.666s3.666 1.641 3.666 3.666c0 1.26-.635 2.371-1.603 3.031 2.243.822 3.86 2.945 3.934 5.454.008.277-.21.507-.485.515-.276.008-.507-.209-.515-.485C10.917 11.158 8.71 9 6 9c-2.71 0-4.917 2.157-4.997 4.848-.008.276-.239.493-.515.485-.276-.008-.493-.238-.485-.514.075-2.51 1.69-4.633 3.934-5.455-.968-.66-1.603-1.77-1.603-3.03zM6 2.667c-1.473 0-2.667 1.194-2.667 2.666C3.333 6.806 4.527 8 6 8c1.472 0 2.666-1.194 2.666-2.667 0-1.472-1.194-2.666-2.666-2.666z"></path><path fill="#abb0b5" d="M11.526 5.333c-.098 0-.195.007-.289.02-.273.04-.527-.15-.566-.423-.039-.274.151-.527.424-.566.141-.02.285-.03.431-.03 1.668 0 3.02 1.352 3.02 3.02 0 .983-.47 1.857-1.197 2.408 1.554.696 2.637 2.257 2.637 4.071 0 .277-.224.5-.5.5s-.5-.223-.5-.5c0-1.563-1.038-2.886-2.464-3.314l-.356-.107V9.295l.274-.14c.657-.333 1.106-1.016 1.106-1.802 0-1.115-.904-2.02-2.02-2.02z"></path></svg></dt>
+      <dd>0</dd>
+    </div>
+    <div class="instructor-counts__item instructor-counts__star">
+      <dt><svg width="16" height="16" class="ac-icon--star" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill="#abb0b5" d="M8 .8c.19 0 .364.108.448.279l2.04 4.131 4.558.662c.189.028.345.16.404.34.059.182.01.38-.127.513l-3.299 3.216.779 4.54c.032.188-.045.378-.199.49-.154.111-.358.126-.526.038L8 12.865l-4.078 2.144c-.168.088-.373.073-.526-.038-.154-.112-.232-.302-.2-.49l.78-4.54-3.3-3.216C.54 6.592.491 6.394.55 6.213s.215-.313.404-.34l4.559-.663L7.55 1.079C7.636.909 7.81.8 8 .8zm0 1.63L6.293 5.888c-.073.148-.214.25-.376.274L2.1 6.716l2.762 2.692c.117.115.171.28.143.443l-.652 3.801 3.414-1.794c.146-.077.32-.077.465 0l3.414 1.794-.652-3.801c-.028-.162.026-.328.144-.443L13.9 6.716l-3.817-.554c-.163-.024-.304-.126-.376-.274L8 2.43z"></path></svg></dt>
+      <dd>0.0(0)</dd>
+    </div>
+  </dl>
+  </section>
+
+        </div>
+        <div class="user-info__right user-info__profile-wrapper">
+          
+          <img class="user-info__profile-image is-rounded " src="https://cdn.inflearn.com/public/users/thumbnails/117609/09c882a3-a8af-4f14-a19b-9a81256c39d0" alt="">
+        </div>
+      </div>
+      
+      
+  <section class="mentoring-buttons">
+    
+  <button class="ac-button is-md is-solid is-primary mentoring--active e-mentoring ">멘토링</button>
+  <button class="ac-button is-md is-outlined is-primary button-follow e-follow "><svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill="#00C471" d="M8 1C5.633 1 3.714 2.959 3.714 5.375v2.579c0 .043-.012.085-.036.121l-1.46 2.236c-.142.218-.218.474-.218.736 0 .733.582 1.328 1.3 1.328h9.4c.718 0 1.3-.595 1.3-1.328 0-.262-.076-.518-.219-.737l-1.46-2.235c-.023-.036-.035-.078-.035-.121V5.375C12.286 2.959 10.366 1 8 1zM5 5.375c0-1.691 1.343-3.063 3-3.063s3 1.372 3 3.063v2.579c0 .302.088.598.252.85l1.46 2.235.002.008v.006l-.004.005-.005.004h-9.41l-.005-.004-.003-.005-.001-.006c0-.003 0-.006.002-.008l1.46-2.236c.164-.251.252-.547.252-.85V5.376z"></path><path fill="#00C471" d="M9.701 13.468C9.596 14.332 8.874 15 8 15c-.874 0-1.596-.668-1.701-1.532-.015-.12.083-.218.201-.218h3c.118 0 .216.098.201.218z"></path></svg>팔로우</button>
+  </section>
+
+    </section>
+    
+  <ul class="user-navigation-menu">
+    
+  <a href="/users/117609">
+    <li data-key="introduce" class="user-navigation-menu__item user-navigation-menu__item--active">
+      홈
+    </li>
+  </a>
+
+  <a href="/users/117609/blogs">
+    <li data-key="blogs" class="user-navigation-menu__item ">
+      블로그
+    </li>
+  </a>
+
+  </ul>
+
+    
+  </nav>
+
+    </div>
+    <div class="instructor__content">
+  <div class="content__card-container introduce-container">
+<div class="instructor__introduce is-fold">
+  <div class="header">
+    <h2>소개</h2>
+    <div class="header__right">
+      
+  <button class="ac-button is-sm is-outlined is-gray introduce__edit e-edit-introduce " style="min-width: 68px">편집</button>
+    </div>
+  </div>
+  <div class="content"><p class="empty-content">소개가 없습니다.</p></div>
+  
+<div class="more-button introduce__more e-m-intro ">
+  <div class="more-button__gradient"></div>
+  
+  <button class="ac-button is-md is-text more-button__content e-more " data-fold="fold" data-page="1"><span>더보기</span><span class="icon"><i class="fal fa-angle-down"></i></span></button>
+</div>
+</div></div>
+  
+        
+        
+        
+      
+  <div class="content__card-container blogs-container">
+    
+  <div class="instructor__blogs-wrapper">
+    <div class="header">
+      <h2>블로그</h2>
+      
+<div class="instructor__blogs-wrapper__header-active-tag">
+  <label for="blogs-wrapper__total-blogs-count" class="blogs-wrapper__blogs-count-label">전체</label>
+</div>
+      <span id="total-blogs-count" class="blogs-wrapper__blogs-count">0</span>
+     
+    </div>
+    <div class="content">
+      
+  <div class="content__list-container">
+    <p class="empty-content">게시글이 없습니다.</p>
+  </div>
+    </div>
+  </div></div>
+  </div></section></main>
+    <!-- Javascript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="https://cdn.inflearn.com/assets/js/jquery-1.12.4.min.js"></script>
+</body>
+</html>

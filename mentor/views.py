@@ -27,3 +27,6 @@ def mentor_up(request):
 
 def mentor_content(request):
     return render(request, 'mentor/mentor_content.html')
+
+def mentor_profile(request):
+    return render(request, 'mentor/mentor_profile.html')

@@ -15,7 +15,6 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="{% static 'css/mentor_main.css' %}">
     <link rel="stylesheet" href="{% static 'css/mentor.css' %}">
-
 </head>
 
 <!-- header -->
@@ -140,8 +139,10 @@
                                         </div>
                                         <div class="card-bottom">
                                             <div class="buttons">
-                                                <a href="/users/117609" class="button">프로필</a>
+                                                <a href="{% url 'mentor_profile' %}" class="button">프로필</a></button>
+                                                <button class="button e-mentoring">채팅 신청</button>
                                                 <button class="button e-mentoring" data-id=676 onclick="showPopup();">내용 보기</button>
+                                                
                                             </div>
                                         </div>
                                         <!---->
