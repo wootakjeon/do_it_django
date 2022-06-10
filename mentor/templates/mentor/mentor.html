@@ -140,7 +140,7 @@
                                         <div class="card-bottom">
                                             <div class="buttons">
                                                 <a href="{% url 'mentor_profile' %}" class="button">프로필</a></button>
-                                                <button class="button e-mentoring">채팅 신청</button>
+                                                <a href="" class="button" onclick="javascript:chat()">채팅신청</a>
                                                 <button class="button e-mentoring" data-id=676 onclick="showPopup();">내용 보기</button>
                                                 
                                             </div>
@@ -227,6 +227,11 @@
 </body>
 <script language="javascript">
       function showPopup() { window.open("{% url 'mentor_content' %}", "a", "width=436, height=600, left=550, top=50"); }
+</script>
+<script>
+    function chat(){
+        alert('채팅신청이 완료되었습니다.');
+    }
 </script>
 <!-- Javascript -->
 <script src="https://cdn.inflearn.com/assets/js/jquery-1.12.4.min.js"></script>
