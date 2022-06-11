@@ -6,6 +6,7 @@ from user.models import User
 
 
 def mentor(request):
+<<<<<<< HEAD
     mentorList = Mentor.objects.all().order_by('mentor_id')
     # mentorList = Mentor.objects.filter(email= User.email)
     page = request.GET.get('page', '1')
@@ -13,6 +14,14 @@ def mentor(request):
     page_obj = paginator.get_page(page)
     userList = User.objects.all()
     context = {'mentorList': page_obj, "userList": userList}
+=======
+    mentorList = Mentor.objects.all().order_by('id')
+    page = request.GET.get('page', '1')
+    paginator = Paginator(mentorList, 16)
+    page_obj = paginator.get_page(page)
+
+    context = {'mentorList': page_obj}
+>>>>>>> 6e7a661bcdff0172aa3ae55130c4ad7f446f579c
     return render(request, 'mentor/mentor.html', context)
 
 
