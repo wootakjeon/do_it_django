@@ -7,10 +7,7 @@ from user.models import User
 
 
 class Mentor(models.Model):
-<<<<<<< HEAD
     mentor_id = models.AutoField(primary_key=True)
-=======
->>>>>>> 6e7a661bcdff0172aa3ae55130c4ad7f446f579c
     email = models.ForeignKey('user.User', on_delete=models.CASCADE)
     mentor = models.CharField(max_length=30)
     mentor_img = models.ImageField(upload_to='images/')
