@@ -7,4 +7,5 @@ urlpatterns = [
     path('mentor_up/', views.mentor_up, name='upload_mento'),
     path('mentor_content/', views.mentor_content, name='mentor_content'),
     path('mentor_profile/', views.mentor_profile, name='mentor_profile'),
+    path('mentor_chat_propose/<str:email>/', views.chat_propose, name='mentor_chat_propose')
 ]

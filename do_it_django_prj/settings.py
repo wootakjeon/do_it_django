@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     'django_summernote',
     'mathfilters',
     'consulting',
-    'mentor',
+    'mentor'
 ]
 ASGI_APPLICATION = 'do_it_django_prj.routing.application'
 CHANNEL_LAYERS = {

@@ -1,21 +1,16 @@
+from collections import Counter
+
 import bcrypt
-from django.shortcuts import render, redirect
-from user.models import User
-from django.shortcuts import get_object_or_404
-from django.contrib.auth.decorators import login_required
 from django.http import HttpRequest, HttpResponse
+from django.shortcuts import get_object_or_404
 from django.shortcuts import redirect, render
 
-from .models import Chat_Propose
-from .room_join import RoomJoin
-
-from collections import Counter
-from .room import Room
-from .room_join import RoomJoin
+from user.models import User
 from .chat_room_service import get_an_chat_room_list, get_chat_room_user, confirm_user_chat_room_join, \
     creat_an_chat_room, creat_an_room_join
 from .message_service import get_an_message_list
-import MySQLdb
+from .models import Chat_Propose
+from .room_join import RoomJoin
 
 
 # Create your views here.

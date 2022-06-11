@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import UserManager
 from django.utils import timezone
 
+
 # Create your models here.
 class User(models.Model):
     email = models.CharField(max_length=30, primary_key=True)
@@ -13,6 +14,7 @@ class User(models.Model):
     created_at = models.DateTimeField(auto_now=True)
 
     objects = UserManager()
+
 
 class Post(models.Model):
     author = models.ForeignKey('user.User', on_delete=models.CASCADE)

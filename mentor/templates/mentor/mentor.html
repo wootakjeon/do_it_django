@@ -1,6 +1,6 @@
 {% load static %}
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -133,14 +133,14 @@
                                                 </figure>
                                             </div>
                                             <div class="mentor-info">
-                                                <h3 class="mentor-title">{{mentor.mento_title}}</h3>
-                                                <p class="mentor-username">{{mentor.mento_field}}</p>
+                                                <h3 class="mentor-title" id="id_title">{{mentor.mento_title}}</h3>
+                                                <p class="mentor-username">{{mentor.mento_type}}, {{mentor.email.email}}</p>
                                             </div>
                                         </div>
                                         <div class="card-bottom">
                                             <div class="buttons">
                                                 <a href="{% url 'mentor_profile' %}" class="button">프로필</a></button>
-                                                <a href="" class="button" onclick="javascript:chat()">채팅신청</a>
+                                                <a href="{% url 'mentor_chat_propose' mentor.email.email %}" class="button" onclick="chat();">채팅신청 </a>
                                                 <button class="button e-mentoring" data-id=676 onclick="showPopup();">내용 보기</button>
                                                 
                                             </div>
@@ -188,32 +188,6 @@
                                             <a class="page-link" tabindex="-1" aria-disabled="true" href="#">다음</a>
                                         </li>
                                         {% endif %}
-                                        <!--                                        <li>-->
-                                        <!--                                            <button class="page e-pagination  active" data-page="1"-->
-                                        <!--                                                    aria-label="1페이지로 이동">1-->
-                                        <!--                                            </button>-->
-                                        <!--                                        </li>-->
-                                        <!--                                        <li>-->
-                                        <!--                                            <button class="page e-pagination  " data-page="2" aria-label="2페이지로 이동">2-->
-                                        <!--                                            </button>-->
-                                        <!--                                        </li>-->
-                                        <!--                                        <li>-->
-                                        <!--                                            <button class="page e-pagination  " data-page="3" aria-label="3페이지로 이동">3-->
-                                        <!--                                            </button>-->
-                                        <!--                                        </li>-->
-                                        <!--                                        <li>-->
-                                        <!--                                            <button class="page e-pagination  " data-page="4" aria-label="4페이지로 이동">4-->
-                                        <!--                                            </button>-->
-                                        <!--                                        </li>-->
-                                        <!--                                        <li>-->
-                                        <!--                                            <button class="page e-pagination  " data-page="5" aria-label="5페이지로 이동">5-->
-                                        <!--                                            </button>-->
-                                        <!--                                        </li>-->
-                                        <!--                                        <li>-->
-                                        <!--                                            <button class="page e-pagination  next" data-page="2" aria-label="2페이지로 이동">-->
-                                        <!--                                                다음-->
-                                        <!--                                            </button>-->
-                                        <!--                                        </li>-->
                                     </ul>
                                 </nav>
                             </div>
@@ -228,7 +202,7 @@
 <script language="javascript">
       function showPopup() { window.open("{% url 'mentor_content' %}", "a", "width=436, height=600, left=550, top=50"); }
 </script>
-<script>
+<script th:inline="javascript">
     function chat(){
         alert('채팅신청이 완료되었습니다.');
     }

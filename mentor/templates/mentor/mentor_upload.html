@@ -16,15 +16,31 @@
         멘토 내용 <br>
         <input type="text" name="mento_content"><br>
         멘토 분야 <br>
-        <select name="mento_field">
+        <select name="mento_type">
             <option>언어 재활</option>
             <option>작업 재활</option>
             <option>놀이 재활</option>
             <option>물리 재활</option>
             <option>인지 재활</option>
         </select> <br>
+        멘토 선택 <br>
+        <select name="email" id="email">
+            {% for user in userList %}
+            <option value="{{user.email}}">{{user.email}}</option>
+            {% endfor %}
+        </select>
+        <br>
         <input type="submit" value="Submit">
     </form>
 
 </body>
+<script>
+    $(document).ready(function(){
+       $('select[name=email]').change(function(){
+           console.log($('select[name=email]').val());
+           email = $('select[name=email]').val();
+           $('.form').submit();
+       })
+    });
+</script>
 </html> 
