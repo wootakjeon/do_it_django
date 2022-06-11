@@ -7,7 +7,17 @@
     <title>Chat Room</title>
 </head>
 <body>
-    <textarea id="chat-log" cols="100" rows="20"></textarea><br/>
+{#    <textarea id="chat-log" cols="100" rows="20"></textarea><br/>#}
+    <div id="chat-log" style="width: 700px;height: 300px;overflow: scroll;">
+        <table id="chat_Table" style="width: 680px;height: 280px;">
+            <thead>
+
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+    </div>
     <input id="chat-message-input" type="text" size="100"/><br/>
     <input id="chat-message-submit" type="button" value="Send"/>
 </body>
@@ -15,7 +25,9 @@
 {{ room_name|json_script:"room-name" }}
 {{ login_user.email|json_script:"user_email" }}
 {{ login_user.email|json_script:"user_id" }}
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script>
+
     // <!--roomName 변수에 room_name 할당-->
 // JSON.parse() 메소드 : json 문자열의 구문을 분석하고 결과로 javascript 값이나 객체 생성
     const roomName = JSON.parse(document.getElementById('room-name').textContent);
@@ -80,8 +92,20 @@
     }
 
     function createMessage(data) {
-        const author = data['author'];
-        document.querySelector('#chat-log').value += (author + ': ' + data.content + '\n');
+        var author = data['author'];
+        if(author == '{{ login_user.name }}') {
+            jQuery('#chat_Table').append("<tr><td style='float: right;'>" +  data.content + '</td></tr>');
+        }
+        else{
+             jQuery('#chat_Table').append("<tr><td style='float: left;'>" + author + ': ' + data.content + '</td></tr>');
+        }
+
+        jQuery('#chat-log').scrollTop(jQuery('#chat-log')[0].scrollHeight);
+        {#$("#test>tbody").append("<tr><td>Test Row Append</td></tr>");#}
+        {#jQuery('#chat-log').append(author + ': ' + data.content + '<br>');#}
+        {#document.querySelector('#chat-log').value += (author + ': ' + data.content + '\n');#}
+
+
     }
 </script>
 </html>
