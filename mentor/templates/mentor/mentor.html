@@ -15,7 +15,6 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="{% static 'css/mentor_main.css' %}">
     <link rel="stylesheet" href="{% static 'css/mentor.css' %}">
-
 </head>
 
 <!-- header -->
@@ -111,7 +110,6 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
                             </nav>
                         </div>
                     </div>
@@ -120,57 +118,38 @@
                     <!-- Right panel / Profile list -->
                     <div class="panel_right">
                         <div class="view">
-                         {% for mentor in mentorList %}
-                             <div class="card-bottom">
-                                       <div class="mentor-info">
-                                                    <h3 class="mentor-title">{{mentor.mento_title}}</h3>
-                                                    <p class="mentor-username">{{mentor.mento_content}}</p>
-                                       </div>
-                            <div class="buttons">
-{#                                    <a href="{% url 'mentor_profile' %}" class="button">프로필</a>#}
-                                    <img class="is-rounded" style="width:100px; height:100px;"
-                                                         src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Kang_Dong-won_in_Feb_2016.jpg/250px-Kang_Dong-won_in_Feb_2016.jpg"
-                                                         alt="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Kang_Dong-won_in_Feb_2016.jpg/250px-Kang_Dong-won_in_Feb_2016.jpg">
-                                   <br>
-                                    <a href="" class="button">프로필</a>
-                                    <a href="{% url 'chat_propose' mentor.email_id %}"><input type="button" value="채팅신청"> </a>
-{#                                    <a href="{% url 'chat_propose' mentor.email %}"><input type="button" value="채팅 신청"></a>#}
-                                    <button class="button e-mentoring" data-id=676 onclick="showPopup();">내용 보기</button>
-                            </div>
 
-                            </div>
-                             <br>
-                                  {% endfor %}
+                            <div class="columns is-multiline is-mobile">
+                                <!-- Mentor -->
+                                {% for mentor in mentorList %}
+                                <div class="column is-3-desktop is-4-tablet is-6-mobile">
+                                    <div class="mentor_card" data-id=676>
+                                        <div class="card-body">
+                                            <div class="mentor-image">
+                                                <figure class="image is-1by1">
+                                                    <img class="is-rounded"
+                                                         src="{{ mentor.mentor_img.url }}"
+                                                         alt="{{mentor.mentor_img.url}}">
+                                                </figure>
+                                            </div>
+                                            <div class="mentor-info">
+                                                <h3 class="mentor-title">{{mentor.mento_title}}</h3>
+                                                <p class="mentor-username">{{mentor.mento_field}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="card-bottom">
+                                            <div class="buttons">
+                                                <a href="{% url 'mentor_profile' %}" class="button">프로필</a></button>
+                                                <a href="" class="button" onclick="javascript:chat()">채팅신청</a>
+                                                <button class="button e-mentoring" data-id=676 onclick="showPopup();">내용 보기</button>
+                                                
+                                            </div>
+                                        </div>
+                                        <!---->
 
-{#                            <div class="columns is-multiline is-mobile">#}
-{#                                <!-- Mentor -->#}
-{#                                {% for mentor in mentorList %}#}
-{#                                <div class="column is-3-desktop is-4-tablet is-6-mobile">#}
-{#                                    <div class="mentor_card" data-id=676>#}
-{#                                        <div class="card-body">#}
-{#                                            <div class="mentor-image">#}
-{#                                                <figure class="image is-1by1">#}
-{#                                                    <img class="is-rounded"#}
-{#                                                         src="{{ mentor.mentor_img.url }}"#}
-{#                                                         alt="{{mentor.mentor_img.url}}">#}
-{#                                                </figure>#}
-{#                                            </div>#}
-{#                                            <div class="mentor-info">#}
-{#                                                <h3 class="mentor-title">{{mentor.mento_title}}</h3>#}
-{#                                                <p class="mentor-username">{{mentor.mento_field}}</p>#}
-{#                                            </div>#}
-{#                                        </div>#}
-{#                                        <div class="card-bottom">#}
-{#                                            <div class="buttons">#}
-{#                                                <a href="/users/117609" class="button">프로필</a>#}
-{#                                                <button class="button e-mentoring" data-id=676 onclick="showPopup();">내용 보기</button>#}
-{#                                            </div>#}
-{#                                        </div>#}
-{#                                        <!---->#}
-{##}
-{#                                    </div>#}
-{#                                </div>#}
-{#                                {% endfor %}#}
+                                    </div>
+                                </div>
+                                {% endfor %}
 
                                 <!-- Page -->
                                 <nav class="comp_paginate" role="navigation" aria-label="pagination">
@@ -241,13 +220,18 @@
                         </div>
                     </div>
                 </div>
-
+</main>
 </main>
 
 
 </body>
 <script language="javascript">
       function showPopup() { window.open("{% url 'mentor_content' %}", "a", "width=436, height=600, left=550, top=50"); }
+</script>
+<script>
+    function chat(){
+        alert('채팅신청이 완료되었습니다.');
+    }
 </script>
 <!-- Javascript -->
 <script src="https://cdn.inflearn.com/assets/js/jquery-1.12.4.min.js"></script>
