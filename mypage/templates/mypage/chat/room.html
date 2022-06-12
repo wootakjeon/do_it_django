@@ -5,21 +5,55 @@
 <head>
     <meta charset="utf-8"/>
     <title>Chat Room</title>
+    <link href="{% static 'css/room.css'%}" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
+    <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 {#    <textarea id="chat-log" cols="100" rows="20"></textarea><br/>#}
-    <div id="chat-log" style="width: 700px;height: 300px;overflow: scroll;">
-        <table id="chat_Table" style="width: 680px;height: 280px;">
-            <thead>
 
-            </thead>
-            <tbody>
-
-            </tbody>
-        </table>
+    <div class="col-sm-8 conversation">
+    <div class="row heading">
+        <!-- <div class="col-sm-8 col-xs-7 heading-name">
+        <a class="heading-name-meta">John Doe</a>
+        </div> -->
     </div>
-    <input id="chat-message-input" type="text" size="100"/><br/>
-    <input id="chat-message-submit" type="button" value="Send"/>
+
+    <div class="row message" id="conversation">
+
+
+        <div class="row message-body">
+        <div class="receiver">
+        <div id="chat-log" >
+            <table id="chat_Table">
+                <thead>
+
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
+        </div>
+
+        </div>
+
+    </div>
+
+    <div class="row reply">
+        <input id="chat-message-input" type="text">
+        <span id="chat-message-submit" type="button" value="Send">
+            <i class="fa-solid fa-paper-plane"></i>
+            <i class="fa fa-microphone fa-2x" aria-hidden="true"></i>
+
+        </span>
+    </div>
+    </div>
 </body>
 <!--room_name 을 핸들링 하는 json script-->
 {{ room_name|json_script:"room-name" }}
@@ -94,10 +128,10 @@
     function createMessage(data) {
         var author = data['author'];
         if(author == '{{ login_user.name }}') {
-            jQuery('#chat_Table').append("<tr><td style='float: right;'>" +  data.content + '</td></tr>');
+            jQuery('#chat_Table').append("<tr><td class = 'right' style='float: right;'>" +  data.content + '</td></tr>');
         }
         else{
-             jQuery('#chat_Table').append("<tr><td style='float: left;'>" + author + ': ' + data.content + '</td></tr>');
+             jQuery('#chat_Table').append("<tr><td class = 'left' style='float: left;'>" + author + ': ' + data.content + '</td></tr>');
         }
 
         jQuery('#chat-log').scrollTop(jQuery('#chat-log')[0].scrollHeight);
@@ -109,3 +143,28 @@
     }
 </script>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
