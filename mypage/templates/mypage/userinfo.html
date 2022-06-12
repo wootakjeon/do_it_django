@@ -38,6 +38,7 @@
             </div>
             <hr>
             <form action="{% url 'userinfoUpdateUpdate'%}" method="post">
+                {% csrf_token %}
                 <div class="card user">
                     <div class="userTitle" >개인정보 수정</div>
                     <input type="submit" id = "userupdate" value="수정">
@@ -47,19 +48,19 @@
                 <table class="update">
                     <tr>
                       <th scope="row" class="row">EMAIL</th>
-                      <td><input id = "email" type="text" placeholder="{{userinfo.email}}"></td>
+                      <td><input id = "email" type="text" value="{{userinfo.email}}" disabled></td>
                     </tr>
                     <tr>
                         <th scope="row" class="row">이름</th>
-                        <td><input id = "name" type="text" placeholder="{{userinfo.name}}"></td>
+                        <td><input id = "name" name="name" type="text" value="{{userinfo.name}}"></td>
                     </tr>
                     <tr>
                         <th scope="row" class="row">닉네임</th>
-                        <td><input id = "nickname" type="text" placeholder="{{userinfo.nickname}}"></td>
+                        <td><input id = "nickname" name="nickname" type="text" value="{{userinfo.nickname}}"></td>
                     </tr>
                     <tr>
                         <th scope="row" class="row">전화번호</th>
-                        <td><input id = "nickname" type="text" placeholder="{{userinfo.tel}}"></td>
+                        <td><input id = "tel" name="tel" type="text" value="{{userinfo.tel}}"></td>
                     </tr>
                   </table>
             </div>

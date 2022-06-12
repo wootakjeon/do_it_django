@@ -44,7 +44,7 @@ def passwordUpdate(request):
                 hashed_password = bcrypt.hashpw(update_password.encode('utf=8'), bcrypt.gensalt())
                 user.password = hashed_password.decode('utf=8')
                 user.save()
-                return redirect('mypage')
+                return redirect('passwordUpdate')
 
             return render(request, "mypage/password.html")
     else:
@@ -62,8 +62,7 @@ def userinfoUpdateUpdate(request):
             user = User.objects.get(email=request.session['user'])
             user.name = request.POST['name']
             user.nickname = request.POST['nickname']
-            user.tel = request.POST['phonenumber1'] + '-' + request.POST['phonenumber2'] + '-' + request.POST[
-                'phonenumber3']
+            user.tel = request.POST['tel']
             user.save()
             return redirect('userinfoUpdate')
         return render(request, 'mypage/userinfo.html')

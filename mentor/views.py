@@ -1,5 +1,5 @@
 from django.core.paginator import Paginator
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from mentor.models import Mentor
 from mypage.models import Chat_Propose
 from user.models import User
@@ -7,7 +7,6 @@ from user.models import User
 
 def mentor(request):
     mentorList = Mentor.objects.all().order_by('mentor_id')
-    # mentorList = Mentor.objects.filter(email= User.email)
     page = request.GET.get('page', '1')
     paginator = Paginator(mentorList, 16)
     page_obj = paginator.get_page(page)
@@ -37,8 +36,10 @@ def mentor_content(request):
     return render(request, 'mentor/mentor_content.html')
 
 
-def mentor_profile(request):
-    return render(request, 'mentor/mentor_profile.html')
+def mentor_profile(request, email):
+    mento = Mentor.objects.get(email=email)
+    context = {'mento': mento}
+    return render(request, 'mentor/mentor_profile.html', context)
 
 
 def chat_propose(request, email):
@@ -61,7 +62,7 @@ def chat_propose(request, email):
     # cur.nextset()
     # cur.execute('call propose_chat(%s, %s)', {session_email, email})
     if Chat_Propose.objects.filter(my_email=session_email, email=email).exists():
-        return render(request, 'mypage/reservationChat.html',
+        return render(request, 'mypage/mypage.html',
                       {'mentoUser': mentoUser, 'isParents': isParents, 'myPropose': myPropose,
                        'receivePropose': receivePropose, 'bothPropose': bothPropose})
     else:
@@ -78,3 +79,7 @@ def chat_propose(request, email):
         return render(request, 'mypage/mypage.html')
         # return redirect('mypage')
         # return redirect('reservationChat')
+
+def search(request):
+    context = dict()
+    mentorList = Mentor.objects.filter(mentor__icontains="")
