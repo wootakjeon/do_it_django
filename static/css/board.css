@@ -16,7 +16,7 @@ h1{
   border:1px solid #666666;
   background:#ffffff;
   padding:4%;
-  height:500px;
+  height:350px;
 }
 
 .view .title{
@@ -213,4 +213,8 @@ ul{
   padding:20px;
   text-align:center;
   border: 1px solid #444444;
+}
+
+label{
+  padding-top: 15px;
 }
