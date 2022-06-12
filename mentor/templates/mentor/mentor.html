@@ -140,7 +140,7 @@
                                         </div>
                                         <div class="card-bottom">
                                             <div class="buttons">
-                                                <a href="/users/117609" class="button">프로필</a>
+                                                <a href="{% url 'mentor_profile' mentor.email.email %}" class="button">프로필</a>
                                                 <a href="{% url 'mentor_chat_propose' mentor.email.email %}" class="button" onclick="chat();">채팅신청 </a>
                                                 <button class="button e-mentoring" data-id=676 onclick="showPopup();">내용 보기</button>
                                             </div>
