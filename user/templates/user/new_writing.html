@@ -1,0 +1,146 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catch!</title>
+    <link href="{% static 'image/favicon-96x96.png' %}" sizes="96x96" rel="shortcut icon" type="image/png">
+    <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+
+</head>
+<body>
+    <!-- header -->
+    {% include "user/header.html" %}
+    <div class="background">
+        <div class="recruitment_info_bg">
+            <div class="recruitment_title">
+                <i class="fa-sharp fa-solid fa-circle-check"></i><span class="title">모집 정보를 입력해주세요.</span>
+            </div>
+            <div class="recruitment_line"></div>
+            <div class = "recruitment_list_bg">
+                <ul class="recruitment_list">
+                    <div class="recruitment_li">
+                        <li class="recruitment_item">모집 구분</li>
+                        <div class="dropdown">
+                            <div class="select">
+                                <span>모집 구분 선택해주세요.</span>
+                            </div>
+                            <input type="hidden" >
+                            <ul class="dropdown-menu">
+                                <li id="community">커뮤니티</li>
+                                <li id="study">스터디</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="recruitment_li">
+                        <li class="recruitment_item">진행 방식</li>
+                        <div class="dropdown">
+                            <div class="select">
+                                <span>진행 방식을 선택해주세요.</span>
+                            </div>
+                            <input type="hidden" >
+                            <ul class="dropdown-menu">
+                                <li id="online">온라인</li>
+                                <li id="offline">오프라인</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="recruitment_li">
+                        <li class="recruitment_item">모집 인원</li>
+                        <div class="dropdown">
+                            <div class="select">
+                                <span>모집 인원을 선택해주세요.</span>
+                            </div>
+                            <input type="hidden" >
+                            <ul class="dropdown-menu">
+                                <li id="undifined">인원 미정</li>
+                                <li id="one">1명</li>
+                                <li id="two">2명</li>
+                                <li id="three">3명</li>
+                                <li id="four">4명</li>
+                                <li id="five">5명</li>
+                                <li id="six">6명</li>
+                                <li id="seven">7명</li>
+                                <li id="eight">8명</li>
+                                <li id="nine">9명</li>
+                                <li id="ten">10명 이상</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="recruitment_li">
+                        <li class="recruitment_item">시작 예정</li>
+                            <input type="date" class="calender"></input>
+                        </div>
+                        <div class="recruitment_li">
+                            <li class="recruitment_item">연락 방법</li>
+                            <div class="calender">
+                                <input type="text" id="link" name="link" class="link" placeholder="연락 방법을 입력해주세요."/> 
+                            </div>
+                        </div>
+                        <div class="recruitment_li">
+                            <li class="recruitment_item">예상 기간</li>
+                            <div class="dropdown">
+                                <div class="select">
+                                    <span>예상 기간을 선택해주세요.</span>
+                                </div>
+                                <input type="hidden" >
+                                <ul class="dropdown-menu">
+                                    <li id="one month">1개월</li>
+                                    <li id="two month">2개월</li>
+                                    <li id="three month">3개월</li>
+                                    <li id="four month">4개월</li>
+                                    <li id="five month">5개월</li>
+                                    <li id="six month">6개월 이상</li>
+                                    <li id="regularly">정기</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="recruitment_li">
+                            <li class="recruitment_item">관련 태그</li>
+                            <div class="calender">
+                                <input type="text" id="tag" name="tag" class="tag" placeholder="관련 태그를 입력해주세요."/> 
+                            </div>
+                        </div>
+                        <div class="recruitment_li">
+                            <li class="recruitment_item">시작 예정</li>
+                                <input type="date" id = "start_date" name = "start_date" class="start_date" placeholder="시작 예정일을 입력해주세요."></input>
+                            </div>                          
+                    </div>
+                </ul>
+                <div class="recruitment_title2">
+                    <i class="fa-sharp fa-solid fa-circle-check"></i><span class="title">모집에 대한 자세한 설명을 작성해주세요.</span>
+                </div>
+                <div class="recruitment_line"></div>
+            </div>
+            <div id="main" class="container mt-5">
+                <div class="text-center">
+                    <form method="POST" action="" class="mt-5">
+                        {% csrf_token %}
+                        {% for form in forms %}
+                        <div class="form-group ">
+                        <label class="mt-3" for="{{ form.id_for_label }}">{{ form }}</label>
+                        
+                        </div>
+                        {% if field.errors %}
+                        <span style="color: red;">{{ field.errors }}</span>
+                </div>
+                {% endif %}
+                {% endfor %}
+                <div class="recruitment_btn">
+                    <button type="submit" class="style-btn">등록</button>  
+                    <button type="submit" class="style-btn">취소</button>  
+                </div>
+                        
+            </div>
+        </div>
+        </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="{% static 'js/select.js' %}"></script>
+
+</body>
+</html>

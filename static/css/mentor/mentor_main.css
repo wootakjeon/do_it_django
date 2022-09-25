@@ -5915,7 +5915,6 @@ a.panel-block:hover,label.panel-block:hover {
 		margin-left:16.6666666667%
 	}
 	.column.is-3-desktop {
-		flex:none;
 		width:25%
 	}
 	.column.is-offset-3-desktop {
@@ -5986,11 +5985,10 @@ a.panel-block:hover,label.panel-block:hover {
 	}
 }
 .columns {
-	margin-left:-.75rem;
-	margin-right:-.75rem;
-	margin-top:-.75rem;
-	gap:20px;
+	margin-left:3rem;
+	gap:15px;
 }
+
 .columns:last-child {
 	margin-bottom:-.75rem
 }
@@ -5998,7 +5996,7 @@ a.panel-block:hover,label.panel-block:hover {
 	margin-bottom:.75rem
 }
 .columns.is-centered {
-	justify-content:center
+	justify-content: center;
 }
 .columns.is-gapless {
 	margin-left:0;
@@ -7149,7 +7147,7 @@ p {
 	}
 }
 .columns,.columns:last-child {
-	margin:0
+	
 }
 .box {
 	border-radius:1px

@@ -7,14 +7,14 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.88.1">
-    <title>토닥토닥</title>
+    <title>Catch!</title>
     <link href="{% static 'image/favicon-96x96.png' %}" sizes="96x96" rel="shortcut icon" type="image/png">
     <!-- Bootstrap core CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <link rel="stylesheet" href="{% static 'css/mentor_main.css' %}">
-    <link rel="stylesheet" href="{% static 'css/mentor.css' %}">
+    <link rel="stylesheet" href="{% static 'css/mentor/mentor_main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/mentor/mentor.css' %}">
 
 </head>
 
@@ -24,12 +24,18 @@
 <body class="pg___instructors">
     
 <!-- main -->
-<main class="container mt-5" id="main">
+<main class="container2" id="main">
 
     <div id="root">
+        <div class="rwd_mentoring">
+            <div class="choice_box">
+                <a href="#self" class="btn_type btn_pass"><span>합격유형 전체</span></a>
+                <a href="#self" class="btn_type btn_mentoring"><span>멘토링 전체</span></a>
+                <a href="#self" class="btn_choice">조건선택</a>
+            </div>
+        </div>
         <section class="instructor_list_section">
             <div class="content_palette" id="content_palette">
-                <div class="header_navigation"></div>
                 <div class="content_body">
 
                     <!-- Right panel / Profile list -->
@@ -54,9 +60,11 @@
                                             </div>                                                                                    
                                         </div>
                                         <div class="mentor-info">
-                                            <p class="mentor-username">{{mentor.mento_type}}</p>
+                                            <p class="mentor-username">학교 / 학과</p>
                                         </div>
-                                        
+                                        <div class="mentor-info">
+                                            <p class="mentor-tag">#수시합격 #학생부종합 #논술전형</p>
+                                        </div>
                                         <div class="card-bottom">                               
                                             <div class="buttons">
                                                 <!-- Modal --> 
@@ -77,7 +85,7 @@
                                                                 </div>                                                                           
                                                             </div>
                                                             <div class="modal-department">
-                                                                나이
+                                                                학번
                                                             </div>
                                                             <div class="modal-department">
                                                                 학교

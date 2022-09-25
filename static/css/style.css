@@ -1,99 +1,317 @@
 /* 전체 스타일 적용 부분 */
 
 body {
-    margin: 0;
-    font-family: 'Source Sans Pro';
+  margin: 0;
+  font-family: 'Source Sans Pro';
 }
 
 a {
-    text-decoration: none;
-    color: black;
+  text-decoration: none;
+  color: black;
+}
+
+.HeaderLine{
+  display: flex;
+  border-bottom: 2px solid black;
+  width: 90%;
+  height:55px;
+  margin-left:5%;
+  justify-content: space-between;
+}
+
+.HeaderLogo{
+  background-color: rgba( 255, 255, 255, 0);
+}
+
+.Logo{
+  display: block;
+  position: relative;
+  width: 115px;
+  height: 65px;
+  background:url('../image/Logo.png') 0 0 no-repeat;
+  background-size: 160px 100px;
+  right: 130px;
+  bottom:25px;
+}
+
+.header-right{
+}
+
+.HeaderNav{
+  font-weight: 600;
+  font-size: 0.9rem;
+  display: block;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
+}
+
+.HeaderNav:hover, .header-btn:hover{
+   color: #6b7177;
 }
 
 .b-example-divider{
-    margin: 5px;
-    padding: 2px;
+  margin: 5px;
+  padding: 2px;
 }
 
 .style-btn {
-    position:relative;
-    left:5%;
-    transform: translateX(-50%);
-    margin-bottom: 30px;
-    width:10%;
-    height:40px;
-    background: linear-gradient(125deg,#81ecec,#6c5ce7,#81ecec);
-    background-position: left;
-    background-size: 200%;
-    color:white;
-    font-weight: bold;
-    border:none;
-    cursor:pointer;
-    transition: 0.4s;
-    display:inline;
-  }
+  position:relative;
+  left:5%;
+  transform: translateX(-50%);
+  margin-bottom: 30px;
+  width:10%;
+  height:40px;
+  background-position: left;
+  background-size: 200%;
+  color:white;
+  font-weight: bold;
+  border:none;
+  cursor:pointer;
+  transition: 0.4s;
+  display:inline;
+}
 
 .style-btn:hover {
-    background-position: right;
-    }
-
-  #id_comment_text{
-    height:60px;
-    width:700px;;
+  background-position: right;
   }
 
-  #id_title {
-    width: 720px;
-  }
+#id_comment_text{
+  height:60px;
+  width:700px;;
+}
 
-  .card-img-top {
-    height : 15rem;
-    object-fit: cover;
-  }
+#id_title {
+  width: 720px;
+}
+
+.card-img-top {
+  height : 15rem;
+  object-fit: cover;
+}
 /* -------------------------------------------------- */
 
 .instructor_list_hero{
-    background-color: #40a9ff;
-    display: block;
+  background-color: #40a9ff;
+  display: block;
 }
 
 .hero-content{
-  padding: 32px;
-  position: relative;
-  margin: auto;
-  max-width: 1200px;
-  flex-grow: 1;
-  width: auto;
+padding: 32px;
+position: relative;
+margin: auto;
+max-width: 1200px;
+flex-grow: 1;
+width: auto;
 }
 
 .hero-content__image-cover{
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  background-image: url(https://cdn.inflearn.com/public/mentors/mentors_banner_w.png);
-  background-position: right 30%;
-  background-repeat: no-repeat;
+position: absolute;
+top: 0;
+bottom: 0;
+right: 0;
+left: 0;
+background-image: url(https://cdn.inflearn.com/public/mentors/mentors_banner_w.png);
+background-position: right 30%;
+background-repeat: no-repeat;
 }
 
 .heading_list{
-  font-size: 26px;
-  font-weight: 800;
-  line-height: 1.46;
-  color: #1b1c1d;
+font-size: 26px;
+font-weight: 800;
+line-height: 1.46;
+/* color: #1b1c1d; */
 }
 
 .heading_desc{
-  margin-top: 0.75rem;
-  letter-spacing: -.3px;
-  font-size: 14px;
-  font-weight: 700;
-  line-height: 1.5;
-  color: #1b1c1d;
+margin-top: 0.75rem;
+letter-spacing: -.3px;
+font-size: 14px;
+font-weight: 700;
+line-height: 1.5;
+color: #1b1c1d;
 }
 
 #mainheader{
   width: 1300px;
   height: 240px;
+}
+
+
+
+/* Writting */
+.background{
+max-width: 1040px;
+/* display: flex; */
+flex-direction: column;
+padding: 16px;
+width: 1024px;
+margin: 0 auto;
+color: #333;
+grid-gap: 50px;
+gap: 50px;
+position: relative;
+}
+
+.recruitment_info_bg{
+width: 720px;
+margin-left: 140px;
+}
+.recruitment_line{
+width: 100%;
+height: 2px;
+margin-top: 20px;
+background-color: gainsboro;
+}
+.recruitment_title{
+margin-top: 80px;
+font-size: x-large;
+}
+.recruitment_title2{
+margin-top: 80px;
+font-size: x-large;
+
+}
+.fa-circle-check{
+margin-right: 20px;
+color: #2D9BF0;
+}
+
+.recruitment_list{
+display: grid;
+padding: 0;
+grid-template-columns: repeat(2,3fr);
+grid-row-gap: 24px;
+row-gap: 24px;
+margin-top: 40px;
+list-style: none;
+}
+
+.recruitment_item{
+/* list-style: n; */
+font-weight: bold;
+}
+
+
+.recruitment_text option{
+color: black;
+}
+
+
+
+/*Styling Selectbox*/
+.dropdown {
+display: inline-block;
+background-color: #fff;
+border-radius: 2px;
+box-shadow: 0 0 2px rgb(204, 204, 204);
+transition: all .5s ease;
+position: relative;
+font-size: 14px;
+color: #474747;
+height: 40px;
+text-align: left;
+}
+.dropdown .select {
+  cursor: pointer;
+  display: block;
+  padding: 10px
+}
+.dropdown:hover {
+  box-shadow: 0 0 4px rgb(204, 204, 204)
+}
+.dropdown:active {
+  background-color: #f8f8f8
+}
+.dropdown.active:hover,
+.dropdown.active {
+  box-shadow: 0 0 4px rgb(204, 204, 204);
+  border-radius: 2px 2px 0 0;
+  background-color: #f8f8f8
+}
+.dropdown.active .select > i {
+  transform: rotate(-90deg)
+}
+.dropdown .dropdown-menu {
+  position: absolute;
+  background-color: #fff;
+  width: 100%;
+  left: 0;
+  margin-top: 1px;
+  box-shadow: 0 1px 2px rgb(204, 204, 204);
+  border-radius: 0 1px 2px 2px;
+  overflow: hidden;
+  display: none;
+  max-height: 144px;
+  overflow-y: auto;
+  z-index: 9
+}
+.dropdown .dropdown-menu li {
+  padding: 10px;
+  transition: all .2s ease-in-out;
+  cursor: pointer
+} 
+.dropdown .dropdown-menu {
+  padding: 0;
+  list-style: none
+}
+.dropdown .dropdown-menu li:hover {
+  background-color: #f2f2f2
+}
+.dropdown .dropdown-menu li:active {
+  background-color: #e2e2e2
+}
+
+.calender, .start_date{
+width: 300px;
+display: inline-block;
+background-color: white;
+border: #f8f8f8;
+border-radius: 2px;
+box-shadow: 0 0 2px rgb(204 204 204);
+transition: all .5s ease;
+position: relative;
+font-size: 14px;
+color: #474747;
+height: 40px;
+text-align: left;
+margin-top: 20px;
+}
+
+input{
+outline:rgb(204, 204, 204)
+}
+
+.calender:hover,.start_date:hover{
+background-color:  #f8f8f8;;
+}
+
+.calender:focus,.start_date:focus{
+outline: 1px solid #f8f8f8;
+}
+
+.link, .tag{
+width: 100%;
+height: 100%;
+border:0 solid black;
+}
+
+.recruitment_btn{
+margin-top: 20px;
+}
+
+.style-btn{
+background-color: #2D9BF0;
+border-radius: 22px;
+}
+
+.header-btn{
+  border:none;
+  background-color:#fff;
+  font-weight: 600;
+  font-size: 0.9rem;
+  display: block;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
 }

@@ -1,7 +1,13 @@
 .container{
-    max-width:1170px; margin:auto;
+    max-width:1170px; 
+    margin:auto;
 }
 
+.chatrooms{
+  width:90%;
+  margin:5%;
+  margin-top:2%;
+}
 img{ 
     max-width:100%;
     border-radius:290486px;
@@ -160,4 +166,18 @@ img{
 
 .profile-open-popup{
    cursor: pointer;
+}
+
+.chatrooms-title{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.text-center{
+
+}
+
+.chatrooms-exit{
+  
 }

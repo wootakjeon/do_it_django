@@ -103,7 +103,7 @@ body {
   width: 100%;
   border:none;
   outline:none;
-  color: #636e72;
+  color: red;
   font-size:16px;
   height:25px;
   background: none;
@@ -193,4 +193,3 @@ body {
 .round input[type="radio"]:checked + label:after {
   opacity: 1;
 }
-

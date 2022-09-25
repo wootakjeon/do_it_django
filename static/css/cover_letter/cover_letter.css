@@ -1,0 +1,39 @@
+.letter_background{
+    margin-top: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.letter{
+    display: flex;
+    flex-direction: row;
+}
+
+.before{
+    width: 500px;
+    height: 450px;
+    border: 2px solid #90CAF9;
+}
+
+.after{
+    width: 500px;
+    height: 450px;
+    margin-left: 100px;
+    border: 2px solid #90CAF9;
+}
+
+.letter_btn{
+    width: 150px;
+    height: 60px;
+    margin-top:30px;
+    /* margin-left: 50%; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   line-height: 100px;
+   color: white;
+   font-size: x-large;
+  background-color: #2D9BF0;
+}

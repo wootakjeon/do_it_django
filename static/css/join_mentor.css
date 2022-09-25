@@ -1,0 +1,533 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  text-decoration: none;
+  font-family:sans-serif;
+  /* background-color: rgb(248, 249, 250); */
+  background-color: white;
+}
+
+body{
+  height: 100%;
+}
+
+.signForm{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  width: 700px;
+  height: 1250px;
+  text-align:center;
+  margin-left: 600px;
+  margin-top: 80px;
+ 
+}
+
+.space{
+  display: flex;
+  background-color: white;
+}
+
+.img_bg{
+  position: relative;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  /* background-color: red; */
+}
+
+
+.img_bg img{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* .img_up{
+  width: 400px;
+  height: 50px;
+} */
+
+.container{
+  width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  border-top-left-radius: 30%; 
+  border-top-right-radius: 30%;
+}
+
+.image-upload{
+  width: 100%;
+  height: 100px;
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
+
+}
+
+.button{
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  background-color: #2D9BF0;
+  border-radius: 30px;
+}
+
+.img_select {
+  background-color: #2D9BF0;
+  cursor: pointer;
+  /* font-size: 1em; */
+  border-radius: 50%;
+  font-weight: bold;
+  color: white;
+  font-size: medium;
+}
+
+#chooseFile {
+visibility: hidden;
+}
+
+.file_open{
+width: 100%;
+margin-top: 25px;
+margin-left: 7px;
+}
+.fileContainer {
+margin-left: 20px;
+display: flex;
+align-items: center;
+}
+
+.fileInput {
+display: flex;
+/* align-items: center; */
+width: 550px;
+font-weight: bold;
+}
+
+#fileName {
+margin-left: 20px;
+width: 220px;
+border-bottom: solid 2px #90CAF9;
+}
+
+.buttonContainer {
+width: 30%;
+height: 30px;
+display: flex;
+justify-content: center;
+align-items: center;
+margin-left: 10px;
+background-color: #2D9BF0;
+color: white;
+border-radius: 30px;
+padding: 10px;
+font-size: 0.8em;
+cursor: pointer;
+}
+
+.submitButton{
+background-color: #2D9BF0;
+font-weight: bold;
+font-size: medium;
+}
+
+.image-show {
+z-index: -1;
+display: flex;
+justify-content: center;
+align-items: center;
+position: absolute;
+width: 100%;
+height: 100%;
+}
+
+.img {
+position: absolute;
+border-radius: 50%;
+}
+
+.formframe{
+  /* width: 1000px; */
+  margin: 0 auto;
+  margin-top: 25px;
+  border: 1px solid #90CAF9;
+  /* border-top-left-radius: 30%; 
+  border-top-right-radius: 30%; */
+  border-radius: 30px;
+  box-shadow: 5px 5px 5px 5px gainsboro;
+ 
+}
+
+.form_design_img{
+  width: 100%;
+  height:200px;
+  background-color: white;
+  border: 1px solid #90CAF9;
+  display: flex;
+  flex-direction: row;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+}
+
+.form_design{
+  height: 60px;
+  background-color: white;
+  border: 1px solid #90CAF9;
+  display: flex;
+  flex-direction: row;
+  
+}
+.form_design_description{
+  height: 150px;
+  background-color: white;
+  border: 1px solid #90CAF9;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+}
+::placeholder{
+  font-size: 1em;
+}
+.info_text_name{
+  width: 130px;
+  margin-left: 10px;
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+}
+
+.info_text_nickname{
+  width: 130px;
+  margin-left: 10px;
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+}
+.info_text_phone{
+  width: 130px;
+  margin-left: 10px;
+  display: flex;
+  align-items: center;
+  justify-content:left;
+  font-weight: bold;
+}
+
+.info_text_birthday{
+  width: 130px;
+  margin-left: 10px;
+  display: flex;
+  align-items: center;
+  justify-content:left;
+  font-weight: bold;
+}
+
+.info_text_gender{
+  width: 130px;
+  margin-left: 10px;
+  margin-right: 23px;
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+}
+
+.gender_select{
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  align-items: center;
+}
+
+input[class="male"]{
+  position: relative;
+  top: 1.5px;
+}
+
+input[class="female"]{
+  position: relative;
+  /* top: 1.5px; */
+}
+
+
+input[type="checkbox"] {
+  width: 25px; 
+  height: 25px; 
+}
+
+.gender_text{
+  width: 50px;
+  color: #636e72;
+  margin-right: 100px;
+}
+
+.info_text_id{
+  width: 130px;
+  margin-left: 10px;
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+}
+
+.info_text_pw{
+  width: 130px;
+  margin-left: 10px;
+  display: flex;
+  align-items: center;
+  justify-content:left;
+  font-weight: bold;
+}
+
+.info_text_pwCheck{
+  width: 130px;
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+
+
+.info_text_univerinfo{
+  width: 100px;
+  margin-left: 10px;
+  display: flex;
+  align-items: center;
+  justify-content:left;
+  font-weight: bold;
+}
+
+.info_text_univerinfo_select{
+  width: 130px;
+  margin-left: 10px;
+  display: flex;
+  align-items: center;
+  justify-content:left;
+  font-weight: bold;
+}
+
+.info_text_attending{
+  width: 100px;
+  margin-left: 10px;
+  display: flex;
+  align-items: center;
+  justify-content:left;
+  font-weight: bold;
+}
+
+.info_text_title{
+  width: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+.info_text_description{
+  width: 130px;
+  margin-top: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.name {
+  width: 200px;
+  border:none;
+  outline:none;
+  color: #636e72;
+  font-size:16px;
+  height:25px;
+  background: none;
+  margin-top: 15px;
+  margin-left: 20px;
+  border-bottom: 2px solid #adadad;
+}
+
+/* .email {
+  width: 300px;
+  border:none;
+  outline:none;
+  color: #636e72;
+  font-size:16px;
+  height:25px;
+  background: none;
+  margin-top: 15px;
+  margin-left: 20px;
+  border-bottom: 2px solid #adadad;
+
+} */
+
+.nickname {
+  width: 200px;
+  border:none;
+  outline:none;
+  color: #636e72;
+  font-size:16px;
+  height:25px;
+  background: none;
+  margin-top: 15px;
+  margin-left: 20px;
+  border-bottom: 2px solid #adadad;
+}
+
+.cellphoneNo {
+  width: 200px;
+  border:none;
+  outline:none;
+  color: #636e72;
+  font-size:16px;
+  height:25px;
+  background: none;
+  margin-top: 15px;
+  margin-left: 20px;
+  border-bottom: 2px solid #adadad;
+}
+.birthday{
+  width: 200px;
+  border:none;
+  outline:none;
+  color: #636e72;
+  font-size:16px;
+  height:25px;
+  background: none;
+  margin-top: 15px;
+  margin-left: 20px;
+  border-bottom: 2px solid #adadad;
+
+}
+
+select{
+  text-align-last: center;
+ text-align: center;
+ -ms-text-align-last: center;
+ -moz-text-align-last: center;
+}
+
+.user_id {
+  width: 200px;
+  border:none;
+  outline:none;
+  color: #636e72;
+  font-size:16px;
+  height:25px;
+  background: none;
+  margin-top: 15px;
+  margin-left: 20px;
+  border-bottom: 2px solid #adadad;
+}
+
+.pw{
+  width: 200px;
+  border:none;
+  outline:none;
+  color: #636e72;
+  font-size:16px;
+  height:25px;
+  background: none;
+  margin-top: 15px;
+  margin-left: 20px;
+  border-bottom: 2px solid #adadad;
+}
+
+.passwordCheck{
+  width: 100%;
+  border:none;
+  outline:none;
+  color: #636e72;
+  font-size:16px;
+  height:25px;
+  background: none;
+ margin-top: 15px;
+  margin-left: 20px;
+}
+
+
+.university{
+  width: 125px;
+  height: 40px;
+  margin-left: 50px;
+  margin-top: 10px;
+  background-color: white;
+  color: #636e72;
+}
+
+.university_select{
+  width: 125px;
+  height: 40px;
+  margin-left: 20px;
+  margin-top: 10px;
+  background-color: white;
+  color: #636e72;
+}
+
+.attending{
+  width: 100px;
+  height: 40px;
+  margin-left: 50px;
+  margin-top: 10px;
+  background-color: white;
+  color: #636e72;
+}
+
+.department{
+  width: 200px;
+  height: 20px;
+  margin-top: 20px;
+  border:none;
+  outline:none;
+  background-color: white;
+  margin-left: 50px;
+  border-bottom: 2px solid #adadad;
+ 
+}
+
+.title{
+  width: 100%;
+  border:none;
+  outline:none;
+  color: #636e72;
+  font-size:16px;
+  height:25px;
+  background: none;
+  margin-top: 15px;
+  margin-left: 20px;
+}
+
+.description{
+  width: 99%;
+  height: 90px;
+  border:none;
+  outline:none;
+  color: #636e72;
+  font-size:16px;
+  background: none;
+  margin-top: 10px;
+  margin-left: 8px;
+  overflow-y: hidden;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+}
+
+.sign_btn{
+  width: 40%;
+  height: 60px;
+  border:none;
+  border-radius: 30px;
+  margin-top:50px;
+  text-align: center;
+  color: white;
+  font-size: x-large;
+  background-color: #2D9BF0;
+}
+
+
+.error {
+  color:red;
+  font-size: 3px;
+}

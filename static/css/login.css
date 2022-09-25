@@ -1,13 +1,13 @@
 .loginForm {
   position:absolute;
-  width:380px;
+  width:700px;
   height:350px;
   padding: 30px, 20px;
-  text-align:center;
+  /* text-align:center; */
   top:50%;
-  left:50%;
+  left:40%;
   transform: translate(-50%,-50%);
-  border-radius: 15px;
+  /* border-radius: 15px; */
 }
 
 .loginForm h2{
@@ -15,16 +15,74 @@
   margin: 30px;
 }
 
+.login_background{
+  width: 1000px;
+  display: flex;
+  border-radius: 30px;
+  /* border: 1px solid #2D9BF0; */
+  box-shadow: 5px 5px 5px 5px gainsboro;
+}
+
+.greetings{
+  background-color:  #2D9BF0;
+  width: 500px;
+  /* display: flex; */
+  /* align-items: center; */
+  /* justify-content: center; */
+  border-radius: 20px 0px 0px 20px;
+}
+
+.text{
+  width: 500px;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  /* margin-left: 20px; */
+  
+}
+.title{
+  color: white;
+  font-size: xx-large;
+  font-weight: bold;
+}
+
+.description{
+  margin-top: 20px;
+  color: white;
+  font-size: large;
+}
+
+.logininfo{
+  width: 500px;
+  border-radius: 20px 0px 0px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .idForm{
+  width: 300px;
   border-bottom: 2px solid #adadad;
-  margin: 30px;
+  /* margin: 30px; */
+  margin-bottom: 50px;
   padding: 10px 10px;
+  margin-top: 50px;
+}
+
+.idForm:hover  {
+  border-bottom: 2px solid  #2D9BF0;
 }
 
 .passForm{
+  width: 300px;
   border-bottom: 2px solid #adadad;
-  margin: 30px;
+  margin-bottom: 50px;
   padding: 10px 10px;
+}
+.passForm:hover  {
+  border-bottom: 2px solid  #2D9BF0;
 }
 
 .id {
@@ -44,25 +102,32 @@
   color: #636e72;
   font-size:16px;
   height:25px;
-  background: none;
+  /* background: none; */
 }
 
+
+
 .login-btn {
-  position:relative;
-  left:40%;
-  transform: translateX(-50%);
-  margin-bottom: 40px;
-  width:80%;
-  height:40px;
-  background: linear-gradient(125deg,#81ecec,#6c5ce7,#81ecec);
-  background-position: left;
-  background-size: 200%;
+  /* position:relative; */
+  /* left:50%; */
+  /* transform: translateX(-50%); */
+  /* margin-top: 30px; */
+  margin-bottom: 30px;
+  width: 300px;
+  height:50px;
+  background-color:   #2D9BF0;
+  /* background-position: left; */
   color:white;
+  font-size: x-large;
   font-weight: bold;
   border:none;
   cursor:pointer;
-  transition: 0.4s;
-  display:inline;
+  border-radius: 30px;
+  /* transition: 0.4s; */
+  /* display:inline; */
+
+
+  
 }
 
 .login-btn:hover {
@@ -72,8 +137,9 @@
 
 .loginForm .loginMenu {
   text-align:center;
-  margin:36px 35px 0 0;
+  margin:10px 35px 20px 0;
 }
+
 .loginForm .loginMenu li {
   display:inline-block;
   height:14px;
@@ -82,12 +148,12 @@
 }
 
 .loginForm .loginMenu li.idsearch {
-  margin:4px 18.5px 4px 25.5px;
+  margin:2px 18.5px 4px 25.5px;
 }
 
 .loginForm .loginMenu li a {
-  font-size:14px;
-  color:#aaa;
+  font-size:20px;
+  color:#90CAF9;
 }
 
 .error{

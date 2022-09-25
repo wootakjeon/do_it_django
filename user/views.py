@@ -42,11 +42,6 @@ def login(request):
     else:
         return render(request, "user/login.html")
 
-
-def reset_pw(request):
-    return render(request, 'user/reset_pw.html')
-
-
 def join(request):
     if request.method == 'POST':
         if request.POST['password'] == request.POST['passwordCheck']:
@@ -61,10 +56,19 @@ def join(request):
                 role=request.POST['gender']
             ).save()
             return redirect('login')
-        return render(request, 'user/join.html')
+        return render(request, 'user/join_select.html')
     else:
         form = UserCreationForm
-        return render(request, 'user/join.html', {'form': form})
+        return render(request, 'user/join_select.html', {'form': form})
+
+def join_select(request):
+    return render(request, 'user/join_select.html')
+
+def join_mentor(request):
+    return render(request, 'user/join_mentor.html')
+
+def join_mentee(request):
+    return render(request, 'user/join_mentee.html')
 
 
 def logout(request):
@@ -72,24 +76,17 @@ def logout(request):
     return redirect('login')
 
 
-def board(request):
-    boards = Post.objects.all().select_related('author').order_by('-id')
-    boards_count = len(boards)
-    page = request.GET.get('page', 1)
-    paginator = Paginator(boards, 5)
-    board_list = paginator.get_page(page)
-    return render(request, 'user/board.html',
-                  {'boards': boards, 'board_list': board_list, 'boards_count': boards_count, 'page': page})
+def community(request):
+    return render(request,'user/community.html')
 
-
-def board_write(request):
+def new_writing(request):
     login_session = request.session.get('login_session', '')
     context = {'login_session': login_session}
 
     if request.method == 'GET':
         write_form = BoardWriteForm()
         context['forms'] = write_form
-        return render(request, 'user/board_write.html', context)
+        return render(request, 'user/new_writing.html', context)
 
     elif request.method == 'POST':
         write_form = BoardWriteForm(request.POST)
@@ -104,76 +101,62 @@ def board_write(request):
 
             )
             post.save()
-            return redirect('/board')
+            return redirect('/community')
         else:
             context['forms'] = write_form
             if write_form.errors:
                 for value in write_form.errors.values():
                     context['error'] = value
-            return render(request, 'user/board_write.html', context)
+            return render(request, 'user/new_writing.html', context)
 
 
-def board_detail(request, boardid):
-    board = get_object_or_404(Post, pk=boardid)
-    session = request.session['user']
-    login_user = User.objects.get(email=session)
-    board.show_ct += 1
-    board.save()
-    comment_form = CommentForm()
 
-    if board.author.email == request.session['user']:
-        saw = True
-    else:
-        saw = False
+    # return render(request,'user/new_writing.html')
 
-    context = {'board': board, 'session': session, 'comment_form': comment_form, 'saw': saw, 'login_user': login_user}
-    return render(request, 'user/board_detail.html', context)
+def community_post(request):
+    return render(request,'user/community_post.html')
 
 
-def board_delete(request, boardid):
-    board_number = get_object_or_404(Post, id=boardid)
-    if board_number.author.email == request.session['user']:
-        board_number.delete()
-        conn = MySQLdb.connect(host='localhost', user='root', passwd='Fleur0320!@#', db='django_insta')
-        cur = conn.cursor()
-        cur.nextset()
-        cur.execute('call renumber()', {})
-        return redirect('/board')
-    else:
-        print("아이디 틀림")
-        return redirect(f'/board/board_detail/{boardid}/')
+def board(request):
+    boards = Post.objects.all().select_related('author').order_by('-id')
+    boards_count = len(boards)
+    page = request.GET.get('page', 1)
+    paginator = Paginator(boards, 5)
+    board_list = paginator.get_page(page)
+    return render(request, 'user/board.html',
+                  {'boards': boards, 'board_list': board_list, 'boards_count': boards_count, 'page': page})
 
 
-def board_modify(request, boardid):
-    board_number = get_object_or_404(Post, id=boardid)
-    session = request.session['user']
+def board_write(request):
+     login_session = request.session.get('login_session', '')
+     context = {'login_session': login_session}
 
-    context = {'board': board_number, 'session': session}
+     if request.method == 'GET':
+         write_form = BoardWriteForm()
+         context['forms'] = write_form
+         return render(request,'user/new_writing.html')
 
-    if board_number.author.email != request.session['user']:
-        return redirect(f'/board/board_detail/{boardid}/')
+     elif request.method == 'POST':
+         write_form = BoardWriteForm(request.POST)
 
-    if request.method == 'GET':
-        write_form = BoardWriteForm(instance=board_number)
-        context['forms'] = write_form
-        return render(request, 'user/board_modify.html', context)
+         if write_form.is_valid():
+             post = Post(
+                 title=write_form.title,
+                 text=write_form.text,
+                 author_id=request.session['user'],
+                 show_ct=0
+             )
+             post.save()
+             return redirect('/new_writing')
+         else:
+             context['forms'] = write_form
+             if write_form.errors:
+                 for value in write_form.errors.values():
+                     context['error'] = value
+             return render(request,'user/new_writing.html')
 
-    elif request.method == 'POST':
-        write_form = BoardWriteForm(request.POST)
-
-        if write_form.is_valid():
-
-            board_number.title = write_form.title
-            board_number.text = write_form.text
-            board_number.save()
-            return redirect('/board')
-        else:
-            context['forms'] = write_form
-            if write_form.errors:
-                for value in write_form.errors.values():
-                    context['error'] = value
-            return render(request, 'user/board_modify.html', context)
-
+def cover_letter(request):
+    return render(request,'user/cover_letter.html')
 
 def new_comment(request, boardid):
     filled_form = CommentForm(request.POST)

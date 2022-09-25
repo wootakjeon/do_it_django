@@ -1,0 +1,170 @@
+.community_background{
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 2rem;
+    padding: 1.5rem 1.5rem 5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.title_background{
+    margin-top: 2.5rem;
+    font-weight: 800;
+    font-size: 3rem;
+}
+
+.user_info_bg{
+    margin-top: 40px;
+    /* padding-bottom: 20px; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+
+.user_img{
+    height: 2.5rem;
+    margin-right: 15px;
+}
+
+.content_user{
+    display: flex;
+    justify-content: flex-end;
+    padding-bottom: 32px;
+    border-bottom: 3px solid #f2f2f2;
+}
+
+.update{
+    border: none;
+    margin-right: 10px;
+    color: #2D9BF0;
+    font-weight: bold;
+    background-color: white;
+}
+
+.delete{
+    border: none;
+    color: #2D9BF0;
+    font-weight: bold;
+    background-color: white
+}
+
+.username{
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.post_date{
+    margin-left: 15px;
+    font-size: 15px;
+    font-weight: 700;
+    color: #bcbcbc;
+}
+
+.info{
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(2,3fr);
+    grid-row-gap: 24px;
+    row-gap: 24px;
+    margin-top: 60px;
+    padding :  0;
+    /* font-size: 18px;
+    font-weight: 700; */
+}
+
+.recruitment_info{
+    padding-bottom: 24px;
+    border-bottom: 3px solid #f2f2f2;
+}
+
+
+.recruitment_info_list{
+    font-weight: 700;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.recruitment_info_title{
+    color: #717171;
+    margin-right: 40px;
+}
+
+.recruitment_linktab{
+    width: 170px;
+    background-color: #90CAF9;
+    border-radius: 10px;
+    text-align: center;
+}
+
+
+.recruitment_link:hover{
+    color: black;
+}
+
+.content_background{
+    width: 100%;
+    height: 100px;
+    margin-top: 25px;
+}
+
+.context_title{
+    font-size: 26px;
+    font-weight: 700;
+    padding-bottom: 24px;
+    border-bottom: 3px solid #f2f2f2;
+}
+
+.context{
+    line-height: 1.7;
+    width: 100%;
+    margin: 40px auto 0;
+}
+
+.comment_bg{
+    /* display: flex; */
+    /* flex-direction: column; */
+    margin-top: 100px;
+}
+
+.comment_cnt{
+    margin-bottom: 20px;
+    font-weight: bold;
+    font-size: large;
+}
+
+.comment_div{
+    display: flex;
+}
+
+.commnet{
+    width: 80%;
+    padding: 1rem 1rem 1.5rem;
+    border-radius: 22px;
+    resize: none;
+}
+
+.comment_btn{
+    width: 100px;
+    height: 100%;
+    margin-top: 20px;
+    margin-left: 30px;
+}
+
+.btn_design{
+    width: 100%;
+    height: 20px;
+    padding: 10px 30px;
+    min-width: 120px;
+    height: 40px;
+    background: #2D9BF0;;
+    border-radius: 50px;
+    font-weight: 700;
+    color: #fff;
+    font-size: 18px;
+    outline: none;
+    border: none;
+    margin-bottom: 10px;
+}
