@@ -44,19 +44,17 @@
                         <div class="view">
                             <div class="columns is-multiline is-mobile">
                                 <!-- Mentor -->
-                                {% for mentor in mentorList %}
+                                
                                 <div class="column is-3-desktop is-4-tablet is-6-mobile">
                                     <div class="mentor_card">
                                         <div class="card-body">
                                             <div class="mentor-image">                                                                                                                                                    
                                                 <figure class="image is-1by1">
-                                                    <img class="is-rounded"
-                                                         src="{{ mentor.mentor_img.url }}"
-                                                         alt="{{mentor.mentor_img.url}}">
+                                                    <img class="is-rounded" src="{% static 'image/Profile_photo.png' %}">
                                                 </figure>
                                             </div>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
                                             <div class="mentor-info">
-                                                <h2 class="mentor-title"> {{mentor.mento_title}} </h2>                                                                                            
+                                                <h2 class="mentor-title"> 홍길동 </h2>                                                                                            
                                             </div>                                                                                    
                                         </div>
                                         <div class="mentor-info">
@@ -67,34 +65,34 @@
                                         </div>
                                         <div class="card-bottom">                               
                                             <div class="buttons">
+                                       
                                                 <!-- Modal --> 
                                                 <div class="modal">
                                                     <div class="modal_body" id="modal-body">
                                                         <div class="modal_mentor_card">
-
                                                             <div class="modal-card-body">
                                                                 <div class="modal-mentor-image">                                                                                                                                                    
                                                                     <figure class="modal-image modla-is-1by1">
                                                                         <img class="modal-is-rounded"
-                                                                            src="{{ mentor.mentor_img.url }}"
-                                                                            alt="{{mentor.mentor_img.url}}">
-                                                                    </figure>
+                                                                            src="{% static 'image/Profile_photo.png' %}"
+                                                                            alt="{% static 'image/Profile_photo.png' %}">
+                                                                    </figure>                                                               
                                                                 </div>
                                                                 <div class="mentor-info">
-                                                                    <h2 class="modal-mentor-title"> {{mentor.mento_title}} </h2>                                                                                            
+                                                                    <h2 class="modal-mentor-title"> 홍길동 </h2>                                                                                            
                                                                 </div>                                                                           
                                                             </div>
                                                             <div class="modal-department">
-                                                                학번
+                                                                학번 | 2019
                                                             </div>
                                                             <div class="modal-department">
-                                                                학교
+                                                                학교 | 동양미래대학교
                                                             </div>
                                                             <div class="modal-department">
-                                                                학과
+                                                                학과 | 컴퓨터소프트웨어공학과
                                                             </div>
                                                             <div class="modal-department">
-                                                                재학여부
+                                                                재학여부 | 재학중
                                                             </div>
                                                             <div class="modal-selftitle">
                                                                 자기소개
@@ -104,35 +102,406 @@
                                                                 9월 개강 2학기 시작                                                                                                                                                                                                                                               
                                                             </div>
                                                             <div class="modal-selfcontent">
-                                                                {{mentor.mento_content}}
+                                                               
                                                             </div>
                                                             <div class="modal-chat-btn-display">
-                                                            <a id="{{ mentor.email_id }}" href="{% url 'mentor_chatrooms' myEmail mentor.email_id %}"> <button id="{{ mentor.email_id }}" class="modal-chat-btn">채팅신청</button></a>
+                                                                <a href="{% url 'mentor_chatrooms' %}"> <button class="modal-chat-btn">채팅신청</button></a>
+                                                            {#<a id="{{ mentor.email_id }}" href="{% url 'mentor_chatrooms' myEmail mentor.email_id %}"> <button id="{{ mentor.email_id }}" class="modal-chat-btn">채팅신청</button></a>#}
 {#                                                            <a id="{{ mentor.email_id }}" href="/mentor_chatrooms/{{ myEmail }}/{{ id }}"> <button id="{{ mentor.email_id }}" class="modal-chat-btn">채팅신청</button></a>#}
                                                             </div>                                                         
                                                         </div>
                                                     </div>
-                                                </div>                                                                                                 
-                                                <button id="{{ mentor.mentor_id }}" class="button e-mentoring btn-open-popup">상세정보</button>
+                                                </div>
+                                        
+                                                <button id="" class="button e-mentoring btn-open-popup">상세정보</button>
+                                            </div>
+                                        </div>                                       
+                                    </div>                                
+                                </div>
+
+                                <div class="column is-3-desktop is-4-tablet is-6-mobile">
+                                    <div class="mentor_card">
+                                        <div class="card-body">
+                                            <div class="mentor-image">                                                                                                                                                    
+                                                <figure class="image is-1by1">
+                                                    <img class="is-rounded" src="{% static 'image/Profile_photo.png' %}">
+                                                </figure>
+                                            </div>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+                                            <div class="mentor-info">
+                                                <h2 class="mentor-title"> 유재석 </h2>                                                                                            
+                                            </div>                                                                                    
+                                        </div>
+                                        <div class="mentor-info">
+                                            <p class="mentor-username">학교 / 학과</p>
+                                        </div>
+                                        <div class="mentor-info">
+                                            <p class="mentor-tag">#논술전형 #면접통합 #정시합격 #수능위주</p>
+                                        </div>
+                                        <div class="card-bottom">                               
+                                            <div class="buttons">
+                                       
+                                                <!-- Modal --> 
+                                                <div class="modal">
+                                                    <div class="modal_body" id="modal-body">
+                                                        <div class="modal_mentor_card">
+                                                            <div class="modal-card-body">
+                                                                <div class="modal-mentor-image">                                                                                                                                                    
+                                                                    <figure class="modal-image modla-is-1by1">
+                                                                        <img class="modal-is-rounded"
+                                                                            src="{% static 'image/Profile_photo.png' %}"
+                                                                            alt="{% static 'image/Profile_photo.png' %}">
+                                                                    </figure>                                                               
+                                                                </div>
+                                                                <div class="mentor-info">
+                                                                    <h2 class="modal-mentor-title"> 유재석 </h2>                                                                                            
+                                                                </div>                                                                           
+                                                            </div>
+                                                            <div class="modal-department">
+                                                                학번 | 2022
+                                                            </div>
+                                                            <div class="modal-department">
+                                                                학교 | 동양미래대학교
+                                                            </div>
+                                                            <div class="modal-department">
+                                                                학과 | 디자인학과
+                                                            </div>
+                                                            <div class="modal-department">
+                                                                재학여부 | 재학중
+                                                            </div>
+                                                            <div class="modal-selftitle">
+                                                                자기소개
+                                                            </div>
+                                                            <div class="modal-selfcontent">
+                                                                안녕하세요 잘 부탁드립니다
+                                                                9월 개강 2학기 시작                                                                                                                                                                                                                                               
+                                                            </div>
+                                                            <div class="modal-selfcontent">
+                                                               
+                                                            </div>
+                                                            <div class="modal-chat-btn-display">
+                                                                <a href="{% url 'mentor_chatrooms' %}"> <button class="modal-chat-btn">채팅신청</button></a>
+                                                            {#<a id="{{ mentor.email_id }}" href="{% url 'mentor_chatrooms' myEmail mentor.email_id %}"> <button id="{{ mentor.email_id }}" class="modal-chat-btn">채팅신청</button></a>#}
+{#                                                            <a id="{{ mentor.email_id }}" href="/mentor_chatrooms/{{ myEmail }}/{{ id }}"> <button id="{{ mentor.email_id }}" class="modal-chat-btn">채팅신청</button></a>#}
+                                                            </div>                                                         
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                        
+                                                <button id="" class="button e-mentoring btn-open-popup">상세정보</button>
                                             </div>
                                         </div>                                       
                                     </div>
                                 </div>
 
-                                {% endfor %}
-                                    </ul>
-                                </nav>
+                                <div class="column is-3-desktop is-4-tablet is-6-mobile">
+                                    <div class="mentor_card">
+                                        <div class="card-body">
+                                            <div class="mentor-image">                                                                                                                                                    
+                                                <figure class="image is-1by1">
+                                                    <img class="is-rounded" src="{% static 'image/Profile_photo.png' %}">
+                                                </figure>
+                                            </div>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+                                            <div class="mentor-info">
+                                                <h2 class="mentor-title"> 라디오스타 </h2>                                                                                            
+                                            </div>                                                                                    
+                                        </div>
+                                        <div class="mentor-info">
+                                            <p class="mentor-username">학교 / 학과</p>
+                                        </div>
+                                        <div class="mentor-info">
+                                            <p class="mentor-tag">#생기부 #학생부종합 #수시전형</p>
+                                        </div>
+                                        <div class="card-bottom">                               
+                                            <div class="buttons">
+                                       
+                                                <!-- Modal --> 
+                                                <div class="modal">
+                                                    <div class="modal_body" id="modal-body">
+                                                        <div class="modal_mentor_card">
+                                                            <div class="modal-card-body">
+                                                                <div class="modal-mentor-image">                                                                                                                                                    
+                                                                    <figure class="modal-image modla-is-1by1">
+                                                                        <img class="modal-is-rounded"
+                                                                            src="{% static 'image/Profile_photo.png' %}"
+                                                                            alt="{% static 'image/Profile_photo.png' %}">
+                                                                    </figure>                                                               
+                                                                </div>
+                                                                <div class="mentor-info">
+                                                                    <h2 class="modal-mentor-title"> 라디오스타 </h2>                                                                                            
+                                                                </div>                                                                           
+                                                            </div>
+                                                            <div class="modal-department">
+                                                                학번 | 2020
+                                                            </div>
+                                                            <div class="modal-department">
+                                                                학교 | 동양미래대학교
+                                                            </div>
+                                                            <div class="modal-department">
+                                                                학과 | 컴퓨터소프트웨어공학과
+                                                            </div>
+                                                            <div class="modal-department">
+                                                                재학여부 | 재학중
+                                                            </div>
+                                                            <div class="modal-selftitle">
+                                                                자기소개
+                                                            </div>
+                                                            <div class="modal-selfcontent">
+                                                                안녕하세요 잘 부탁드립니다
+                                                                9월 개강 2학기 시작
+                                                                다음달 10월                                                                                                                                                                                                                                               
+                                                            </div>
+                                                            <div class="modal-selfcontent">
+                                                               
+                                                            </div>
+                                                            <div class="modal-chat-btn-display">
+                                                                <a href="{% url 'mentor_chatrooms' %}"> <button class="modal-chat-btn">채팅신청</button></a>
+                                                            {#<a id="{{ mentor.email_id }}" href="{% url 'mentor_chatrooms' myEmail mentor.email_id %}"> <button id="{{ mentor.email_id }}" class="modal-chat-btn">채팅신청</button></a>#}
+{#                                                            <a id="{{ mentor.email_id }}" href="/mentor_chatrooms/{{ myEmail }}/{{ id }}"> <button id="{{ mentor.email_id }}" class="modal-chat-btn">채팅신청</button></a>#}
+                                                            </div>                                                         
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                        
+                                                <button id="" class="button e-mentoring btn-open-popup">상세정보</button>
+                                            </div>
+                                        </div>                                       
+                                    </div>                                
+                                </div>
+
+                                <div class="column is-3-desktop is-4-tablet is-6-mobile">
+                                    <div class="mentor_card">
+                                        <div class="card-body">
+                                            <div class="mentor-image">                                                                                                                                                    
+                                                <figure class="image is-1by1">
+                                                    <img class="is-rounded" src="{% static 'image/Profile_photo.png' %}">
+                                                </figure>
+                                            </div>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+                                            <div class="mentor-info">
+                                                <h2 class="mentor-title"> 박명수 </h2>                                                                                            
+                                            </div>                                                                                    
+                                        </div>
+                                        <div class="mentor-info">
+                                            <p class="mentor-username">학교 / 학과</p>
+                                        </div>
+                                        <div class="mentor-info">
+                                            <p class="mentor-tag">#생기부 #학생부종합 #수시전형</p>
+                                        </div>
+                                        <div class="card-bottom">                               
+                                            <div class="buttons">
+                                       
+                                                <!-- Modal --> 
+                                                <div class="modal">
+                                                    <div class="modal_body" id="modal-body">
+                                                        <div class="modal_mentor_card">
+                                                            <div class="modal-card-body">
+                                                                <div class="modal-mentor-image">                                                                                                                                                    
+                                                                    <figure class="modal-image modla-is-1by1">
+                                                                        <img class="modal-is-rounded"
+                                                                            src="{% static 'image/Profile_photo.png' %}"
+                                                                            alt="{% static 'image/Profile_photo.png' %}">
+                                                                    </figure>                                                               
+                                                                </div>
+                                                                <div class="mentor-info">
+                                                                    <h2 class="modal-mentor-title"> 박명수 </h2>                                                                                            
+                                                                </div>                                                                           
+                                                            </div>
+                                                            <div class="modal-department">
+                                                                학번 | 2020
+                                                            </div>
+                                                            <div class="modal-department">
+                                                                학교 | 동양미래대학교
+                                                            </div>
+                                                            <div class="modal-department">
+                                                                학과 | 컴퓨터소프트웨어공학과
+                                                            </div>
+                                                            <div class="modal-department">
+                                                                재학여부 | 재학중
+                                                            </div>
+                                                            <div class="modal-selftitle">
+                                                                자기소개
+                                                            </div>
+                                                            <div class="modal-selfcontent">
+                                                                안녕하세요 잘 부탁드립니다
+                                                                9월 개강 2학기 시작
+                                                                다음달 10월                                                                                                                                                                                                                                               
+                                                            </div>
+                                                            <div class="modal-selfcontent">
+                                                               
+                                                            </div>
+                                                            <div class="modal-chat-btn-display">
+                                                                <a href="{% url 'mentor_chatrooms' %}"> <button class="modal-chat-btn">채팅신청</button></a>
+                                                            {#<a id="{{ mentor.email_id }}" href="{% url 'mentor_chatrooms' myEmail mentor.email_id %}"> <button id="{{ mentor.email_id }}" class="modal-chat-btn">채팅신청</button></a>#}
+{#                                                            <a id="{{ mentor.email_id }}" href="/mentor_chatrooms/{{ myEmail }}/{{ id }}"> <button id="{{ mentor.email_id }}" class="modal-chat-btn">채팅신청</button></a>#}
+                                                            </div>                                                         
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                        
+                                                <button id="" class="button e-mentoring btn-open-popup">상세정보</button>
+                                            </div>
+                                        </div>                                       
+                                    </div>                                
+                                </div>
+
+                                <div class="column is-3-desktop is-4-tablet is-6-mobile">
+                                    <div class="mentor_card">
+                                        <div class="card-body">
+                                            <div class="mentor-image">                                                                                                                                                    
+                                                <figure class="image is-1by1">
+                                                    <img class="is-rounded" src="{% static 'image/Profile_photo.png' %}">
+                                                </figure>
+                                            </div>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+                                            <div class="mentor-info">
+                                                <h2 class="mentor-title"> 분석 </h2>                                                                                            
+                                            </div>                                                                                    
+                                        </div>
+                                        <div class="mentor-info">
+                                            <p class="mentor-username">학교 / 학과</p>
+                                        </div>
+                                        <div class="mentor-info">
+                                            <p class="mentor-tag">#생기부 #학생부종합 #수시전형</p>
+                                        </div>
+                                        <div class="card-bottom">                               
+                                            <div class="buttons">
+                                       
+                                                <!-- Modal --> 
+                                                <div class="modal">
+                                                    <div class="modal_body" id="modal-body">
+                                                        <div class="modal_mentor_card">
+                                                            <div class="modal-card-body">
+                                                                <div class="modal-mentor-image">                                                                                                                                                    
+                                                                    <figure class="modal-image modla-is-1by1">
+                                                                        <img class="modal-is-rounded"
+                                                                            src="{% static 'image/Profile_photo.png' %}"
+                                                                            alt="{% static 'image/Profile_photo.png' %}">
+                                                                    </figure>                                                               
+                                                                </div>
+                                                                <div class="mentor-info">
+                                                                    <h2 class="modal-mentor-title"> 분석 </h2>                                                                                            
+                                                                </div>                                                                           
+                                                            </div>
+                                                            <div class="modal-department">
+                                                                학번 | 2020
+                                                            </div>
+                                                            <div class="modal-department">
+                                                                학교 | 동양미래대학교
+                                                            </div>
+                                                            <div class="modal-department">
+                                                                학과 | 컴퓨터소프트웨어공학과
+                                                            </div>
+                                                            <div class="modal-department">
+                                                                재학여부 | 재학중
+                                                            </div>
+                                                            <div class="modal-selftitle">
+                                                                자기소개
+                                                            </div>
+                                                            <div class="modal-selfcontent">
+                                                                안녕하세요 잘 부탁드립니다
+                                                                9월 개강 2학기 시작
+                                                                다음달 10월                                                                                                                                                                                                                                               
+                                                            </div>
+                                                            <div class="modal-selfcontent">
+                                                               
+                                                            </div>
+                                                            <div class="modal-chat-btn-display">
+                                                                <a href="{% url 'mentor_chatrooms' %}"> <button class="modal-chat-btn">채팅신청</button></a>
+                                                            {#<a id="{{ mentor.email_id }}" href="{% url 'mentor_chatrooms' myEmail mentor.email_id %}"> <button id="{{ mentor.email_id }}" class="modal-chat-btn">채팅신청</button></a>#}
+{#                                                            <a id="{{ mentor.email_id }}" href="/mentor_chatrooms/{{ myEmail }}/{{ id }}"> <button id="{{ mentor.email_id }}" class="modal-chat-btn">채팅신청</button></a>#}
+                                                            </div>                                                         
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                        
+                                                <button id="" class="button e-mentoring btn-open-popup">상세정보</button>
+                                            </div>
+                                        </div>                                       
+                                    </div>                                
+                                </div>
+
+                                <div class="column is-3-desktop is-4-tablet is-6-mobile">
+                                    <div class="mentor_card">
+                                        <div class="card-body">
+                                            <div class="mentor-image">                                                                                                                                                    
+                                                <figure class="image is-1by1">
+                                                    <img class="is-rounded" src="{% static 'image/Profile_photo.png' %}">
+                                                </figure>
+                                            </div>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+                                            <div class="mentor-info">
+                                                <h2 class="mentor-title"> 컵라면 </h2>                                                                                            
+                                            </div>                                                                                    
+                                        </div>
+                                        <div class="mentor-info">
+                                            <p class="mentor-username">학교 / 학과</p>
+                                        </div>
+                                        <div class="mentor-info">
+                                            <p class="mentor-tag">#생기부 #학생부종합 #수시전형</p>
+                                        </div>
+                                        <div class="card-bottom">                               
+                                            <div class="buttons">
+                                       
+                                                <!-- Modal --> 
+                                                <div class="modal">
+                                                    <div class="modal_body" id="modal-body">
+                                                        <div class="modal_mentor_card">
+                                                            <div class="modal-card-body">
+                                                                <div class="modal-mentor-image">                                                                                                                                                    
+                                                                    <figure class="modal-image modla-is-1by1">
+                                                                        <img class="modal-is-rounded"
+                                                                            src="{% static 'image/Profile_photo.png' %}"
+                                                                            alt="{% static 'image/Profile_photo.png' %}">
+                                                                    </figure>                                                               
+                                                                </div>
+                                                                <div class="mentor-info">
+                                                                    <h2 class="modal-mentor-title"> 컵라면 </h2>                                                                                            
+                                                                </div>                                                                           
+                                                            </div>
+                                                            <div class="modal-department">
+                                                                학번 | 2020
+                                                            </div>
+                                                            <div class="modal-department">
+                                                                학교 | 동양미래대학교
+                                                            </div>
+                                                            <div class="modal-department">
+                                                                학과 | 컴퓨터소프트웨어공학과
+                                                            </div>
+                                                            <div class="modal-department">
+                                                                재학여부 | 재학중
+                                                            </div>
+                                                            <div class="modal-selftitle">
+                                                                자기소개
+                                                            </div>
+                                                            <div class="modal-selfcontent">
+                                                                안녕하세요 잘 부탁드립니다
+                                                                9월 개강 2학기 시작
+                                                                다음달 10월                                                                                                                                                                                                                                               
+                                                            </div>
+                                                            <div class="modal-selfcontent">
+                                                               
+                                                            </div>
+                                                            <div class="modal-chat-btn-display">
+                                                                <a href="{% url 'mentor_chatrooms' %}"> <button class="modal-chat-btn">채팅신청</button></a>
+                                                            {#<a id="{{ mentor.email_id }}" href="{% url 'mentor_chatrooms' myEmail mentor.email_id %}"> <button id="{{ mentor.email_id }}" class="modal-chat-btn">채팅신청</button></a>#}
+{#                                                            <a id="{{ mentor.email_id }}" href="/mentor_chatrooms/{{ myEmail }}/{{ id }}"> <button id="{{ mentor.email_id }}" class="modal-chat-btn">채팅신청</button></a>#}
+                                                            </div>                                                         
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                        
+                                                <button id="" class="button e-mentoring btn-open-popup">상세정보</button>
+                                            </div>
+                                        </div>                                       
+                                    </div>                                
+                                </div>
+                                
                             </div>
                         </div>
                     </div>
                 </div>
+
 </main>
 
 </body>
 <!-- Javascript -->
-<script language="javascript">
-      function showPopup() { window.open("{% url 'mentor_content' %}", "a", "width=436, height=600, left=550, top=50"); }
-</script>
 <script>
     const body = document.querySelector('body');
     const modal = document.querySelectorAll('.modal');

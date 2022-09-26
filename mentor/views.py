@@ -3,8 +3,6 @@ from django.core.paginator import Paginator
 from django.db.models import QuerySet
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
-from mentor.models import Mentor
-from mentor.models import Chat_Propose
 from user.models import User
 from collections import Counter
 from mentor.chat_room_service import get_an_chat_room_list, get_chat_room_user, confirm_user_chat_room_join, \
@@ -17,37 +15,13 @@ from django.http import HttpRequest, HttpResponse
 
 
 def mentor(request):
-    mentorList = Mentor.objects.all().order_by('mentor_id')
-    page = request.GET.get('page', '1')
-    paginator = Paginator(mentorList, 16)
-    page_obj = paginator.get_page(page)
-    userList = User.objects.all()
-    session_email = request.session['user']
-    context = {'mentorList': page_obj, "userList": userList, "myEmail": session_email}
-    return render(request, 'mentor/mentor.html', context)
+    return render(request, 'mentor/mentor.html')
+
+def mentor_chatrooms(request):
+    return render(request, 'mentor/mentor_chatrooms.html')
 
 
-def mentor_up(request):
-    if request.method == 'POST':
-        Mentor(
-            mentor=request.POST['mentor'],
-            mentor_img=request.FILES['mentor_img'],
-            mento_title=request.POST['mento_title'],
-            mento_content=request.POST['mento_content'],
-            mento_type=request.POST['mento_type'],
-            email=User.objects.get(email=request.POST['email'])
-        ).save()
-        return redirect('mentor')
-
-    user_object = User.objects.all().order_by('email')
-    user_context = {'userList': user_object}
-    return render(request, 'mentor/mentor_upload.html', user_context)
-
-
-def mentor_content(request):
-    return render(request, 'mentor/mentor_content.html')
-
-def mentor_chatrooms(request: HttpRequest, myEmail: str, id: str) -> HttpResponse:
+# def mentor_chatrooms(request: HttpRequest, myEmail: str, id: str) -> HttpResponse:
     print('id:' + id)
     login_user = User.objects.get(email=myEmail)
     print(login_user)
@@ -124,7 +98,7 @@ def mentor_chatrooms(request: HttpRequest, myEmail: str, id: str) -> HttpRespons
 
 
 
-def chat_propose(request, email):
+# def chat_propose(request, email):
     print('입장')
     session_email = request.session['user']
     mentoUser = User.objects.filter(role='Mentor')
@@ -163,7 +137,7 @@ def chat_propose(request, email):
         # return redirect('reservationChat')
 
 
-def api_create_room(request: HttpRequest, email: str) -> HttpResponse:
+# def api_create_room(request: HttpRequest, email: str) -> HttpResponse:
     print('여기 입장')
     user1 = User.objects.get(email=email)
     session = request.session['user']
@@ -192,6 +166,6 @@ def api_create_room(request: HttpRequest, email: str) -> HttpResponse:
     # return redirect(("/chat/" + str(room_id)))
 
 
-def search(request):
+# def search(request):
     context = dict()
     mentorList = Mentor.objects.filter(mentor__icontains="")

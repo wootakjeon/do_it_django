@@ -11875,17 +11875,7 @@ div.certificate-container .certificate-utils .ac-button.certificate-utils__close
 	border-radius:4px;
 	overflow-y:auto
 }
-.modal section.modal-card.question-modal .modal-card-body {
-	padding:28px 28px 0;
-	height:90%;
-	max-height:calc(100vh - 145px);
-	overflow-y:auto
-}
-@media screen and (max-width:768px) {
-	.modal section.modal-card.question-modal .modal-card-body {
-		padding:24px 24px 0
-	}
-}
+
 .modal section.modal-card.question-modal .form__item {
 	display:flex;
 	flex-direction:column;
