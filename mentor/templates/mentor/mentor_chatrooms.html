@@ -21,20 +21,21 @@
 {% include "user/header.html" %}
 
 <body>
-    <main>
+<main>
+  <div class="chatrooms">
 
-        <div class="chatrooms">
-            <div class="chatrooms-title">
-                <div><h3 class="text-center">Messaging </h3></div>
-                <div class="chatrooms-exit">
-                  <a href="{% url 'mentor' %}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-square-fill" viewBox="0 0 16 16">
-                    <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm3.354 4.646L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 1 1 .708-.708z"/></svg>
-                  </a>
-                </div>
-            </div>
+      <div class="chatrooms-title">
+        <div><h3 class="text-center">Messaging </h3></div>
+        <div class="chatrooms-exit">
+          <a href="{% url 'mentor' %}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-square-fill" viewBox="0 0 16 16">
+          <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm3.354 4.646L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 1 1 .708-.708z"/></svg></a>
+        </div>
+      </div>
+
+            <!--Left panel-->
             <div class="messaging">
-                  <div class="inbox_msg">
-                    <div class="inbox_people">
+                <div class="inbox_msg">
+                  <div class="inbox_people">
                       <div class="headind_srch">
                         <div class="recent_heading">
                           <h4>채팅목록</h4>
@@ -60,36 +61,14 @@
                                 </div>                                                                        
                             </div>
                         </div>
-                        <div class="chat_list active_chat" email="" id="">
-                          <div class="chat_people">
-                              <div class="chat_img"> <img src="{% static 'image/Profile_photo.png' %}" class="profile-open-popup" alt="sunil"> </div>
-                              <div class="chat_ib"><a href="{% url 'mentor_chatrooms' %}">
-                                <h5>Test2<span class="chat_date">AM 11:25</span></h5>
-                                <p>Test, which is a new approach to have all solutions 
-                                  astrology under one roof.</p>
-                                </a>
-                              </div>                                                                        
-                          </div>
-                        </div>
-                        <div class="chat_list active_chat" email="" id="">
-                          <div class="chat_people">
-                              <div class="chat_img"> <img src="{% static 'image/Profile_photo.png' %}" class="profile-open-popup" alt="sunil"> </div>
-                              <div class="chat_ib"><a href="{% url 'mentor_chatrooms' %}">
-                                <h5>Test3<span class="chat_date">2022-09-25</span></h5>
-                                <p>Test, which is a new approach to have all solutions 
-                                  astrology under one roof.</p>
-                                </a>
-                              </div>                                                                        
-                          </div>
-                        </div>
-
                       </div>
-            </div>
+                </div>
 
 
-                  <!-- 채팅 메시지 나누는 방 -->
+                  <!--Chat Start-->
                   <div id="chat_Table" class="mesgs">
                     <div class="msg_history" id="chat-log">
+                      <!--Received message-->
                       <div class="incoming_msg">
                         <div class="incoming_msg_img"> <img src="{% static 'image/Profile_photo.png' %}" alt="sunil"> </div>
                         <div class="received_msg">
@@ -100,32 +79,11 @@
                               </div>
                         </div>
                       </div>
+                      <!--Sent message-->
                       <div class="outgoing_msg">
                         <div class="sent_msg">
                           <p>It's being tested. Please check</p>
                           <div class="outgoing_time"><span class="time_date"> 오후 6:11 </span></div>
-                        </div>
-                      </div>
-                      <div class="incoming_msg">
-                        <div class="incoming_msg_img"> <img src="{% static 'image/Profile_photo.png' %}" alt="sunil"> </div>
-                        <div class="received_msg">
-                          <div class="received_withd_msg">
-                            <p>Test, which is a new approach to have</p>
-                            <span class="time_date"> 오후 6:12 </span></div>
-                        </div>
-                      </div>
-                      <div class="outgoing_msg">
-                        <div class="sent_msg">
-                          <p>Yes, Test</p>
-                          <div class="outgoing_time"><span class="time_date"> 오후 6:30 </span> </div>
-                        </div>
-                      </div>
-                      <div class="incoming_msg">
-                        <div class="incoming_msg_img"> <img src="{% static 'image/Profile_photo.png' %}" alt="sunil"> </div>
-                        <div class="received_msg">
-                          <div class="received_withd_msg">
-                            <p>I'm making a skeleton for the chat room</p>
-                            <span class="time_date"> 오후 6:49 </span></div>
                         </div>
                       </div>
                     </div>
@@ -143,10 +101,10 @@
                   </div>
                 </div>
                 </div>
-          </div>
-      </div>
+        </div>
+  </div>
 
-  </main>
+</main>
 </body>
 
 <!-- Javascript -->

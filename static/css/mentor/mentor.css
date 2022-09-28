@@ -1556,14 +1556,23 @@
 
 .modal-department{
 	display: flex;
-	padding-bottom:7px;
+	align-items: center;
+	padding-bottom:5px;
 	padding-left:16px;
 	font-weight: bold;	
-	font-size: 0.75rem;
+	font-size: 1rem;
 	color: black;
 	font-family: "Spoqa Han Sans Neo",-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
 }
-
+.modal-department-data{
+	text-align: center;
+	font-size: 0.8rem;
+	margin:0;
+	padding-left:1rem;
+	line-height: 0;
+	color: black;
+	font-family: "Spoqa Han Sans Neo",-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+}
 .modal-selftitle{
 	border-top: 2px solid #f2f2f2;
 	font-weight: bold;
@@ -1585,13 +1594,13 @@
 }
 .modal-mentor-image{
 	width:70px;
-	margin-right: 15px;
+	margin-right: 20px;
 }
 
 .modal-card-body {
 	display: flex;
 	padding-top:15px;
-	padding-left:16px;
+	padding-left:15px;
 	height:35%;
 	max-height:calc(100vh - 145px);
 	overflow-y:auto
@@ -1617,7 +1626,7 @@
 }
 
 .modal-mentor-title{
-	font-size:19px;
+	font-size:18px;
 	color:#212529;
 	font-weight:bold;
 	line-height:1.5;
@@ -1758,4 +1767,210 @@ a:hover {
 		background-position: calc(100% - 10px);
 		background-size: 10px;
 	}
+}
+
+#rwd_footer .pc_footer .btn_top{
+	display: block;
+    width: 50px;
+    height: 50px;
+    line-height: 38px;
+    font-size: 11px;
+    text-align: center;
+    border-radius: 38px;
+    background-color: #000;
+    color: #fff;
+    position: fixed;
+    right: 100px;
+    bottom: 90px;
+    box-shadow: 0 5px 8px rgb(0 0 0 / 20%);
+    z-index: 2;
+}
+
+#rwd_footer .pc_footer .btn_top span {
+    display: inline-block;
+    padding-top: 11px;
+    position: relative;
+}
+
+#rwd_footer .pc_footer .btn_top span:after {
+    content: "";
+    display: block;
+    width: 6px;
+    height: 3px;
+    background: url('../../image/ico_05.png') 0 0 no-repeat;
+    font-size: 4px;
+    position: absolute;
+    left: 50%;
+    margin-left: -3px;
+    top: 14px;
+}
+
+.popup_all > div.open {
+    top: 0;
+    transition: top 0.05s ease-out 0s;
+}
+
+.popup_all .popup_type {
+    z-index: 99999999;
+}
+
+.popup_all > div {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 100%;
+    transition: top 0.05s ease-out 0.25s;
+    z-index: 99999999;
+}
+
+.popup_all > div.open:before {
+    opacity: 0.7;
+    transition: opacity 0.4s ease-out;
+}
+
+.popup_all > div:before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    background-color: #000;
+    opacity: 0;
+    transition: opacity 0.3s ease-out;
+}
+
+.popup_all > div .outter_box {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.popup_all > div.open .inner_box {
+    transform: translate(0, 0) scale(1.0, 1.0);
+    opacity: 1;
+    transition: all 0.5s cubic-bezier(0.59,0,0,1.63);
+}
+
+.popup_all .popup_type .inner_box {
+    height: 240px;
+    padding: 33px 30px;
+}
+
+.popup_all > div .inner_box {
+    position: relative;
+    margin: auto 0;
+    box-sizing: border-box;
+    border-radius: 20px;
+    background-color: #fff;
+    opacity: 0;
+    transform: translate(0, 100px) scale(0.75, 0.75);
+    transition: all 0.4s cubic-bezier(1,-0.74,.13,.99);
+    overflow: hidden;
+}
+
+.popup_type .inner_box {
+    width: 308px;
+    padding: 33px 30px 70px;
+}
+
+.popup_type .title {
+    margin-bottom: 22px;
+    font-size: 18px;
+    color: #111521;
+    font-weight: 700;
+}
+
+.popup_all .popup_type .in_box {
+    height: calc(100% - 71px);
+    overflow: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    position: relative;
+}
+
+.popup_type .btn_box {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    overflow: hidden;
+}
+
+.select_radiobox {
+    display: block;
+    vertical-align: middle;
+}
+
+.select_radiobox input[type="radio"] {
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    border: solid 0 #fff;
+    opacity: 0;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.select_radiobox input[type="radio"]:checked + em {
+    border: solid 1px #4169e1;
+}
+
+.select_radiobox em {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border-radius: 16px;
+    box-sizing: border-box;
+    border: solid 1px #8c909b;
+    vertical-align: middle;
+    position: relative;
+}
+
+.select_radiobox input[type="radio"]:checked + em + span {
+    font-weight: 700;
+}
+
+.select_radiobox span {
+    padding-left: 8px;
+    font-size: 15px;
+    color: #282828;
+    vertical-align: middle;
+    letter-spacing: -0.3px;
+}
+
+.mb10 {
+    margin-bottom: 10px !important;
+}
+
+.popup_type .btn_box {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    overflow: hidden;
+}
+
+.popup_type .btn_box a {
+    float: left;
+}
+
+.btn_40.gray {
+    background-color: #bdbdbd;
+}
+
+.btn_40 {
+    display: inline-block;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    color: #fff !important;
+    font-size: 12px;
+    background-color: #4169e1;
 }

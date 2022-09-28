@@ -14,6 +14,7 @@ urlpatterns = [
     path('community_post/',views.community_post,name='community_post'),
     path('logout/', views.logout, name='logout'),
     path('cover_letter/',views.cover_letter,name='cover_letter'),
+    path('mypost/',views.mypost,name='mypost'),
 ]
 
 

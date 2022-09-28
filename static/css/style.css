@@ -2,7 +2,7 @@
 
 body {
   margin: 0;
-  font-family: 'Source Sans Pro';
+  font-family: Noto Sans KR,-apple-system,"system-ui",BlinkMacSystemFont,Apple SD Gothic Neo,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica;
 }
 
 a {
@@ -315,3 +315,97 @@ border-radius: 22px;
   text-decoration: none;
   transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
 }
+
+.loginUser_userWrapper{
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 0.5rem 1rem;
+  margin-bottom:0.5rem;
+}
+
+.loginUser_userImg{
+  display: block;
+  height: 2.5rem;
+  width: 2.5rem;
+  border-radius: 50%;
+  object-fit: cover;
+  transition: all .125s ease-in 0s;
+}
+
+.loginUser_userWrapper svg{
+  margin-left:1rem;
+  font-size: 1.5rem;
+  color: #868e96;
+  transition: all .125s ease-in 0s;
+}
+
+svg:not(:root) {
+  overflow: hidden;
+}
+
+.dropdownBar_menuWrapper{    
+  position: absolute;
+  top: 100%;
+  margin-top: 1rem;
+  right: 0;
+  display: none;
+}
+
+.dropdownBar_menu{
+  position: relative;
+  z-index: 5;
+  width: 10rem;
+  background: #fff;
+  box-shadow: 0 5px 25px rgb(0 0 0 / 15%);
+  list-style: none;
+}
+
+.dropdownBar_menuItem{
+  padding: 0.75rem 1rem;
+  line-height: 1.5;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* My post */
+.myPosts_pageWrapper{
+  padding-top: 5rem;
+}
+.myPosts_myLikes{
+  width: 1350px;
+  margin: 0px auto;
+  min-height: 100vh;
+}
+@media screen and (max-width: 1919px){
+.myPosts_myLikes__2p117 {
+    width: 1200px;
+}
+}
+@media screen and (max-width: 1440px){
+.myPosts_myLikes__2p117 {
+    width: 780px;
+}
+}
+.myPosts_main{
+  display: flex;
+  flex-direction: column;
+}
+.myPosts_category{
+  display: flex;
+  margin-bottom: 2rem;
+}
+.myPosts_category__item{
+  display: flex;
+  align-items: center;
+  margin-right: 1rem;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+.myPosts_text{
+  margin-left: 0.5rem;
+  color: rgb(52, 58, 64);
+}
+

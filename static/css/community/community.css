@@ -35,7 +35,7 @@ body {
   opacity: 0.8;
   cursor:pointer;
   z-index:0;
-  font-size: x-large;
+  font-size: 20px;
 }
 
 .tab-menu li:hover {
@@ -79,7 +79,7 @@ body {
   justify-content: center;
   align-items: center;
   background-color: #2D9BF0;
-  font-size: large;
+  font-size: 16px;
   font-weight: bold;
   color: #fff;
   border-radius: 20px;
@@ -109,7 +109,7 @@ body {
 
 .content_main{
   width: 350px;
-  height: 400px;
+  height: 370px;
   margin-left: 40px;
   border: 3px solid #90CAF9;
   padding: 23px 23px 23px 23px;
@@ -154,10 +154,13 @@ body {
 }
 
 .commutitle{
-  font-size: 24px;
+  font-size: 1.25rem;
   min-height: 76px;
   line-height: 36px;
   font-weight: 600;
+  padding-right: 25px;
+  margin-top:10px;
+  margin-bottom:15px;
   letter-spacing: -.04em;
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -175,11 +178,11 @@ body {
 }
 .description{
   display: flex;
-  font-size: 15px;
+  font-size: 16px;
   color: rgba(0,0,0,.4);
   min-height: 30px;
   margin-bottom: 15px;
-  margin-top:30px;
+  margin-top:65px;
   list-style: none;
   padding: 0px;
   text-align: start;
@@ -214,12 +217,12 @@ body {
 }
 
 .user_infoname{
-  font-size:15px;
+  font-size:0.75rem;
   font-weight:600;
 }
 
 .post_date{
-  font-size: 15px;
+  font-size:0.75rem;
   font-weight:600;
 }
 
@@ -234,7 +237,7 @@ body {
 
 .community_schedule{
 display: flex;
-font-size: 18px;
+font-size: 1rem;
 grid-gap: 10px;
 gap: 10px;
 color: rgba(0,0,0,.4);
@@ -250,4 +253,50 @@ color: rgba(0,0,0,.4);
 
 .community_scheduleTitle{
   font-size: 18px;
+}
+
+@media screen and (max-width: 767px) {
+	.rwd_mentoring .choice_box .btn_type {
+		height: 40px;
+		font-size: 13px;
+		width: 130px;
+		background-position: calc(100% - 10px);
+		background-size: 10px;
+	}
+}
+
+#rwd_footer .pc_footer .btn_top{
+	display: block;
+    width: 50px;
+    height: 50px;
+    line-height: 38px;
+    font-size: 11px;
+    text-align: center;
+    border-radius: 38px;
+    background-color: #000;
+    color: #fff;
+    position: fixed;
+    right: 100px;
+    bottom: 90px;
+    box-shadow: 0 5px 8px rgb(0 0 0 / 20%);
+    z-index: 2;
+}
+
+#rwd_footer .pc_footer .btn_top span {
+    display: inline-block;
+    padding-top: 11px;
+    position: relative;
+}
+
+#rwd_footer .pc_footer .btn_top span:after {
+    content: "";
+    display: block;
+    width: 6px;
+    height: 3px;
+    background: url('../../image/ico_05.png') 0 0 no-repeat;
+    font-size: 4px;
+    position: absolute;
+    left: 50%;
+    margin-left: -3px;
+    top: 14px;
 }

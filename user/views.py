@@ -116,6 +116,8 @@ def new_writing(request):
 def community_post(request):
     return render(request,'user/community_post.html')
 
+def mypost(request):
+    return render(request,'user/mypost.html')
 
 def board(request):
     boards = Post.objects.all().select_related('author').order_by('-id')
