@@ -59,21 +59,8 @@
 		padding:32px 0
 	}
 }
-.pg___instructors .instructor_list_section header.instructor_list_hero .hero-content__image-cover {
-	position:absolute;
-	top:0;
-	bottom:0;
-	right:0;
-	left:0;
-	background-image:url(https://cdn.inflearn.com/public/mentors/mentors_banner_w.png);
-	background-position:right 30%;
-	background-repeat:no-repeat
-}
-@media screen and (max-width:768px) {
-	.pg___instructors .instructor_list_section header.instructor_list_hero .hero-content__image-cover {
-		background-image:url(https://cdn.inflearn.com/public/mentors/mentors_banner_m.png)
-	}
-}
+
+
 .pg___instructors .instructor_list_section header.instructor_list_hero h1.heading_list {
 	font-size:26px;
 	font-weight:800;
@@ -476,11 +463,17 @@
 	-webkit-box-orient:vertical;
 	white-space:pre-wrap
 }
+
+.mentor-info2{
+	margin-bottom:1rem;
+}
+
 .mentor-username {
 	font-weight:550;
 	font-size:1rem;
 	color:black;
 	padding-left: 1.5rem;
+	margin-bottom:1rem;
 }
 
 .mentor-tag{
@@ -489,6 +482,7 @@
 	color:rgb(185, 182, 182);
 	padding-left:1.5rem;
 	padding-bottom:0.7rem;
+	margin-bottom:1rem;
 }
 @media screen and (max-width:768px) {
 	.pg___instructors .instructor_list_section div.content_palette .content_body .panel_right .view .mentor_card .card-body .mentor-info .mentor-title {
@@ -502,7 +496,6 @@
 	bottom:0;
 	text-align:center;
 	width:100%;
-	cursor: pointer;
 	transition: .2s ease-in;
 }
 .pg___instructors .instructor_list_section div.content_palette .content_body .panel_right .view .mentor_card .card-bottom .button {
@@ -512,6 +505,7 @@
 	border-radius:30px;
 	font-size:18px;
 	color:#ffffff;
+	margin-top:1rem;
 }
 @media screen and (min-width:1366px) {
 	.pg___instructors .instructor_list_section div.content_palette .content_body .panel_right .view .mentor_card .card-bottom .button:hover {
@@ -534,32 +528,7 @@
 	}
 }
 
-@font-face {
-	font-family:Noto Sans KR;
-	font-weight:700;
-	src:local("Noto Sans KR Bold"),url(https://cdn.inflearn.com/font/noto-sans-kr-v12-korean_latin-700.woff2) format("woff2"),url(https://cdn.inflearn.com/font/noto-sans-kr-v12-korean_latin-700.woff) format("woff"),url(https://cdn.inflearn.com/font/noto-sans-kr-v12-korean_latin-700.ttf) format("truetype")
-}
-@font-face {
-	font-family:Noto Sans KR;
-	font-weight:500;
-	src:local("Noto Sans KR Medium"),url(https://cdn.inflearn.com/font/noto-sans-kr-v12-korean_latin-500.woff2) format("woff2"),url(https://cdn.inflearn.com/font/noto-sans-kr-v12-korean_latin-500.woff) format("woff"),url(https://cdn.inflearn.com/font/noto-sans-kr-v12-korean_latin-500.ttf) format("truetype")
-}
-@font-face {
-	font-family:Noto Sans KR;
-	font-weight:400;
-	src:local("Noto Sans KR Regular"),url(https://cdn.inflearn.com/font/noto-sans-kr-v12-korean_latin-regular.woff2) format("woff2"),url(https://cdn.inflearn.com/font/noto-sans-kr-v12-korean_latin-regular.woff) format("woff"),url(https://cdn.inflearn.com/font/noto-sans-kr-v12-korean_latin-regular.ttf) format("truetype")
-}
-@font-face {
-	font-family:D2 coding;
-	font-style:normal;
-	font-weight:400;
-	src:local("D2Coding"),url(https://cdn.inflearn.com/font/D2Coding.woff2) format("woff2"),url(https://cdn.inflearn.com/font/D2Coding.woff) format("woff"),url(https://cdn.inflearn.com/font/D2Coding.ttf) format("truetype")
-}
-@font-face {
-	font-family:NanumMyeongjoExtraBold;
-	font-weight:800;
-	src:local("NanumMyeongjoExtraBold"),url(https://cdn.inflearn.com/font/NanumMyeongjoExtraBold.woff2) format("woff2"),url(https://cdn.inflearn.com/font/NanumMyeongjoExtraBold.woff) format("woff"),url(https://cdn.inflearn.com/font/NanumMyeongjoExtraBold.ttf) format("truetype")
-}
+
 .fw-bold {
 	font-weight:600
 }
@@ -1536,17 +1505,40 @@
 }
 
 .modal_body {
-	position: absolute;
-	top: 50%;
-	left: 50%; 
 	width: 400px;
-	height: 550px; 
+	height: 600px; 
 	padding: 15px; 
 	text-align: center;  
 	background-color: rgb(255, 255, 255);
 	border-radius: 10px;
 	box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
-	transform: translateX(-50%) translateY(-50%);
+	position: relative;
+    top: -200%;
+    -webkit-transform: translate(145%, -50%);
+    transform: translate(145%, -50%);
+    -webkit-animation: Modal_Animation .5s ease 0s 1 normal forwards running;
+    animation: Modal_Animation .5s ease 0s 1 normal forwards running;
+}
+
+@-webkit-keyframes Modal_Animation {
+	0% {
+		opacity:0;
+		top:-100%
+	}
+	to {
+		opacity:1;
+		top:50%
+	}
+}
+@keyframes Modal_Animation {
+	0% {
+		opacity:0;
+		top:-100%
+	}
+	to {
+		opacity:1;
+		top:50%;
+	}
 }
 
 .card-body{
@@ -1558,10 +1550,10 @@
 	display: flex;
 	align-items: center;
 	padding-bottom:5px;
-	padding-left:16px;
+	padding-left:15px;
 	font-weight: bold;	
 	font-size: 1rem;
-	color: black;
+	color: #858a8d;
 	font-family: "Spoqa Han Sans Neo",-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
 }
 .modal-department-data{
@@ -1570,22 +1562,22 @@
 	margin:0;
 	padding-left:1rem;
 	line-height: 0;
-	color: black;
+	color: #858a8d;
 	font-family: "Spoqa Han Sans Neo",-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
 }
 .modal-selftitle{
 	border-top: 2px solid #f2f2f2;
-	font-weight: bold;
+	font-weight: 900;
 	font-size: 1rem;
 	color: black;
 	text-align: left;
-	padding-top:16px;
-	padding-left:16px;
+	padding-top:15px;
+	padding-left:15px;
 	font-family: "Spoqa Han Sans Neo",-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
 }
 
 .modal-selfcontent{
-	height:200px;
+	height:280px;
 	font-family: "Spoqa Han Sans Neo",-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
 	font-size: 0.85rem;
 	padding-top:16px;
@@ -1601,7 +1593,7 @@
 	display: flex;
 	padding-top:15px;
 	padding-left:15px;
-	height:35%;
+	height:16%;
 	max-height:calc(100vh - 145px);
 	overflow-y:auto
 }
@@ -1652,12 +1644,15 @@
 	border-radius:30px;
 	border: 2px solid #d1d1d1;
 	border-width:1px;
-	font-size:16px;
 	color:#ffffff;
 	background-color: #90cAf9;
 	font-family: Noto Sans KR,-apple-system,"system-ui",BlinkMacSystemFont,Apple SD Gothic Neo,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica;
 }
 
+.modal-chat-btn-display .modal-chat-btn span {
+	font-size:14px;
+	padding:5px;
+}
 .btn-open-popup{
 	background-color: #90cAf9;
 }
@@ -1769,6 +1764,7 @@ a:hover {
 	}
 }
 
+
 #rwd_footer .pc_footer .btn_top{
 	display: block;
     width: 50px;
@@ -1809,6 +1805,7 @@ a:hover {
     top: 0;
     transition: top 0.05s ease-out 0s;
 }
+
 
 .popup_all .popup_type {
     z-index: 99999999;
@@ -1937,6 +1934,18 @@ a:hover {
     font-weight: 700;
 }
 
+.select_radiobox input[type="radio"]:checked + em:after {
+    content: "";
+    display: block;
+    width: 8px;
+    height: 8px;
+    background-color: #4169e1;
+    border-radius: 8px;
+    position: absolute;
+    left: 3px;
+    top: 3px;
+}
+
 .select_radiobox span {
     padding-left: 8px;
     font-size: 15px;
@@ -1974,3 +1983,4 @@ a:hover {
     font-size: 12px;
     background-color: #4169e1;
 }
+

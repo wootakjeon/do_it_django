@@ -4096,17 +4096,27 @@ a.list-item {
 	background-color:transparent
 }
 .modal {
-	position: absolute;
-    top: 0;
-    left: 0;
+	display: none;
+    position: fixed;
+    inset: 0px;
+    z-index: 1000;
+    overflow: auto;
+    outline: 0px;
     width: 100%;
     height: 100%;
-    display: none;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.7);
 }
 
+
+	
 .modal.show {
 	display: block;
+	box-sizing: border-box;
+	position: fixed;
+    inset: 0px;
+    z-index: 1000;
+    overflow: auto;
+    outline: 0px;
   }
 
 
@@ -7216,7 +7226,8 @@ h6 {
 	font-size:1.125rem
 }
 p {
-	font-size:16px
+	font-size:13px;
+	font-weight: 400;
 }
 img {
 	max-width:100%;
@@ -11875,7 +11886,18 @@ div.certificate-container .certificate-utils .ac-button.certificate-utils__close
 	border-radius:4px;
 	overflow-y:auto
 }
-
+.modal-card-body {
+	display: flex;
+	padding:28px 28px 0;
+	height:90%;
+	max-height:calc(100vh - 145px);
+	overflow-y:auto
+}
+@media screen and (max-width:768px) {
+	.modal-card-body {
+		padding:24px 24px 0
+	}
+}
 .modal section.modal-card.question-modal .form__item {
 	display:flex;
 	flex-direction:column;

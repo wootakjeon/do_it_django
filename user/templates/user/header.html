@@ -32,8 +32,18 @@
                       <a href="{% url 'logout' %}"><button class="header-btn">Logout</button></a>
                       {% else %}
 
-                      <a href="{% url 'login' %}"><button class="header-btn">Login</button></a>
-                      <a href="{% url 'join' %}"><button class="header-btn">Join</button></a>
+                      <div class="loginUser_userWrapper">
+                        <img class="loginUser_userImg" src="../../media/images/Profile_photo.png" alt="userImg">
+                        <svg stroke="currentColor" onclick="dp_menu()" fill="currentColor" stroke-width="0" viewbox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"></path></svg>
+                        <div class="dropdownBar_menuWrapper" id="drop-content">
+                          <ul class="dropdownBar_menu">
+                            <li class="dropdownBar_menuItem"><a href="{% url 'mentor_chatrooms' %}" style="display: inline-block;">채팅방</a></li>
+                            <li class="dropdownBar_menuItem"><a href="{% url 'mypost' %}" style="display: inline-block;">내 작성글</a></li>
+                            <li class="dropdownBar_menuItem"><a href="" style="display: inline-block;">설정</a></li>
+                            <li class="dropdownBar_menuItem"><a href="{% url 'logout' %}" style="display: inline-block;">로그아웃</a></li>
+                          </ul>
+                        </div>
+                      </div>
                       {% endif %}
 
               </div>
@@ -41,8 +51,6 @@
 </body>
 
     <!-- Javascript -->
-    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-
 <script>
   function dp_menu(){
 
@@ -56,3 +64,11 @@
   }
 </script>
 </html>
+
+<div tabindex="-1" class="sc-bdnxRM MTMzf">
+	<div class="loginModal_wrapper__1UhCj">
+		
+	</div>
+</div>
+
+    

@@ -1,12 +1,4 @@
-let Top = document.querySelector('#top');
-
-window.addEventListener('scroll', function () {
-    if (this.scrollY > 200) {
-        Top.classList.add('on');
-    } else {
-        Top.classList.remove('on');
-    }
-})
+let Top = document.querySelector('.btn_top');
 
 Top.addEventListener('click', function (e) {
     e.preventDefault();

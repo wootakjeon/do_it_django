@@ -50,22 +50,9 @@ $(function() {
     $('.btn_pass').unbind().bind('click', function(){
         $('.popup_type h2.title').text('합격유형 선택');
         $('.popup_type div.choice_area').empty().append('<label class="select_radiobox style_01 mb10"><input type="radio" name="passType" value="-1" checked="checked"/><em></em><span>합격유형 전체</span></label>');
+        $('.popup_type div.choice_area').append('<label class="select_radiobox style_01 mb10"><input type="radio" name="passType" value="168" checked="checked"/><em></em><span>수시합격</span></label>');
+        $('.popup_type div.choice_area').append('<label class="select_radiobox style_01 mb10"><input type="radio" name="passType" value="171" checked="checked"/><em></em><span>정시합격</span></label>');
 
-        // 합격 유형 공통코드 호출
-        codeApi.getRetrieveCd2({categoryNo:"8"},function(code, data, res){
-            // Radio 버튼 셋팅
-            data.forEach(function(item){
-                if(item.parentNo === 0 && item.codeValue === "1"){
-                    $('.popup_type div.choice_area').append('<label class="select_radiobox style_01 mb10"><input type="radio" name="passType" value="'+item.codeNo+'"/><em></em><span>'+item.codeNm+'</span></label>')
-                }
-            });
-
-            var cnt = $('.popup_type div.choice_area input[type=radio]').length;
-            controlHeight(cnt);
-
-            // 체크박스 선택
-            $('.popup_type .choice_area input[value='+passVal+']').prop('checked', true);
-        });
 
         // 팝업 확인 버튼 클릭시 동작
         $('.popup_type .btn_box .btn_pass_type').unbind().bind('click', function(){
